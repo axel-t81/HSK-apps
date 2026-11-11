@@ -1,6 +1,7 @@
 # HSK 1 Listening — Track 01
 
 Words 1–30. Voices: Sarah (female) and Brian (male).
+Chinese word prompts use 请跟我读：… (“Please read after me: …”).
 Chinese example sentences are spoken at 85% of the normal speaking rate used in the track.
 
 ## 1. 爱 — ài

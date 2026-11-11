@@ -13,12 +13,12 @@ The planned output is **10 MP3 tracks with 30 words each**, giving tracks of app
 
 The selected voices are ElevenLabs **Sarah** (young female) and **Brian** (middle-aged male). Pauses are 1.5 seconds between the initial repetitions and 2 seconds between sections and entries.
 
-To avoid unstable isolated-word pronunciation, Chinese words are generated with **Eleven v4**, forced to Mandarin with `language_code=zh`, and spoken inside the carrier phrase `这个词是“…”。`. Character-level timestamps are used to extract the target word. The same female word clip is reused for both initial repetitions so their pronunciation is identical. English and sentence recordings use Eleven Multilingual v2.
+To avoid unstable isolated-word pronunciation, every Chinese word prompt uses **Eleven v4**, forced to Mandarin with `language_code=zh`, in the complete phrase `请跟我读：…` (“Please read after me: …”). The carrier phrase is intentionally retained in the finished audio, and no word audio is trimmed. The same female prompt clip is reused for both initial repetitions so their pronunciation is identical. Brian's English meanings and translations use Eleven v4 with `language_code=en`; the remaining English and sentence recordings use Eleven Multilingual v2.
 
 ## Current deliverables
 
-- [Track 01 — words 1–30](out/listening/HSK1_Track_01_1-30.mp3)
-- [Track 01 transcript](out/listening/HSK1_Track_01_1-30_transcript.md)
+- [Track 01 — words 1–30](out/listening/HSK1_Track_01_1-30_v3.mp3)
+- [Track 01 transcript](out/listening/HSK1_Track_01_1-30_v3_transcript.md)
 - [Listening review checklist](out/listening/HSK1_listening_review_checklist.md)
 - [Voice auditions](out/auditions/)
 

@@ -7,7 +7,8 @@ Use this checklist with the track transcript. The goal is to catch clear pronunc
 - [ ] Each entry follows this order: Chinese twice → English meaning → Chinese once → English meaning → Chinese sentence → English sentence translation.
 - [ ] The first two Chinese repetitions sound identical, with no change in tone or pronunciation.
 - [ ] The spoken word and sentence match the transcript; nothing is skipped, repeated accidentally, or clipped.
-- [ ] Mandarin syllables sound clear, with no obviously incorrect word, reading, distortion, or extraneous syllables from the carrier phrase.
+- [ ] Mandarin syllables sound clear, with no obviously incorrect word, reading, distortion, or unexpected syllables.
+- [ ] The intentional phrase 请跟我读 (“Please read after me”) is clear and consistent, and the target word following it is not rushed or clipped.
 - [ ] Neutral-tone syllables sound light and short rather than receiving a strong full tone.
 - [ ] Third tones sound natural in connected speech; they need not have an exaggerated full fall-and-rise.
 - [ ] Any 一 or 不 tone changes sound natural in the sentence.
