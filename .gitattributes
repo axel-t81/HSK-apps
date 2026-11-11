@@ -1,0 +1,8 @@
+* text=auto
+
+*.csv -text
+*.apkg binary
+*.m4a binary
+*.mp3 binary
+*.wav binary
+*.pdf binary

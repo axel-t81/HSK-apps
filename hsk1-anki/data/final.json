@@ -1,0 +1,3002 @@
+[
+ {
+  "no": 1,
+  "simplified": "爱",
+  "pinyin": "ài",
+  "pinyin_plain": "ai",
+  "pinyin_num": "ai4",
+  "pos": "verb",
+  "meaning": "to love",
+  "alts": ""
+ },
+ {
+  "no": 2,
+  "simplified": "八",
+  "pinyin": "bā",
+  "pinyin_plain": "ba",
+  "pinyin_num": "ba1",
+  "pos": "number",
+  "meaning": "eight",
+  "alts": ""
+ },
+ {
+  "no": 3,
+  "simplified": "爸爸",
+  "pinyin": "bà ba",
+  "pinyin_plain": "ba ba",
+  "pinyin_num": "ba4 ba",
+  "pos": "noun",
+  "meaning": "dad",
+  "alts": ""
+ },
+ {
+  "no": 4,
+  "simplified": "吧",
+  "pinyin": "ba",
+  "pinyin_plain": "ba",
+  "pinyin_num": "ba",
+  "pos": "auxiliary",
+  "meaning": "particle indicating suggestion, confirmation, or hesitation",
+  "alts": ""
+ },
+ {
+  "no": 5,
+  "simplified": "白天",
+  "pinyin": "bái tiān",
+  "pinyin_plain": "bai tian",
+  "pinyin_num": "bai2 tian1",
+  "pos": "noun",
+  "meaning": "daytime",
+  "alts": ""
+ },
+ {
+  "no": 6,
+  "simplified": "百",
+  "pinyin": "bǎi",
+  "pinyin_plain": "bai",
+  "pinyin_num": "bai3",
+  "pos": "number",
+  "meaning": "hundred",
+  "alts": ""
+ },
+ {
+  "no": 7,
+  "simplified": "半",
+  "pinyin": "bàn",
+  "pinyin_plain": "ban",
+  "pinyin_num": "ban4",
+  "pos": "number, (adverb)",
+  "meaning": "half; (half, semi-)",
+  "alts": ""
+ },
+ {
+  "no": 8,
+  "simplified": "包子",
+  "pinyin": "bāo zi",
+  "pinyin_plain": "bao zi",
+  "pinyin_num": "bao1 zi",
+  "pos": "noun",
+  "meaning": "steamed stuffed bun",
+  "alts": ""
+ },
+ {
+  "no": 9,
+  "simplified": "杯子",
+  "pinyin": "bēi zi",
+  "pinyin_plain": "bei zi",
+  "pinyin_num": "bei1 zi",
+  "pos": "noun",
+  "meaning": "cup, glass",
+  "alts": ""
+ },
+ {
+  "no": 10,
+  "simplified": "本",
+  "pinyin": "běn",
+  "pinyin_plain": "ben",
+  "pinyin_num": "ben3",
+  "pos": "classifier",
+  "meaning": "measure word for books",
+  "alts": ""
+ },
+ {
+  "no": 11,
+  "simplified": "边",
+  "pinyin": "biān",
+  "pinyin_plain": "bian",
+  "pinyin_num": "bian1",
+  "pos": "noun, suffix",
+  "meaning": "side; suffix indicating direction",
+  "alts": ""
+ },
+ {
+  "no": 12,
+  "simplified": "病",
+  "pinyin": "bìng",
+  "pinyin_plain": "bing",
+  "pinyin_num": "bing4",
+  "pos": "noun, verb",
+  "meaning": "illness, disease; to be ill",
+  "alts": ""
+ },
+ {
+  "no": 13,
+  "simplified": "不",
+  "pinyin": "bù",
+  "pinyin_plain": "bu",
+  "pinyin_num": "bu4",
+  "pos": "adverb",
+  "meaning": "not, no",
+  "alts": ""
+ },
+ {
+  "no": 14,
+  "simplified": "不客气",
+  "pinyin": "bú kè qi",
+  "pinyin_plain": "bu ke qi",
+  "pinyin_num": "bu2 ke4 qi",
+  "pos": "adjective, phrase",
+  "meaning": "you're welcome",
+  "alts": ""
+ },
+ {
+  "no": 15,
+  "simplified": "不要",
+  "pinyin": "bú yào",
+  "pinyin_plain": "bu yao",
+  "pinyin_num": "bu2 yao4",
+  "pos": "adverb",
+  "meaning": "don't, not want",
+  "alts": ""
+ },
+ {
+  "no": 16,
+  "simplified": "菜",
+  "pinyin": "cài",
+  "pinyin_plain": "cai",
+  "pinyin_num": "cai4",
+  "pos": "noun",
+  "meaning": "vegetable, dish",
+  "alts": ""
+ },
+ {
+  "no": 17,
+  "simplified": "茶",
+  "pinyin": "chá",
+  "pinyin_plain": "cha",
+  "pinyin_num": "cha2",
+  "pos": "noun",
+  "meaning": "tea",
+  "alts": ""
+ },
+ {
+  "no": 18,
+  "simplified": "唱",
+  "pinyin": "chàng",
+  "pinyin_plain": "chang",
+  "pinyin_num": "chang4",
+  "pos": "verb",
+  "meaning": "to sing",
+  "alts": ""
+ },
+ {
+  "no": 19,
+  "simplified": "超市",
+  "pinyin": "chāo shì",
+  "pinyin_plain": "chao shi",
+  "pinyin_num": "chao1 shi4",
+  "pos": "noun",
+  "meaning": "supermarket",
+  "alts": ""
+ },
+ {
+  "no": 20,
+  "simplified": "车",
+  "pinyin": "chē",
+  "pinyin_plain": "che",
+  "pinyin_num": "che1",
+  "pos": "noun",
+  "meaning": "vehicle, car",
+  "alts": ""
+ },
+ {
+  "no": 21,
+  "simplified": "吃",
+  "pinyin": "chī",
+  "pinyin_plain": "chi",
+  "pinyin_num": "chi1",
+  "pos": "verb",
+  "meaning": "to eat",
+  "alts": ""
+ },
+ {
+  "no": 22,
+  "simplified": "出租车",
+  "pinyin": "chū zū chē",
+  "pinyin_plain": "chu zu che",
+  "pinyin_num": "chu1 zu1 che1",
+  "pos": "noun",
+  "meaning": "taxi",
+  "alts": ""
+ },
+ {
+  "no": 23,
+  "simplified": "穿",
+  "pinyin": "chuān",
+  "pinyin_plain": "chuan",
+  "pinyin_num": "chuan1",
+  "pos": "verb",
+  "meaning": "to wear",
+  "alts": ""
+ },
+ {
+  "no": 24,
+  "simplified": "打电话",
+  "pinyin": "dǎ diàn huà",
+  "pinyin_plain": "da dian hua",
+  "pinyin_num": "da3 dian4 hua4",
+  "pos": "phrase",
+  "meaning": "to make a phone call",
+  "alts": ""
+ },
+ {
+  "no": 25,
+  "simplified": "大",
+  "pinyin": "dà",
+  "pinyin_plain": "da",
+  "pinyin_num": "da4",
+  "pos": "adjective",
+  "meaning": "big",
+  "alts": ""
+ },
+ {
+  "no": 26,
+  "simplified": "大家",
+  "pinyin": "dà jiā",
+  "pinyin_plain": "da jia",
+  "pinyin_num": "da4 jia1",
+  "pos": "pronoun",
+  "meaning": "everyone",
+  "alts": ""
+ },
+ {
+  "no": 27,
+  "simplified": "大学",
+  "pinyin": "dà xué",
+  "pinyin_plain": "da xue",
+  "pinyin_num": "da4 xue2",
+  "pos": "noun",
+  "meaning": "university",
+  "alts": ""
+ },
+ {
+  "no": 28,
+  "simplified": "大学生",
+  "pinyin": "dà xué shēng",
+  "pinyin_plain": "da xue sheng",
+  "pinyin_num": "da4 xue2 sheng1",
+  "pos": "noun",
+  "meaning": "university student",
+  "alts": ""
+ },
+ {
+  "no": 29,
+  "simplified": "到",
+  "pinyin": "dào",
+  "pinyin_plain": "dao",
+  "pinyin_num": "dao4",
+  "pos": "verb",
+  "meaning": "to arrive",
+  "alts": ""
+ },
+ {
+  "no": 30,
+  "simplified": "的",
+  "pinyin": "de",
+  "pinyin_plain": "de",
+  "pinyin_num": "de",
+  "pos": "auxiliary",
+  "meaning": "possessive or modifying particle",
+  "alts": ""
+ },
+ {
+  "no": 31,
+  "simplified": "第",
+  "pinyin": "dì",
+  "pinyin_plain": "di",
+  "pinyin_num": "di4",
+  "pos": "prefix",
+  "meaning": "prefix for ordinal numbers",
+  "alts": ""
+ },
+ {
+  "no": 32,
+  "simplified": "弟弟",
+  "pinyin": "dì di",
+  "pinyin_plain": "di di",
+  "pinyin_num": "di4 di",
+  "pos": "noun",
+  "meaning": "younger brother",
+  "alts": ""
+ },
+ {
+  "no": 33,
+  "simplified": "点",
+  "pinyin": "diǎn",
+  "pinyin_plain": "dian",
+  "pinyin_num": "dian3",
+  "pos": "classifier, (noun)",
+  "meaning": "o'clock; point, dot; measure word for small amounts",
+  "alts": ""
+ },
+ {
+  "no": 34,
+  "simplified": "店",
+  "pinyin": "diàn",
+  "pinyin_plain": "dian",
+  "pinyin_num": "dian4",
+  "pos": "noun",
+  "meaning": "shop, store",
+  "alts": ""
+ },
+ {
+  "no": 35,
+  "simplified": "电话",
+  "pinyin": "diàn huà",
+  "pinyin_plain": "dian hua",
+  "pinyin_num": "dian4 hua4",
+  "pos": "noun",
+  "meaning": "telephone, phone call",
+  "alts": ""
+ },
+ {
+  "no": 36,
+  "simplified": "电脑",
+  "pinyin": "diàn nǎo",
+  "pinyin_plain": "dian nao",
+  "pinyin_num": "dian4 nao3",
+  "pos": "noun",
+  "meaning": "computer",
+  "alts": ""
+ },
+ {
+  "no": 37,
+  "simplified": "电视",
+  "pinyin": "diàn shì",
+  "pinyin_plain": "dian shi",
+  "pinyin_num": "dian4 shi4",
+  "pos": "noun",
+  "meaning": "television",
+  "alts": ""
+ },
+ {
+  "no": 38,
+  "simplified": "电影",
+  "pinyin": "diàn yǐng",
+  "pinyin_plain": "dian ying",
+  "pinyin_num": "dian4 ying3",
+  "pos": "noun",
+  "meaning": "movie, film",
+  "alts": ""
+ },
+ {
+  "no": 39,
+  "simplified": "电影院",
+  "pinyin": "diàn yǐng yuàn",
+  "pinyin_plain": "dian ying yuan",
+  "pinyin_num": "dian4 ying3 yuan4",
+  "pos": "noun",
+  "meaning": "cinema",
+  "alts": ""
+ },
+ {
+  "no": 40,
+  "simplified": "东西",
+  "pinyin": "dōng xi",
+  "pinyin_plain": "dong xi",
+  "pinyin_num": "dong1 xi",
+  "pos": "noun",
+  "meaning": "thing, object",
+  "alts": ""
+ },
+ {
+  "no": 41,
+  "simplified": "都",
+  "pinyin": "dōu",
+  "pinyin_plain": "dou",
+  "pinyin_num": "dou1",
+  "pos": "adverb",
+  "meaning": "all, both",
+  "alts": ""
+ },
+ {
+  "no": 42,
+  "simplified": "读",
+  "pinyin": "dú",
+  "pinyin_plain": "du",
+  "pinyin_num": "du2",
+  "pos": "verb",
+  "meaning": "to read",
+  "alts": ""
+ },
+ {
+  "no": 43,
+  "simplified": "读书",
+  "pinyin": "dú shū",
+  "pinyin_plain": "du shu",
+  "pinyin_num": "du2 shu1",
+  "pos": "verb",
+  "meaning": "to read a book",
+  "alts": ""
+ },
+ {
+  "no": 44,
+  "simplified": "对",
+  "pinyin": "duì",
+  "pinyin_plain": "dui",
+  "pinyin_num": "dui4",
+  "pos": "adjective, preposition, (verb, classifier)",
+  "meaning": "correct, right; to, toward, for; (to treat; pair)",
+  "alts": ""
+ },
+ {
+  "no": 45,
+  "simplified": "对不起",
+  "pinyin": "duì bu qǐ",
+  "pinyin_plain": "dui bu qi",
+  "pinyin_num": "dui4 bu qi3",
+  "pos": "verb",
+  "meaning": "sorry",
+  "alts": ""
+ },
+ {
+  "no": 46,
+  "simplified": "多",
+  "pinyin": "duō",
+  "pinyin_plain": "duo",
+  "pinyin_num": "duo1",
+  "pos": "adjective, verb, pronoun, (number, adverb)",
+  "meaning": "many, much; how many, how much",
+  "alts": ""
+ },
+ {
+  "no": 47,
+  "simplified": "多少",
+  "pinyin": "duō shao",
+  "pinyin_plain": "duo shao",
+  "pinyin_num": "duo1 shao",
+  "pos": "pronoun",
+  "meaning": "how many, how much",
+  "alts": ""
+ },
+ {
+  "no": 48,
+  "simplified": "儿子",
+  "pinyin": "ér zi",
+  "pinyin_plain": "er zi",
+  "pinyin_num": "er2 zi",
+  "pos": "noun",
+  "meaning": "son",
+  "alts": ""
+ },
+ {
+  "no": 49,
+  "simplified": "二",
+  "pinyin": "èr",
+  "pinyin_plain": "er",
+  "pinyin_num": "er4",
+  "pos": "number",
+  "meaning": "two (used in counting and numbers)",
+  "alts": ""
+ },
+ {
+  "no": 50,
+  "simplified": "饭",
+  "pinyin": "fàn",
+  "pinyin_plain": "fan",
+  "pinyin_num": "fan4",
+  "pos": "noun",
+  "meaning": "cooked rice, meal",
+  "alts": ""
+ },
+ {
+  "no": 51,
+  "simplified": "饭店",
+  "pinyin": "fàn diàn",
+  "pinyin_plain": "fan dian",
+  "pinyin_num": "fan4 dian4",
+  "pos": "noun",
+  "meaning": "restaurant",
+  "alts": ""
+ },
+ {
+  "no": 52,
+  "simplified": "房间",
+  "pinyin": "fáng jiān",
+  "pinyin_plain": "fang jian",
+  "pinyin_num": "fang2 jian1",
+  "pos": "noun",
+  "meaning": "room",
+  "alts": ""
+ },
+ {
+  "no": 53,
+  "simplified": "非常",
+  "pinyin": "fēi cháng",
+  "pinyin_plain": "fei chang",
+  "pinyin_num": "fei1 chang2",
+  "pos": "adverb",
+  "meaning": "very, extremely",
+  "alts": ""
+ },
+ {
+  "no": 54,
+  "simplified": "飞机",
+  "pinyin": "fēi jī",
+  "pinyin_plain": "fei ji",
+  "pinyin_num": "fei1 ji1",
+  "pos": "noun",
+  "meaning": "airplane",
+  "alts": ""
+ },
+ {
+  "no": 55,
+  "simplified": "分",
+  "pinyin": "fēn",
+  "pinyin_plain": "fen",
+  "pinyin_num": "fen1",
+  "pos": "classifier, (verb, noun)",
+  "meaning": "minute; (to divide, to separate; component, part)",
+  "alts": ""
+ },
+ {
+  "no": 56,
+  "simplified": "分钟",
+  "pinyin": "fēn zhōng",
+  "pinyin_plain": "fen zhong",
+  "pinyin_num": "fen1 zhong1",
+  "pos": "classifier",
+  "meaning": "minute",
+  "alts": ""
+ },
+ {
+  "no": 57,
+  "simplified": "高兴",
+  "pinyin": "gāo xìng",
+  "pinyin_plain": "gao xing",
+  "pinyin_num": "gao1 xing4",
+  "pos": "adjective",
+  "meaning": "happy, glad",
+  "alts": ""
+ },
+ {
+  "no": 58,
+  "simplified": "歌",
+  "pinyin": "gē",
+  "pinyin_plain": "ge",
+  "pinyin_num": "ge1",
+  "pos": "noun",
+  "meaning": "song",
+  "alts": ""
+ },
+ {
+  "no": 59,
+  "simplified": "哥哥",
+  "pinyin": "gē ge",
+  "pinyin_plain": "ge ge",
+  "pinyin_num": "ge1 ge",
+  "pos": "noun",
+  "meaning": "older brother",
+  "alts": ""
+ },
+ {
+  "no": 60,
+  "simplified": "个",
+  "pinyin": "gè",
+  "pinyin_plain": "ge",
+  "pinyin_num": "ge4",
+  "pos": "classifier",
+  "meaning": "measure word for general objects",
+  "alts": ""
+ },
+ {
+  "no": 61,
+  "simplified": "给",
+  "pinyin": "gěi",
+  "pinyin_plain": "gei",
+  "pinyin_num": "gei3",
+  "pos": "verb, (preposition)",
+  "meaning": "to give; (to, for)",
+  "alts": ""
+ },
+ {
+  "no": 62,
+  "simplified": "公司",
+  "pinyin": "gōng sī",
+  "pinyin_plain": "gong si",
+  "pinyin_num": "gong1 si1",
+  "pos": "noun",
+  "meaning": "company",
+  "alts": ""
+ },
+ {
+  "no": 63,
+  "simplified": "工作",
+  "pinyin": "gōng zuò",
+  "pinyin_plain": "gong zuo",
+  "pinyin_num": "gong1 zuo4",
+  "pos": "verb, noun",
+  "meaning": "work; to work",
+  "alts": ""
+ },
+ {
+  "no": 64,
+  "simplified": "狗",
+  "pinyin": "gǒu",
+  "pinyin_plain": "gou",
+  "pinyin_num": "gou3",
+  "pos": "noun",
+  "meaning": "dog",
+  "alts": ""
+ },
+ {
+  "no": 65,
+  "simplified": "贵",
+  "pinyin": "guì",
+  "pinyin_plain": "gui",
+  "pinyin_num": "gui4",
+  "pos": "adjective",
+  "meaning": "expensive",
+  "alts": ""
+ },
+ {
+  "no": 66,
+  "simplified": "国",
+  "pinyin": "guó",
+  "pinyin_plain": "guo",
+  "pinyin_num": "guo2",
+  "pos": "noun",
+  "meaning": "country",
+  "alts": ""
+ },
+ {
+  "no": 67,
+  "simplified": "还",
+  "pinyin": "hái",
+  "pinyin_plain": "hai",
+  "pinyin_num": "hai2",
+  "pos": "adverb",
+  "meaning": "still; also",
+  "alts": "also read huán — to return, to give back, to repay"
+ },
+ {
+  "no": 68,
+  "simplified": "孩子",
+  "pinyin": "hái zi",
+  "pinyin_plain": "hai zi",
+  "pinyin_num": "hai2 zi",
+  "pos": "noun",
+  "meaning": "child",
+  "alts": ""
+ },
+ {
+  "no": 69,
+  "simplified": "汉语",
+  "pinyin": "Hàn yǔ",
+  "pinyin_plain": "Han yu",
+  "pinyin_num": "han4 yu3",
+  "pos": "noun",
+  "meaning": "Chinese language",
+  "alts": ""
+ },
+ {
+  "no": 70,
+  "simplified": "汉字",
+  "pinyin": "Hàn zì",
+  "pinyin_plain": "Han zi",
+  "pinyin_num": "han4 zi4",
+  "pos": "noun",
+  "meaning": "Chinese character",
+  "alts": ""
+ },
+ {
+  "no": 71,
+  "simplified": "好",
+  "pinyin": "hǎo",
+  "pinyin_plain": "hao",
+  "pinyin_num": "hao3",
+  "pos": "adjective, (adverb), (verb)",
+  "meaning": "good; well",
+  "alts": "also read hào — to be fond of, to have a tendency to"
+ },
+ {
+  "no": 72,
+  "simplified": "好吃",
+  "pinyin": "hǎo chī",
+  "pinyin_plain": "hao chi",
+  "pinyin_num": "hao3 chi1",
+  "pos": "adjective",
+  "meaning": "delicious, tasty",
+  "alts": ""
+ },
+ {
+  "no": 73,
+  "simplified": "好看",
+  "pinyin": "hǎo kàn",
+  "pinyin_plain": "hao kan",
+  "pinyin_num": "hao3 kan4",
+  "pos": "adjective",
+  "meaning": "good-looking",
+  "alts": ""
+ },
+ {
+  "no": 74,
+  "simplified": "好听",
+  "pinyin": "hǎo tīng",
+  "pinyin_plain": "hao ting",
+  "pinyin_num": "hao3 ting1",
+  "pos": "adjective",
+  "meaning": "pleasant to listen to",
+  "alts": ""
+ },
+ {
+  "no": 75,
+  "simplified": "好玩儿",
+  "pinyin": "hǎo wánr",
+  "pinyin_plain": "hao wanr",
+  "pinyin_num": "hao3 wan2r",
+  "pos": "adjective",
+  "meaning": "fun, amusing",
+  "alts": ""
+ },
+ {
+  "no": 76,
+  "simplified": "号",
+  "pinyin": "hào",
+  "pinyin_plain": "hao",
+  "pinyin_num": "hao4",
+  "pos": "noun, classifier",
+  "meaning": "number; date; size",
+  "alts": ""
+ },
+ {
+  "no": 77,
+  "simplified": "喝",
+  "pinyin": "hē",
+  "pinyin_plain": "he",
+  "pinyin_num": "he1",
+  "pos": "verb",
+  "meaning": "to drink",
+  "alts": ""
+ },
+ {
+  "no": 78,
+  "simplified": "和",
+  "pinyin": "hé",
+  "pinyin_plain": "he",
+  "pinyin_num": "he2",
+  "pos": "preposition, conjunction",
+  "meaning": "and, with",
+  "alts": ""
+ },
+ {
+  "no": 79,
+  "simplified": "很",
+  "pinyin": "hěn",
+  "pinyin_plain": "hen",
+  "pinyin_num": "hen3",
+  "pos": "adverb",
+  "meaning": "very",
+  "alts": ""
+ },
+ {
+  "no": 80,
+  "simplified": "后",
+  "pinyin": "hòu",
+  "pinyin_plain": "hou",
+  "pinyin_num": "hou4",
+  "pos": "noun",
+  "meaning": "behind, later",
+  "alts": ""
+ },
+ {
+  "no": 81,
+  "simplified": "回",
+  "pinyin": "huí",
+  "pinyin_plain": "hui",
+  "pinyin_num": "hui2",
+  "pos": "verb, (classifier)",
+  "meaning": "to return; (measure word for times)",
+  "alts": ""
+ },
+ {
+  "no": 82,
+  "simplified": "会",
+  "pinyin": "huì",
+  "pinyin_plain": "hui",
+  "pinyin_num": "hui4",
+  "pos": "verb",
+  "meaning": "can; to know how to",
+  "alts": ""
+ },
+ {
+  "no": 83,
+  "simplified": "火车",
+  "pinyin": "huǒ chē",
+  "pinyin_plain": "huo che",
+  "pinyin_num": "huo3 che1",
+  "pos": "noun",
+  "meaning": "train",
+  "alts": ""
+ },
+ {
+  "no": 84,
+  "simplified": "鸡蛋",
+  "pinyin": "jī dàn",
+  "pinyin_plain": "ji dan",
+  "pinyin_num": "ji1 dan4",
+  "pos": "noun",
+  "meaning": "egg",
+  "alts": ""
+ },
+ {
+  "no": 85,
+  "simplified": "几",
+  "pinyin": "jǐ",
+  "pinyin_plain": "ji",
+  "pinyin_num": "ji3",
+  "pos": "pronoun, number",
+  "meaning": "how many, a few",
+  "alts": ""
+ },
+ {
+  "no": 86,
+  "simplified": "家",
+  "pinyin": "jiā",
+  "pinyin_plain": "jia",
+  "pinyin_num": "jia1",
+  "pos": "noun, classifier, (suffix)",
+  "meaning": "home, family; measure word for families",
+  "alts": ""
+ },
+ {
+  "no": 87,
+  "simplified": "家人",
+  "pinyin": "jiā rén",
+  "pinyin_plain": "jia ren",
+  "pinyin_num": "jia1 ren2",
+  "pos": "noun",
+  "meaning": "family member",
+  "alts": ""
+ },
+ {
+  "no": 88,
+  "simplified": "见",
+  "pinyin": "jiàn",
+  "pinyin_plain": "jian",
+  "pinyin_num": "jian4",
+  "pos": "verb",
+  "meaning": "to see",
+  "alts": ""
+ },
+ {
+  "no": 89,
+  "simplified": "件",
+  "pinyin": "jiàn",
+  "pinyin_plain": "jian",
+  "pinyin_num": "jian4",
+  "pos": "classifier",
+  "meaning": "measure word (for clothing)",
+  "alts": ""
+ },
+ {
+  "no": 90,
+  "simplified": "饺子",
+  "pinyin": "jiǎo zi",
+  "pinyin_plain": "jiao zi",
+  "pinyin_num": "jiao3 zi",
+  "pos": "noun",
+  "meaning": "dumpling",
+  "alts": ""
+ },
+ {
+  "no": 91,
+  "simplified": "叫",
+  "pinyin": "jiào",
+  "pinyin_plain": "jiao",
+  "pinyin_num": "jiao4",
+  "pos": "verb, (preposition)",
+  "meaning": "to be called, to call; to make; (by)",
+  "alts": ""
+ },
+ {
+  "no": 92,
+  "simplified": "姐姐",
+  "pinyin": "jiě jie",
+  "pinyin_plain": "jie jie",
+  "pinyin_num": "jie3 jie",
+  "pos": "noun",
+  "meaning": "older sister",
+  "alts": ""
+ },
+ {
+  "no": 93,
+  "simplified": "今年",
+  "pinyin": "jīn nián",
+  "pinyin_plain": "jin nian",
+  "pinyin_num": "jin1 nian2",
+  "pos": "noun",
+  "meaning": "this year",
+  "alts": ""
+ },
+ {
+  "no": 94,
+  "simplified": "今天",
+  "pinyin": "jīn tiān",
+  "pinyin_plain": "jin tian",
+  "pinyin_num": "jin1 tian1",
+  "pos": "noun",
+  "meaning": "today",
+  "alts": ""
+ },
+ {
+  "no": 95,
+  "simplified": "九",
+  "pinyin": "jiǔ",
+  "pinyin_plain": "jiu",
+  "pinyin_num": "jiu3",
+  "pos": "number",
+  "meaning": "nine",
+  "alts": ""
+ },
+ {
+  "no": 96,
+  "simplified": "觉得",
+  "pinyin": "jué de",
+  "pinyin_plain": "jue de",
+  "pinyin_num": "jue2 de",
+  "pos": "verb",
+  "meaning": "to feel, to think",
+  "alts": ""
+ },
+ {
+  "no": 97,
+  "simplified": "开",
+  "pinyin": "kāi",
+  "pinyin_plain": "kai",
+  "pinyin_num": "kai1",
+  "pos": "verb",
+  "meaning": "to open; to switch on",
+  "alts": ""
+ },
+ {
+  "no": 98,
+  "simplified": "开车",
+  "pinyin": "kāi chē",
+  "pinyin_plain": "kai che",
+  "pinyin_num": "kai1 che1",
+  "pos": "verb",
+  "meaning": "to drive",
+  "alts": ""
+ },
+ {
+  "no": 99,
+  "simplified": "看",
+  "pinyin": "kàn",
+  "pinyin_plain": "kan",
+  "pinyin_num": "kan4",
+  "pos": "verb",
+  "meaning": "to see; to look at; to watch; to read",
+  "alts": "also read kān — to look after, to guard, to keep an eye on"
+ },
+ {
+  "no": 100,
+  "simplified": "看病",
+  "pinyin": "kàn bìng",
+  "pinyin_plain": "kan bing",
+  "pinyin_num": "kan4 bing4",
+  "pos": "verb",
+  "meaning": "to see a doctor",
+  "alts": ""
+ },
+ {
+  "no": 101,
+  "simplified": "看见",
+  "pinyin": "kàn jiàn",
+  "pinyin_plain": "kan jian",
+  "pinyin_num": "kan4 jian4",
+  "pos": "verb",
+  "meaning": "to see; to catch sight of",
+  "alts": ""
+ },
+ {
+  "no": 102,
+  "simplified": "可以",
+  "pinyin": "kě yǐ",
+  "pinyin_plain": "ke yi",
+  "pinyin_num": "ke3 yi3",
+  "pos": "verb, adjective",
+  "meaning": "can, may; okay, fine",
+  "alts": ""
+ },
+ {
+  "no": 103,
+  "simplified": "课",
+  "pinyin": "kè",
+  "pinyin_plain": "ke",
+  "pinyin_num": "ke4",
+  "pos": "noun",
+  "meaning": "class, lesson",
+  "alts": ""
+ },
+ {
+  "no": 104,
+  "simplified": "口",
+  "pinyin": "kǒu",
+  "pinyin_plain": "kou",
+  "pinyin_num": "kou3",
+  "pos": "noun, classifier",
+  "meaning": "mouth; measure word for family members, bites",
+  "alts": ""
+ },
+ {
+  "no": 105,
+  "simplified": "块",
+  "pinyin": "kuài",
+  "pinyin_plain": "kuai",
+  "pinyin_num": "kuai4",
+  "pos": "classifier",
+  "meaning": "measure word for pieces, chunks, money",
+  "alts": ""
+ },
+ {
+  "no": 106,
+  "simplified": "来",
+  "pinyin": "lái",
+  "pinyin_plain": "lai",
+  "pinyin_num": "lai2",
+  "pos": "verb",
+  "meaning": "to come",
+  "alts": ""
+ },
+ {
+  "no": 107,
+  "simplified": "老师",
+  "pinyin": "lǎo shī",
+  "pinyin_plain": "lao shi",
+  "pinyin_num": "lao3 shi1",
+  "pos": "noun",
+  "meaning": "teacher",
+  "alts": ""
+ },
+ {
+  "no": 108,
+  "simplified": "了",
+  "pinyin": "le",
+  "pinyin_plain": "le",
+  "pinyin_num": "le",
+  "pos": "auxiliary",
+  "meaning": "particle indicating completed action or change of state",
+  "alts": "also read liǎo — understand; finish; settle; be able to complete"
+ },
+ {
+  "no": 109,
+  "simplified": "冷",
+  "pinyin": "lěng",
+  "pinyin_plain": "leng",
+  "pinyin_num": "leng3",
+  "pos": "adjective",
+  "meaning": "cold",
+  "alts": ""
+ },
+ {
+  "no": 110,
+  "simplified": "里",
+  "pinyin": "lǐ",
+  "pinyin_plain": "li",
+  "pinyin_num": "li3",
+  "pos": "noun",
+  "meaning": "inside; in",
+  "alts": ""
+ },
+ {
+  "no": 111,
+  "simplified": "两",
+  "pinyin": "liǎng",
+  "pinyin_plain": "liang",
+  "pinyin_num": "liang3",
+  "pos": "number",
+  "meaning": "two (used before a measure word)",
+  "alts": ""
+ },
+ {
+  "no": 112,
+  "simplified": "零",
+  "pinyin": "líng",
+  "pinyin_plain": "ling",
+  "pinyin_num": "ling2",
+  "pos": "number",
+  "meaning": "zero",
+  "alts": ""
+ },
+ {
+  "no": 113,
+  "simplified": "六",
+  "pinyin": "liù",
+  "pinyin_plain": "liu",
+  "pinyin_num": "liu4",
+  "pos": "number",
+  "meaning": "six",
+  "alts": ""
+ },
+ {
+  "no": 114,
+  "simplified": "妈妈",
+  "pinyin": "mā ma",
+  "pinyin_plain": "ma ma",
+  "pinyin_num": "ma1 ma",
+  "pos": "noun",
+  "meaning": "mom",
+  "alts": ""
+ },
+ {
+  "no": 115,
+  "simplified": "吗",
+  "pinyin": "ma",
+  "pinyin_plain": "ma",
+  "pinyin_num": "ma",
+  "pos": "auxiliary",
+  "meaning": "question particle",
+  "alts": ""
+ },
+ {
+  "no": 116,
+  "simplified": "买",
+  "pinyin": "mǎi",
+  "pinyin_plain": "mai",
+  "pinyin_num": "mai3",
+  "pos": "verb",
+  "meaning": "to buy",
+  "alts": ""
+ },
+ {
+  "no": 117,
+  "simplified": "卖",
+  "pinyin": "mài",
+  "pinyin_plain": "mai",
+  "pinyin_num": "mai4",
+  "pos": "verb",
+  "meaning": "to sell",
+  "alts": ""
+ },
+ {
+  "no": 118,
+  "simplified": "忙",
+  "pinyin": "máng",
+  "pinyin_plain": "mang",
+  "pinyin_num": "mang2",
+  "pos": "adjective, verb",
+  "meaning": "busy; to be busy",
+  "alts": ""
+ },
+ {
+  "no": 119,
+  "simplified": "猫",
+  "pinyin": "māo",
+  "pinyin_plain": "mao",
+  "pinyin_num": "mao1",
+  "pos": "noun",
+  "meaning": "cat",
+  "alts": ""
+ },
+ {
+  "no": 120,
+  "simplified": "没关系",
+  "pinyin": "méi guān xi",
+  "pinyin_plain": "mei guan xi",
+  "pinyin_num": "mei2 guan1 xi",
+  "pos": "phrase",
+  "meaning": "never mind, it's okay",
+  "alts": ""
+ },
+ {
+  "no": 121,
+  "simplified": "没事",
+  "pinyin": "méi shì",
+  "pinyin_plain": "mei shi",
+  "pinyin_num": "mei2 shi4",
+  "pos": "verb",
+  "meaning": "it's nothing; it doesn't matter",
+  "alts": ""
+ },
+ {
+  "no": 122,
+  "simplified": "没有",
+  "pinyin": "méi yǒu",
+  "pinyin_plain": "mei you",
+  "pinyin_num": "mei2 you3",
+  "pos": "verb, adverb",
+  "meaning": "to not have; have not",
+  "alts": ""
+ },
+ {
+  "no": 123,
+  "simplified": "妹妹",
+  "pinyin": "mèi mei",
+  "pinyin_plain": "mei mei",
+  "pinyin_num": "mei4 mei",
+  "pos": "noun",
+  "meaning": "younger sister",
+  "alts": ""
+ },
+ {
+  "no": 124,
+  "simplified": "们",
+  "pinyin": "men",
+  "pinyin_plain": "men",
+  "pinyin_num": "men",
+  "pos": "suffix",
+  "meaning": "plural suffix for pronouns and nouns",
+  "alts": ""
+ },
+ {
+  "no": 125,
+  "simplified": "米饭",
+  "pinyin": "mǐ fàn",
+  "pinyin_plain": "mi fan",
+  "pinyin_num": "mi3 fan4",
+  "pos": "noun",
+  "meaning": "cooked rice",
+  "alts": ""
+ },
+ {
+  "no": 126,
+  "simplified": "面包",
+  "pinyin": "miàn bāo",
+  "pinyin_plain": "mian bao",
+  "pinyin_num": "mian4 bao1",
+  "pos": "noun",
+  "meaning": "bread",
+  "alts": ""
+ },
+ {
+  "no": 127,
+  "simplified": "面条儿",
+  "pinyin": "miàn tiáor",
+  "pinyin_plain": "mian tiaor",
+  "pinyin_num": "mian4 tiao2r",
+  "pos": "noun",
+  "meaning": "noodles",
+  "alts": ""
+ },
+ {
+  "no": 128,
+  "simplified": "明年",
+  "pinyin": "míng nián",
+  "pinyin_plain": "ming nian",
+  "pinyin_num": "ming2 nian2",
+  "pos": "noun",
+  "meaning": "next year",
+  "alts": ""
+ },
+ {
+  "no": 129,
+  "simplified": "明天",
+  "pinyin": "míng tiān",
+  "pinyin_plain": "ming tian",
+  "pinyin_num": "ming2 tian1",
+  "pos": "noun",
+  "meaning": "tomorrow",
+  "alts": ""
+ },
+ {
+  "no": 130,
+  "simplified": "名字",
+  "pinyin": "míng zi",
+  "pinyin_plain": "ming zi",
+  "pinyin_num": "ming2 zi",
+  "pos": "noun",
+  "meaning": "name",
+  "alts": ""
+ },
+ {
+  "no": 131,
+  "simplified": "哪",
+  "pinyin": "nǎ",
+  "pinyin_plain": "na",
+  "pinyin_num": "na3",
+  "pos": "pronoun",
+  "meaning": "which",
+  "alts": ""
+ },
+ {
+  "no": 132,
+  "simplified": "哪个",
+  "pinyin": "nǎ ge",
+  "pinyin_plain": "na ge",
+  "pinyin_num": "na3 ge",
+  "pos": "pronoun",
+  "meaning": "which one",
+  "alts": ""
+ },
+ {
+  "no": 133,
+  "simplified": "哪里",
+  "pinyin": "nǎ lǐ",
+  "pinyin_plain": "na li",
+  "pinyin_num": "na3 li3",
+  "pos": "pronoun",
+  "meaning": "where",
+  "alts": ""
+ },
+ {
+  "no": 134,
+  "simplified": "哪儿",
+  "pinyin": "nǎr",
+  "pinyin_plain": "nar",
+  "pinyin_num": "na3r",
+  "pos": "pronoun",
+  "meaning": "where (colloquial, erhua)",
+  "alts": ""
+ },
+ {
+  "no": 135,
+  "simplified": "哪些",
+  "pinyin": "nǎ xiē",
+  "pinyin_plain": "na xie",
+  "pinyin_num": "na3 xie1",
+  "pos": "pronoun",
+  "meaning": "which ones",
+  "alts": ""
+ },
+ {
+  "no": 136,
+  "simplified": "那",
+  "pinyin": "nà",
+  "pinyin_plain": "na",
+  "pinyin_num": "na4",
+  "pos": "pronoun, (conjunction)",
+  "meaning": "that; (then)",
+  "alts": ""
+ },
+ {
+  "no": 137,
+  "simplified": "那边",
+  "pinyin": "nà biān",
+  "pinyin_plain": "na bian",
+  "pinyin_num": "na4 bian1",
+  "pos": "pronoun",
+  "meaning": "over there",
+  "alts": ""
+ },
+ {
+  "no": 138,
+  "simplified": "那个",
+  "pinyin": "nà ge",
+  "pinyin_plain": "na ge",
+  "pinyin_num": "na4 ge",
+  "pos": "pronoun",
+  "meaning": "that one",
+  "alts": ""
+ },
+ {
+  "no": 139,
+  "simplified": "那里",
+  "pinyin": "nà lǐ",
+  "pinyin_plain": "na li",
+  "pinyin_num": "na4 li3",
+  "pos": "pronoun",
+  "meaning": "there",
+  "alts": ""
+ },
+ {
+  "no": 140,
+  "simplified": "那儿",
+  "pinyin": "nàr",
+  "pinyin_plain": "nar",
+  "pinyin_num": "na4r",
+  "pos": "pronoun",
+  "meaning": "there (colloquial, erhua)",
+  "alts": ""
+ },
+ {
+  "no": 141,
+  "simplified": "那些",
+  "pinyin": "nà xiē",
+  "pinyin_plain": "na xie",
+  "pinyin_num": "na4 xie1",
+  "pos": "pronoun",
+  "meaning": "those",
+  "alts": ""
+ },
+ {
+  "no": 142,
+  "simplified": "男",
+  "pinyin": "nán",
+  "pinyin_plain": "nan",
+  "pinyin_num": "nan2",
+  "pos": "adjective",
+  "meaning": "male",
+  "alts": ""
+ },
+ {
+  "no": 143,
+  "simplified": "男朋友",
+  "pinyin": "nán péng you",
+  "pinyin_plain": "nan peng you",
+  "pinyin_num": "nan2 peng2 you",
+  "pos": "noun",
+  "meaning": "boyfriend",
+  "alts": ""
+ },
+ {
+  "no": 144,
+  "simplified": "呢",
+  "pinyin": "ne",
+  "pinyin_plain": "ne",
+  "pinyin_num": "ne",
+  "pos": "auxiliary",
+  "meaning": "question or continuation particle",
+  "alts": ""
+ },
+ {
+  "no": 145,
+  "simplified": "能",
+  "pinyin": "néng",
+  "pinyin_plain": "neng",
+  "pinyin_num": "neng2",
+  "pos": "verb",
+  "meaning": "can, be able to",
+  "alts": ""
+ },
+ {
+  "no": 146,
+  "simplified": "你",
+  "pinyin": "nǐ",
+  "pinyin_plain": "ni",
+  "pinyin_num": "ni3",
+  "pos": "pronoun",
+  "meaning": "you",
+  "alts": ""
+ },
+ {
+  "no": 147,
+  "simplified": "你好",
+  "pinyin": "nǐ hǎo",
+  "pinyin_plain": "ni hao",
+  "pinyin_num": "ni3 hao3",
+  "pos": "interjection",
+  "meaning": "hello",
+  "alts": ""
+ },
+ {
+  "no": 148,
+  "simplified": "你们",
+  "pinyin": "nǐ men",
+  "pinyin_plain": "ni men",
+  "pinyin_num": "ni3 men",
+  "pos": "pronoun",
+  "meaning": "you plural",
+  "alts": ""
+ },
+ {
+  "no": 149,
+  "simplified": "年",
+  "pinyin": "nián",
+  "pinyin_plain": "nian",
+  "pinyin_num": "nian2",
+  "pos": "noun, classifier",
+  "meaning": "year; measure word for years",
+  "alts": ""
+ },
+ {
+  "no": 150,
+  "simplified": "您",
+  "pinyin": "nín",
+  "pinyin_plain": "nin",
+  "pinyin_num": "nin2",
+  "pos": "pronoun",
+  "meaning": "you (polite)",
+  "alts": ""
+ },
+ {
+  "no": 151,
+  "simplified": "牛奶",
+  "pinyin": "niú nǎi",
+  "pinyin_plain": "niu nai",
+  "pinyin_num": "niu2 nai3",
+  "pos": "noun",
+  "meaning": "milk",
+  "alts": ""
+ },
+ {
+  "no": 152,
+  "simplified": "女",
+  "pinyin": "nǚ",
+  "pinyin_plain": "nü",
+  "pinyin_num": "nv3",
+  "pos": "adjective",
+  "meaning": "female",
+  "alts": ""
+ },
+ {
+  "no": 153,
+  "simplified": "女儿",
+  "pinyin": "nǚ ér",
+  "pinyin_plain": "nü er",
+  "pinyin_num": "nv3 er2",
+  "pos": "noun",
+  "meaning": "daughter",
+  "alts": ""
+ },
+ {
+  "no": 154,
+  "simplified": "女朋友",
+  "pinyin": "nǚ péng you",
+  "pinyin_plain": "nü peng you",
+  "pinyin_num": "nv3 peng2 you",
+  "pos": "noun",
+  "meaning": "girlfriend",
+  "alts": ""
+ },
+ {
+  "no": 155,
+  "simplified": "女士",
+  "pinyin": "nǚ shì",
+  "pinyin_plain": "nü shi",
+  "pinyin_num": "nv3 shi4",
+  "pos": "noun",
+  "meaning": "lady, Ms.",
+  "alts": ""
+ },
+ {
+  "no": 156,
+  "simplified": "朋友",
+  "pinyin": "péng you",
+  "pinyin_plain": "peng you",
+  "pinyin_num": "peng2 you",
+  "pos": "noun",
+  "meaning": "friend",
+  "alts": ""
+ },
+ {
+  "no": 157,
+  "simplified": "便宜",
+  "pinyin": "pián yi",
+  "pinyin_plain": "pian yi",
+  "pinyin_num": "pian2 yi",
+  "pos": "adjective",
+  "meaning": "cheap",
+  "alts": ""
+ },
+ {
+  "no": 158,
+  "simplified": "漂亮",
+  "pinyin": "piào liang",
+  "pinyin_plain": "piao liang",
+  "pinyin_num": "piao4 liang",
+  "pos": "adjective",
+  "meaning": "beautiful",
+  "alts": ""
+ },
+ {
+  "no": 159,
+  "simplified": "苹果",
+  "pinyin": "píng guǒ",
+  "pinyin_plain": "ping guo",
+  "pinyin_num": "ping2 guo3",
+  "pos": "noun",
+  "meaning": "apple",
+  "alts": ""
+ },
+ {
+  "no": 160,
+  "simplified": "七",
+  "pinyin": "qī",
+  "pinyin_plain": "qi",
+  "pinyin_num": "qi1",
+  "pos": "number",
+  "meaning": "seven",
+  "alts": ""
+ },
+ {
+  "no": 161,
+  "simplified": "起床",
+  "pinyin": "qǐ chuáng",
+  "pinyin_plain": "qi chuang",
+  "pinyin_num": "qi3 chuang2",
+  "pos": "verb",
+  "meaning": "to get up",
+  "alts": ""
+ },
+ {
+  "no": 162,
+  "simplified": "千",
+  "pinyin": "qiān",
+  "pinyin_plain": "qian",
+  "pinyin_num": "qian1",
+  "pos": "number",
+  "meaning": "thousand",
+  "alts": ""
+ },
+ {
+  "no": 163,
+  "simplified": "前",
+  "pinyin": "qián",
+  "pinyin_plain": "qian",
+  "pinyin_num": "qian2",
+  "pos": "noun",
+  "meaning": "front, before",
+  "alts": ""
+ },
+ {
+  "no": 164,
+  "simplified": "钱",
+  "pinyin": "qián",
+  "pinyin_plain": "qian",
+  "pinyin_num": "qian2",
+  "pos": "noun",
+  "meaning": "money",
+  "alts": ""
+ },
+ {
+  "no": 165,
+  "simplified": "请",
+  "pinyin": "qǐng",
+  "pinyin_plain": "qing",
+  "pinyin_num": "qing3",
+  "pos": "verb",
+  "meaning": "please",
+  "alts": ""
+ },
+ {
+  "no": 166,
+  "simplified": "请问",
+  "pinyin": "qǐng wèn",
+  "pinyin_plain": "qing wen",
+  "pinyin_num": "qing3 wen4",
+  "pos": "verb",
+  "meaning": "excuse me, may I ask",
+  "alts": ""
+ },
+ {
+  "no": 167,
+  "simplified": "去",
+  "pinyin": "qù",
+  "pinyin_plain": "qu",
+  "pinyin_num": "qu4",
+  "pos": "verb",
+  "meaning": "to go",
+  "alts": ""
+ },
+ {
+  "no": 168,
+  "simplified": "去年",
+  "pinyin": "qù nián",
+  "pinyin_plain": "qu nian",
+  "pinyin_num": "qu4 nian2",
+  "pos": "noun",
+  "meaning": "last year",
+  "alts": ""
+ },
+ {
+  "no": 169,
+  "simplified": "热",
+  "pinyin": "rè",
+  "pinyin_plain": "re",
+  "pinyin_num": "re4",
+  "pos": "adjective",
+  "meaning": "hot",
+  "alts": ""
+ },
+ {
+  "no": 170,
+  "simplified": "人",
+  "pinyin": "rén",
+  "pinyin_plain": "ren",
+  "pinyin_num": "ren2",
+  "pos": "noun",
+  "meaning": "person",
+  "alts": ""
+ },
+ {
+  "no": 171,
+  "simplified": "认识",
+  "pinyin": "rèn shi",
+  "pinyin_plain": "ren shi",
+  "pinyin_num": "ren4 shi",
+  "pos": "verb",
+  "meaning": "to know, to recognize",
+  "alts": ""
+ },
+ {
+  "no": 172,
+  "simplified": "日",
+  "pinyin": "rì",
+  "pinyin_plain": "ri",
+  "pinyin_num": "ri4",
+  "pos": "classifier, (noun)",
+  "meaning": "day; sun",
+  "alts": ""
+ },
+ {
+  "no": 173,
+  "simplified": "三",
+  "pinyin": "sān",
+  "pinyin_plain": "san",
+  "pinyin_num": "san1",
+  "pos": "number",
+  "meaning": "three",
+  "alts": ""
+ },
+ {
+  "no": 174,
+  "simplified": "商店",
+  "pinyin": "shāng diàn",
+  "pinyin_plain": "shang dian",
+  "pinyin_num": "shang1 dian4",
+  "pos": "noun",
+  "meaning": "store, shop",
+  "alts": ""
+ },
+ {
+  "no": 175,
+  "simplified": "上",
+  "pinyin": "shàng",
+  "pinyin_plain": "shang",
+  "pinyin_num": "shang4",
+  "pos": "noun, verb",
+  "meaning": "up, above; to go up",
+  "alts": ""
+ },
+ {
+  "no": 176,
+  "simplified": "上班",
+  "pinyin": "shàng bān",
+  "pinyin_plain": "shang ban",
+  "pinyin_num": "shang4 ban1",
+  "pos": "verb",
+  "meaning": "to go to work",
+  "alts": ""
+ },
+ {
+  "no": 177,
+  "simplified": "上课",
+  "pinyin": "shàng kè",
+  "pinyin_plain": "shang ke",
+  "pinyin_num": "shang4 ke4",
+  "pos": "verb",
+  "meaning": "to attend class",
+  "alts": ""
+ },
+ {
+  "no": 178,
+  "simplified": "上午",
+  "pinyin": "shàng wǔ",
+  "pinyin_plain": "shang wu",
+  "pinyin_num": "shang4 wu3",
+  "pos": "noun",
+  "meaning": "morning (before noon)",
+  "alts": ""
+ },
+ {
+  "no": 179,
+  "simplified": "上学",
+  "pinyin": "shàng xué",
+  "pinyin_plain": "shang xue",
+  "pinyin_num": "shang4 xue2",
+  "pos": "verb",
+  "meaning": "to go to school",
+  "alts": ""
+ },
+ {
+  "no": 180,
+  "simplified": "少",
+  "pinyin": "shǎo",
+  "pinyin_plain": "shao",
+  "pinyin_num": "shao3",
+  "pos": "adjective, verb",
+  "meaning": "few, little; to lack",
+  "alts": ""
+ },
+ {
+  "no": 181,
+  "simplified": "谁",
+  "pinyin": "shéi/shuí",
+  "pinyin_plain": "shei/shui",
+  "pinyin_num": "shei2/shui2",
+  "pos": "pronoun",
+  "meaning": "who",
+  "alts": ""
+ },
+ {
+  "no": 182,
+  "simplified": "什么",
+  "pinyin": "shén me",
+  "pinyin_plain": "shen me",
+  "pinyin_num": "shen2 me",
+  "pos": "pronoun",
+  "meaning": "what",
+  "alts": ""
+ },
+ {
+  "no": 183,
+  "simplified": "生病",
+  "pinyin": "shēng bìng",
+  "pinyin_plain": "sheng bing",
+  "pinyin_num": "sheng1 bing4",
+  "pos": "verb",
+  "meaning": "to get sick",
+  "alts": ""
+ },
+ {
+  "no": 184,
+  "simplified": "十",
+  "pinyin": "shí",
+  "pinyin_plain": "shi",
+  "pinyin_num": "shi2",
+  "pos": "number",
+  "meaning": "ten",
+  "alts": ""
+ },
+ {
+  "no": 185,
+  "simplified": "时候",
+  "pinyin": "shí hou",
+  "pinyin_plain": "shi hou",
+  "pinyin_num": "shi2 hou",
+  "pos": "noun",
+  "meaning": "moment, time",
+  "alts": ""
+ },
+ {
+  "no": 186,
+  "simplified": "时间",
+  "pinyin": "shí jiān",
+  "pinyin_plain": "shi jian",
+  "pinyin_num": "shi2 jian1",
+  "pos": "noun",
+  "meaning": "time",
+  "alts": ""
+ },
+ {
+  "no": 187,
+  "simplified": "事",
+  "pinyin": "shì",
+  "pinyin_plain": "shi",
+  "pinyin_num": "shi4",
+  "pos": "noun",
+  "meaning": "matter, thing",
+  "alts": ""
+ },
+ {
+  "no": 188,
+  "simplified": "是",
+  "pinyin": "shì",
+  "pinyin_plain": "shi",
+  "pinyin_num": "shi4",
+  "pos": "verb",
+  "meaning": "to be",
+  "alts": ""
+ },
+ {
+  "no": 189,
+  "simplified": "手机",
+  "pinyin": "shǒu jī",
+  "pinyin_plain": "shou ji",
+  "pinyin_num": "shou3 ji1",
+  "pos": "noun",
+  "meaning": "cell phone",
+  "alts": ""
+ },
+ {
+  "no": 190,
+  "simplified": "书",
+  "pinyin": "shū",
+  "pinyin_plain": "shu",
+  "pinyin_num": "shu1",
+  "pos": "noun",
+  "meaning": "book",
+  "alts": ""
+ },
+ {
+  "no": 191,
+  "simplified": "书店",
+  "pinyin": "shū diàn",
+  "pinyin_plain": "shu dian",
+  "pinyin_num": "shu1 dian4",
+  "pos": "noun",
+  "meaning": "bookstore",
+  "alts": ""
+ },
+ {
+  "no": 192,
+  "simplified": "水",
+  "pinyin": "shuǐ",
+  "pinyin_plain": "shui",
+  "pinyin_num": "shui3",
+  "pos": "noun",
+  "meaning": "water",
+  "alts": ""
+ },
+ {
+  "no": 193,
+  "simplified": "水果",
+  "pinyin": "shuǐ guǒ",
+  "pinyin_plain": "shui guo",
+  "pinyin_num": "shui3 guo3",
+  "pos": "noun",
+  "meaning": "fruit",
+  "alts": ""
+ },
+ {
+  "no": 194,
+  "simplified": "睡",
+  "pinyin": "shuì",
+  "pinyin_plain": "shui",
+  "pinyin_num": "shui4",
+  "pos": "verb",
+  "meaning": "to sleep",
+  "alts": ""
+ },
+ {
+  "no": 195,
+  "simplified": "睡觉",
+  "pinyin": "shuì jiào",
+  "pinyin_plain": "shui jiao",
+  "pinyin_num": "shui4 jiao4",
+  "pos": "verb",
+  "meaning": "to sleep; to go to bed",
+  "alts": ""
+ },
+ {
+  "no": 196,
+  "simplified": "说",
+  "pinyin": "shuō",
+  "pinyin_plain": "shuo",
+  "pinyin_num": "shuo1",
+  "pos": "verb",
+  "meaning": "to speak, to say",
+  "alts": ""
+ },
+ {
+  "no": 197,
+  "simplified": "说话",
+  "pinyin": "shuō huà",
+  "pinyin_plain": "shuo hua",
+  "pinyin_num": "shuo1 hua4",
+  "pos": "verb",
+  "meaning": "to talk",
+  "alts": ""
+ },
+ {
+  "no": 198,
+  "simplified": "四",
+  "pinyin": "sì",
+  "pinyin_plain": "si",
+  "pinyin_num": "si4",
+  "pos": "number",
+  "meaning": "four",
+  "alts": ""
+ },
+ {
+  "no": 199,
+  "simplified": "岁",
+  "pinyin": "suì",
+  "pinyin_plain": "sui",
+  "pinyin_num": "sui4",
+  "pos": "classifier",
+  "meaning": "measure word for age",
+  "alts": ""
+ },
+ {
+  "no": 200,
+  "simplified": "他",
+  "pinyin": "tā",
+  "pinyin_plain": "ta",
+  "pinyin_num": "ta1",
+  "pos": "pronoun",
+  "meaning": "he, him",
+  "alts": ""
+ },
+ {
+  "no": 201,
+  "simplified": "它",
+  "pinyin": "tā",
+  "pinyin_plain": "ta",
+  "pinyin_num": "ta1",
+  "pos": "pronoun",
+  "meaning": "it",
+  "alts": ""
+ },
+ {
+  "no": 202,
+  "simplified": "她",
+  "pinyin": "tā",
+  "pinyin_plain": "ta",
+  "pinyin_num": "ta1",
+  "pos": "pronoun",
+  "meaning": "she",
+  "alts": ""
+ },
+ {
+  "no": 203,
+  "simplified": "他们",
+  "pinyin": "tā men",
+  "pinyin_plain": "ta men",
+  "pinyin_num": "ta1 men",
+  "pos": "pronoun",
+  "meaning": "they (male or mixed group)",
+  "alts": ""
+ },
+ {
+  "no": 204,
+  "simplified": "它们",
+  "pinyin": "tā men",
+  "pinyin_plain": "ta men",
+  "pinyin_num": "ta1 men",
+  "pos": "pronoun",
+  "meaning": "they (for inanimate things)",
+  "alts": ""
+ },
+ {
+  "no": 205,
+  "simplified": "她们",
+  "pinyin": "tā men",
+  "pinyin_plain": "ta men",
+  "pinyin_num": "ta1 men",
+  "pos": "pronoun",
+  "meaning": "they (female group)",
+  "alts": ""
+ },
+ {
+  "no": 206,
+  "simplified": "太",
+  "pinyin": "tài",
+  "pinyin_plain": "tai",
+  "pinyin_num": "tai4",
+  "pos": "adverb",
+  "meaning": "too, extremely",
+  "alts": ""
+ },
+ {
+  "no": 207,
+  "simplified": "天",
+  "pinyin": "tiān",
+  "pinyin_plain": "tian",
+  "pinyin_num": "tian1",
+  "pos": "noun, classifier",
+  "meaning": "day; sky",
+  "alts": ""
+ },
+ {
+  "no": 208,
+  "simplified": "天气",
+  "pinyin": "tiān qì",
+  "pinyin_plain": "tian qi",
+  "pinyin_num": "tian1 qi4",
+  "pos": "noun",
+  "meaning": "weather",
+  "alts": ""
+ },
+ {
+  "no": 209,
+  "simplified": "听",
+  "pinyin": "tīng",
+  "pinyin_plain": "ting",
+  "pinyin_num": "ting1",
+  "pos": "verb",
+  "meaning": "to listen",
+  "alts": ""
+ },
+ {
+  "no": 210,
+  "simplified": "听见",
+  "pinyin": "tīng jiàn",
+  "pinyin_plain": "ting jian",
+  "pinyin_num": "ting1 jian4",
+  "pos": "verb",
+  "meaning": "to hear",
+  "alts": ""
+ },
+ {
+  "no": 211,
+  "simplified": "同学",
+  "pinyin": "tóng xué",
+  "pinyin_plain": "tong xue",
+  "pinyin_num": "tong2 xue2",
+  "pos": "noun",
+  "meaning": "classmate",
+  "alts": ""
+ },
+ {
+  "no": 212,
+  "simplified": "外",
+  "pinyin": "wài",
+  "pinyin_plain": "wai",
+  "pinyin_num": "wai4",
+  "pos": "noun",
+  "meaning": "outside, exterior",
+  "alts": ""
+ },
+ {
+  "no": 213,
+  "simplified": "外边",
+  "pinyin": "wài bian",
+  "pinyin_plain": "wai bian",
+  "pinyin_num": "wai4 bian",
+  "pos": "noun",
+  "meaning": "outside",
+  "alts": ""
+ },
+ {
+  "no": 214,
+  "simplified": "玩",
+  "pinyin": "wán",
+  "pinyin_plain": "wan",
+  "pinyin_num": "wan2",
+  "pos": "verb",
+  "meaning": "to play",
+  "alts": ""
+ },
+ {
+  "no": 215,
+  "simplified": "晚",
+  "pinyin": "wǎn",
+  "pinyin_plain": "wan",
+  "pinyin_num": "wan3",
+  "pos": "adjective",
+  "meaning": "late; evening",
+  "alts": ""
+ },
+ {
+  "no": 216,
+  "simplified": "晚饭",
+  "pinyin": "wǎn fàn",
+  "pinyin_plain": "wan fan",
+  "pinyin_num": "wan3 fan4",
+  "pos": "noun",
+  "meaning": "dinner",
+  "alts": ""
+ },
+ {
+  "no": 217,
+  "simplified": "晚上",
+  "pinyin": "wǎn shang",
+  "pinyin_plain": "wan shang",
+  "pinyin_num": "wan3 shang",
+  "pos": "noun",
+  "meaning": "evening",
+  "alts": ""
+ },
+ {
+  "no": 218,
+  "simplified": "喂",
+  "pinyin": "wèi",
+  "pinyin_plain": "wei",
+  "pinyin_num": "wei4",
+  "pos": "interjection",
+  "meaning": "hello (used when answering the phone)",
+  "alts": ""
+ },
+ {
+  "no": 219,
+  "simplified": "问",
+  "pinyin": "wèn",
+  "pinyin_plain": "wen",
+  "pinyin_num": "wen4",
+  "pos": "verb",
+  "meaning": "to ask",
+  "alts": ""
+ },
+ {
+  "no": 220,
+  "simplified": "问题",
+  "pinyin": "wèn tí",
+  "pinyin_plain": "wen ti",
+  "pinyin_num": "wen4 ti2",
+  "pos": "noun",
+  "meaning": "question; problem",
+  "alts": ""
+ },
+ {
+  "no": 221,
+  "simplified": "我",
+  "pinyin": "wǒ",
+  "pinyin_plain": "wo",
+  "pinyin_num": "wo3",
+  "pos": "pronoun",
+  "meaning": "I",
+  "alts": ""
+ },
+ {
+  "no": 222,
+  "simplified": "我们",
+  "pinyin": "wǒ men",
+  "pinyin_plain": "wo men",
+  "pinyin_num": "wo3 men",
+  "pos": "pronoun",
+  "meaning": "we",
+  "alts": ""
+ },
+ {
+  "no": 223,
+  "simplified": "五",
+  "pinyin": "wǔ",
+  "pinyin_plain": "wu",
+  "pinyin_num": "wu3",
+  "pos": "number",
+  "meaning": "five",
+  "alts": ""
+ },
+ {
+  "no": 224,
+  "simplified": "午饭",
+  "pinyin": "wǔ fàn",
+  "pinyin_plain": "wu fan",
+  "pinyin_num": "wu3 fan4",
+  "pos": "noun",
+  "meaning": "lunch",
+  "alts": ""
+ },
+ {
+  "no": 225,
+  "simplified": "喜欢",
+  "pinyin": "xǐ huan",
+  "pinyin_plain": "xi huan",
+  "pinyin_num": "xi3 huan",
+  "pos": "verb",
+  "meaning": "to like",
+  "alts": ""
+ },
+ {
+  "no": 226,
+  "simplified": "下",
+  "pinyin": "xià",
+  "pinyin_plain": "xia",
+  "pinyin_num": "xia4",
+  "pos": "noun, verb, classifier",
+  "meaning": "down, below; to go down; measure word for times",
+  "alts": ""
+ },
+ {
+  "no": 227,
+  "simplified": "下雨",
+  "pinyin": "xià yǔ",
+  "pinyin_plain": "xia yu",
+  "pinyin_num": "xia4 yu3",
+  "pos": "verb",
+  "meaning": "to rain",
+  "alts": ""
+ },
+ {
+  "no": 228,
+  "simplified": "下班",
+  "pinyin": "xià bān",
+  "pinyin_plain": "xia ban",
+  "pinyin_num": "xia4 ban1",
+  "pos": "verb",
+  "meaning": "to get off work",
+  "alts": ""
+ },
+ {
+  "no": 229,
+  "simplified": "下课",
+  "pinyin": "xià kè",
+  "pinyin_plain": "xia ke",
+  "pinyin_num": "xia4 ke4",
+  "pos": "verb",
+  "meaning": "to finish class",
+  "alts": ""
+ },
+ {
+  "no": 230,
+  "simplified": "下午",
+  "pinyin": "xià wǔ",
+  "pinyin_plain": "xia wu",
+  "pinyin_num": "xia4 wu3",
+  "pos": "noun",
+  "meaning": "afternoon",
+  "alts": ""
+ },
+ {
+  "no": 231,
+  "simplified": "先生",
+  "pinyin": "xiān sheng",
+  "pinyin_plain": "xian sheng",
+  "pinyin_num": "xian1 sheng",
+  "pos": "noun",
+  "meaning": "Mr., husband",
+  "alts": ""
+ },
+ {
+  "no": 232,
+  "simplified": "现在",
+  "pinyin": "xiàn zài",
+  "pinyin_plain": "xian zai",
+  "pinyin_num": "xian4 zai4",
+  "pos": "noun",
+  "meaning": "now",
+  "alts": ""
+ },
+ {
+  "no": 233,
+  "simplified": "想",
+  "pinyin": "xiǎng",
+  "pinyin_plain": "xiang",
+  "pinyin_num": "xiang3",
+  "pos": "verb",
+  "meaning": "to think; to want",
+  "alts": ""
+ },
+ {
+  "no": 234,
+  "simplified": "小",
+  "pinyin": "xiǎo",
+  "pinyin_plain": "xiao",
+  "pinyin_num": "xiao3",
+  "pos": "adjective, prefix",
+  "meaning": "small; prefix indicating small size or endearment",
+  "alts": ""
+ },
+ {
+  "no": 235,
+  "simplified": "小朋友",
+  "pinyin": "xiǎo péng yǒu",
+  "pinyin_plain": "xiao peng you",
+  "pinyin_num": "xiao3 peng2 you3",
+  "pos": "noun",
+  "meaning": "little friend; child (friendly term)",
+  "alts": ""
+ },
+ {
+  "no": 236,
+  "simplified": "小时",
+  "pinyin": "xiǎo shí",
+  "pinyin_plain": "xiao shi",
+  "pinyin_num": "xiao3 shi2",
+  "pos": "noun",
+  "meaning": "hour",
+  "alts": ""
+ },
+ {
+  "no": 237,
+  "simplified": "小学",
+  "pinyin": "xiǎo xué",
+  "pinyin_plain": "xiao xue",
+  "pinyin_num": "xiao3 xue2",
+  "pos": "noun",
+  "meaning": "primary school",
+  "alts": ""
+ },
+ {
+  "no": 238,
+  "simplified": "小学生",
+  "pinyin": "xiǎo xué shēng",
+  "pinyin_plain": "xiao xue sheng",
+  "pinyin_num": "xiao3 xue2 sheng1",
+  "pos": "noun",
+  "meaning": "primary school student",
+  "alts": ""
+ },
+ {
+  "no": 239,
+  "simplified": "些",
+  "pinyin": "xiē",
+  "pinyin_plain": "xie",
+  "pinyin_num": "xie1",
+  "pos": "classifier",
+  "meaning": "some",
+  "alts": ""
+ },
+ {
+  "no": 240,
+  "simplified": "写",
+  "pinyin": "xiě",
+  "pinyin_plain": "xie",
+  "pinyin_num": "xie3",
+  "pos": "verb",
+  "meaning": "to write",
+  "alts": ""
+ },
+ {
+  "no": 241,
+  "simplified": "谢谢",
+  "pinyin": "xiè xie",
+  "pinyin_plain": "xie xie",
+  "pinyin_num": "xie4 xie",
+  "pos": "verb",
+  "meaning": "to thank",
+  "alts": ""
+ },
+ {
+  "no": 242,
+  "simplified": "新",
+  "pinyin": "xīn",
+  "pinyin_plain": "xin",
+  "pinyin_num": "xin1",
+  "pos": "adjective",
+  "meaning": "new",
+  "alts": ""
+ },
+ {
+  "no": 243,
+  "simplified": "星期",
+  "pinyin": "xīng qī",
+  "pinyin_plain": "xing qi",
+  "pinyin_num": "xing1 qi1",
+  "pos": "noun",
+  "meaning": "week",
+  "alts": ""
+ },
+ {
+  "no": 244,
+  "simplified": "星期日",
+  "pinyin": "xīng qī rì",
+  "pinyin_plain": "xing qi ri",
+  "pinyin_num": "xing1 qi1 ri4",
+  "pos": "noun",
+  "meaning": "Sunday (formal)",
+  "alts": ""
+ },
+ {
+  "no": 245,
+  "simplified": "星期天",
+  "pinyin": "xīng qī tiān",
+  "pinyin_plain": "xing qi tian",
+  "pinyin_num": "xing1 qi1 tian1",
+  "pos": "noun",
+  "meaning": "Sunday (colloquial)",
+  "alts": ""
+ },
+ {
+  "no": 246,
+  "simplified": "休息",
+  "pinyin": "xiū xi",
+  "pinyin_plain": "xiu xi",
+  "pinyin_num": "xiu1 xi",
+  "pos": "verb",
+  "meaning": "to rest",
+  "alts": ""
+ },
+ {
+  "no": 247,
+  "simplified": "学",
+  "pinyin": "xué",
+  "pinyin_plain": "xue",
+  "pinyin_num": "xue2",
+  "pos": "verb",
+  "meaning": "to learn, to study",
+  "alts": ""
+ },
+ {
+  "no": 248,
+  "simplified": "学生",
+  "pinyin": "xué shēng",
+  "pinyin_plain": "xue sheng",
+  "pinyin_num": "xue2 sheng1",
+  "pos": "noun",
+  "meaning": "student",
+  "alts": ""
+ },
+ {
+  "no": 249,
+  "simplified": "学习",
+  "pinyin": "xué xí",
+  "pinyin_plain": "xue xi",
+  "pinyin_num": "xue2 xi2",
+  "pos": "verb",
+  "meaning": "to study",
+  "alts": ""
+ },
+ {
+  "no": 250,
+  "simplified": "学校",
+  "pinyin": "xué xiào",
+  "pinyin_plain": "xue xiao",
+  "pinyin_num": "xue2 xiao4",
+  "pos": "noun",
+  "meaning": "school",
+  "alts": ""
+ },
+ {
+  "no": 251,
+  "simplified": "雪",
+  "pinyin": "xuě",
+  "pinyin_plain": "xue",
+  "pinyin_num": "xue3",
+  "pos": "noun",
+  "meaning": "snow",
+  "alts": ""
+ },
+ {
+  "no": 252,
+  "simplified": "要",
+  "pinyin": "yào",
+  "pinyin_plain": "yao",
+  "pinyin_num": "yao4",
+  "pos": "verb",
+  "meaning": "to want, to need",
+  "alts": ""
+ },
+ {
+  "no": 253,
+  "simplified": "也",
+  "pinyin": "yě",
+  "pinyin_plain": "ye",
+  "pinyin_num": "ye3",
+  "pos": "adverb",
+  "meaning": "also, too",
+  "alts": ""
+ },
+ {
+  "no": 254,
+  "simplified": "一",
+  "pinyin": "yī",
+  "pinyin_plain": "yi",
+  "pinyin_num": "yi1",
+  "pos": "number",
+  "meaning": "one",
+  "alts": ""
+ },
+ {
+  "no": 255,
+  "simplified": "衣服",
+  "pinyin": "yī fu",
+  "pinyin_plain": "yi fu",
+  "pinyin_num": "yi1 fu",
+  "pos": "noun",
+  "meaning": "clothes",
+  "alts": ""
+ },
+ {
+  "no": 256,
+  "simplified": "医生",
+  "pinyin": "yī shēng",
+  "pinyin_plain": "yi sheng",
+  "pinyin_num": "yi1 sheng1",
+  "pos": "noun",
+  "meaning": "doctor",
+  "alts": ""
+ },
+ {
+  "no": 257,
+  "simplified": "医院",
+  "pinyin": "yī yuàn",
+  "pinyin_plain": "yi yuan",
+  "pinyin_num": "yi1 yuan4",
+  "pos": "noun",
+  "meaning": "hospital",
+  "alts": ""
+ },
+ {
+  "no": 258,
+  "simplified": "一半",
+  "pinyin": "yí bàn",
+  "pinyin_plain": "yi ban",
+  "pinyin_num": "yi2 ban4",
+  "pos": "number",
+  "meaning": "half",
+  "alts": ""
+ },
+ {
+  "no": 259,
+  "simplified": "一下",
+  "pinyin": "yí xià",
+  "pinyin_plain": "yi xia",
+  "pinyin_num": "yi2 xia4",
+  "pos": "number-classifier, (adverb)",
+  "meaning": "once, a little; (in a short while)",
+  "alts": ""
+ },
+ {
+  "no": 260,
+  "simplified": "椅子",
+  "pinyin": "yǐ zi",
+  "pinyin_plain": "yi zi",
+  "pinyin_num": "yi3 zi",
+  "pos": "noun",
+  "meaning": "chair",
+  "alts": ""
+ },
+ {
+  "no": 261,
+  "simplified": "一点儿",
+  "pinyin": "yì diǎnr",
+  "pinyin_plain": "yi dianr",
+  "pinyin_num": "yi4 dian3r",
+  "pos": "number-classifier",
+  "meaning": "a little, a bit",
+  "alts": ""
+ },
+ {
+  "no": 262,
+  "simplified": "一些",
+  "pinyin": "yì xiē",
+  "pinyin_plain": "yi xie",
+  "pinyin_num": "yi4 xie1",
+  "pos": "number-classifier",
+  "meaning": "some, a few",
+  "alts": ""
+ },
+ {
+  "no": 263,
+  "simplified": "有",
+  "pinyin": "yǒu",
+  "pinyin_plain": "you",
+  "pinyin_num": "you3",
+  "pos": "verb",
+  "meaning": "to have, to exist",
+  "alts": ""
+ },
+ {
+  "no": 264,
+  "simplified": "有的",
+  "pinyin": "yǒu de",
+  "pinyin_plain": "you de",
+  "pinyin_num": "you3 de",
+  "pos": "pronoun",
+  "meaning": "some of them",
+  "alts": ""
+ },
+ {
+  "no": 265,
+  "simplified": "有点儿",
+  "pinyin": "yǒu diǎnr",
+  "pinyin_plain": "you dianr",
+  "pinyin_num": "you3 dian3r",
+  "pos": "adverb",
+  "meaning": "a little, slightly",
+  "alts": ""
+ },
+ {
+  "no": 266,
+  "simplified": "有些",
+  "pinyin": "yǒu xiē",
+  "pinyin_plain": "you xie",
+  "pinyin_num": "you3 xie1",
+  "pos": "pronoun, (adverb)",
+  "meaning": "some, some of; (somewhat, rather)",
+  "alts": ""
+ },
+ {
+  "no": 267,
+  "simplified": "雨",
+  "pinyin": "yǔ",
+  "pinyin_plain": "yu",
+  "pinyin_num": "yu3",
+  "pos": "noun",
+  "meaning": "rain",
+  "alts": ""
+ },
+ {
+  "no": 268,
+  "simplified": "元",
+  "pinyin": "yuán",
+  "pinyin_plain": "yuan",
+  "pinyin_num": "yuan2",
+  "pos": "classifier",
+  "meaning": "yuan",
+  "alts": ""
+ },
+ {
+  "no": 269,
+  "simplified": "月",
+  "pinyin": "yuè",
+  "pinyin_plain": "yue",
+  "pinyin_num": "yue4",
+  "pos": "noun",
+  "meaning": "month; moon",
+  "alts": ""
+ },
+ {
+  "no": 270,
+  "simplified": "再",
+  "pinyin": "zài",
+  "pinyin_plain": "zai",
+  "pinyin_num": "zai4",
+  "pos": "adverb",
+  "meaning": "again, then",
+  "alts": ""
+ },
+ {
+  "no": 271,
+  "simplified": "在",
+  "pinyin": "zài",
+  "pinyin_plain": "zai",
+  "pinyin_num": "zai4",
+  "pos": "verb, preposition, adverb",
+  "meaning": "to be at; in; at",
+  "alts": ""
+ },
+ {
+  "no": 272,
+  "simplified": "再见",
+  "pinyin": "zài jiàn",
+  "pinyin_plain": "zai jian",
+  "pinyin_num": "zai4 jian4",
+  "pos": "verb",
+  "meaning": "goodbye",
+  "alts": ""
+ },
+ {
+  "no": 273,
+  "simplified": "早",
+  "pinyin": "zǎo",
+  "pinyin_plain": "zao",
+  "pinyin_num": "zao3",
+  "pos": "adjective",
+  "meaning": "early",
+  "alts": ""
+ },
+ {
+  "no": 274,
+  "simplified": "早饭",
+  "pinyin": "zǎo fàn",
+  "pinyin_plain": "zao fan",
+  "pinyin_num": "zao3 fan4",
+  "pos": "noun",
+  "meaning": "breakfast",
+  "alts": ""
+ },
+ {
+  "no": 275,
+  "simplified": "早上",
+  "pinyin": "zǎo shang",
+  "pinyin_plain": "zao shang",
+  "pinyin_num": "zao3 shang",
+  "pos": "noun",
+  "meaning": "early morning",
+  "alts": ""
+ },
+ {
+  "no": 276,
+  "simplified": "怎么",
+  "pinyin": "zěn me",
+  "pinyin_plain": "zen me",
+  "pinyin_num": "zen3 me",
+  "pos": "pronoun",
+  "meaning": "how",
+  "alts": ""
+ },
+ {
+  "no": 277,
+  "simplified": "怎么样",
+  "pinyin": "zěn me yàng",
+  "pinyin_plain": "zen me yang",
+  "pinyin_num": "zen3 me yang4",
+  "pos": "pronoun",
+  "meaning": "how about, what do you think",
+  "alts": ""
+ },
+ {
+  "no": 278,
+  "simplified": "找",
+  "pinyin": "zhǎo",
+  "pinyin_plain": "zhao",
+  "pinyin_num": "zhao3",
+  "pos": "verb",
+  "meaning": "to look for; to find",
+  "alts": ""
+ },
+ {
+  "no": 279,
+  "simplified": "这",
+  "pinyin": "zhè",
+  "pinyin_plain": "zhe",
+  "pinyin_num": "zhe4",
+  "pos": "pronoun",
+  "meaning": "this",
+  "alts": ""
+ },
+ {
+  "no": 280,
+  "simplified": "这边",
+  "pinyin": "zhè biān",
+  "pinyin_plain": "zhe bian",
+  "pinyin_num": "zhe4 bian1",
+  "pos": "pronoun",
+  "meaning": "this side; here",
+  "alts": ""
+ },
+ {
+  "no": 281,
+  "simplified": "这个",
+  "pinyin": "zhè ge",
+  "pinyin_plain": "zhe ge",
+  "pinyin_num": "zhe4 ge",
+  "pos": "pronoun",
+  "meaning": "this one",
+  "alts": ""
+ },
+ {
+  "no": 282,
+  "simplified": "这里",
+  "pinyin": "zhè lǐ",
+  "pinyin_plain": "zhe li",
+  "pinyin_num": "zhe4 li3",
+  "pos": "pronoun",
+  "meaning": "here",
+  "alts": ""
+ },
+ {
+  "no": 283,
+  "simplified": "这儿",
+  "pinyin": "zhèr",
+  "pinyin_plain": "zher",
+  "pinyin_num": "zhe4r",
+  "pos": "pronoun",
+  "meaning": "here (colloquial, erhua)",
+  "alts": ""
+ },
+ {
+  "no": 284,
+  "simplified": "这些",
+  "pinyin": "zhè xiē",
+  "pinyin_plain": "zhe xie",
+  "pinyin_num": "zhe4 xie1",
+  "pos": "pronoun",
+  "meaning": "these",
+  "alts": ""
+ },
+ {
+  "no": 285,
+  "simplified": "真",
+  "pinyin": "zhēn",
+  "pinyin_plain": "zhen",
+  "pinyin_num": "zhen1",
+  "pos": "adverb, (adjective)",
+  "meaning": "really; (true)",
+  "alts": ""
+ },
+ {
+  "no": 286,
+  "simplified": "正在",
+  "pinyin": "zhèng zài",
+  "pinyin_plain": "zheng zai",
+  "pinyin_num": "zheng4 zai4",
+  "pos": "adverb",
+  "meaning": "in the process of",
+  "alts": ""
+ },
+ {
+  "no": 287,
+  "simplified": "只",
+  "pinyin": "zhī",
+  "pinyin_plain": "zhi",
+  "pinyin_num": "zhi1",
+  "pos": "classifier",
+  "meaning": "measure word for animals, one of a pair",
+  "alts": "also read zhǐ — only, just, merely"
+ },
+ {
+  "no": 288,
+  "simplified": "知道",
+  "pinyin": "zhī dào",
+  "pinyin_plain": "zhi dao",
+  "pinyin_num": "zhi1 dao4",
+  "pos": "verb",
+  "meaning": "to know",
+  "alts": ""
+ },
+ {
+  "no": 289,
+  "simplified": "中国",
+  "pinyin": "Zhōng guó",
+  "pinyin_plain": "Zhong guo",
+  "pinyin_num": "zhong1 guo2",
+  "pos": "noun",
+  "meaning": "China",
+  "alts": ""
+ },
+ {
+  "no": 290,
+  "simplified": "中文",
+  "pinyin": "Zhōng wén",
+  "pinyin_plain": "Zhong wen",
+  "pinyin_num": "zhong1 wen2",
+  "pos": "noun",
+  "meaning": "Chinese (written language)",
+  "alts": ""
+ },
+ {
+  "no": 291,
+  "simplified": "中午",
+  "pinyin": "zhōng wǔ",
+  "pinyin_plain": "zhong wu",
+  "pinyin_num": "zhong1 wu3",
+  "pos": "noun",
+  "meaning": "noon",
+  "alts": ""
+ },
+ {
+  "no": 292,
+  "simplified": "中学",
+  "pinyin": "zhōng xué",
+  "pinyin_plain": "zhong xue",
+  "pinyin_num": "zhong1 xue2",
+  "pos": "noun",
+  "meaning": "middle school",
+  "alts": ""
+ },
+ {
+  "no": 293,
+  "simplified": "中学生",
+  "pinyin": "zhōng xué shēng",
+  "pinyin_plain": "zhong xue sheng",
+  "pinyin_num": "zhong1 xue2 sheng1",
+  "pos": "noun",
+  "meaning": "middle school student",
+  "alts": ""
+ },
+ {
+  "no": 294,
+  "simplified": "住",
+  "pinyin": "zhù",
+  "pinyin_plain": "zhu",
+  "pinyin_num": "zhu4",
+  "pos": "verb",
+  "meaning": "to live, to reside",
+  "alts": ""
+ },
+ {
+  "no": 295,
+  "simplified": "桌子",
+  "pinyin": "zhuō zi",
+  "pinyin_plain": "zhuo zi",
+  "pinyin_num": "zhuo1 zi",
+  "pos": "noun",
+  "meaning": "table, desk",
+  "alts": ""
+ },
+ {
+  "no": 296,
+  "simplified": "字",
+  "pinyin": "zì",
+  "pinyin_plain": "zi",
+  "pinyin_num": "zi4",
+  "pos": "noun",
+  "meaning": "character, script",
+  "alts": ""
+ },
+ {
+  "no": 297,
+  "simplified": "昨天",
+  "pinyin": "zuó tiān",
+  "pinyin_plain": "zuo tian",
+  "pinyin_num": "zuo2 tian1",
+  "pos": "noun",
+  "meaning": "yesterday",
+  "alts": ""
+ },
+ {
+  "no": 298,
+  "simplified": "坐",
+  "pinyin": "zuò",
+  "pinyin_plain": "zuo",
+  "pinyin_num": "zuo4",
+  "pos": "verb",
+  "meaning": "to sit",
+  "alts": ""
+ },
+ {
+  "no": 299,
+  "simplified": "做",
+  "pinyin": "zuò",
+  "pinyin_plain": "zuo",
+  "pinyin_num": "zuo4",
+  "pos": "verb",
+  "meaning": "to do, to make",
+  "alts": ""
+ },
+ {
+  "no": 300,
+  "simplified": "做饭",
+  "pinyin": "zuò fàn",
+  "pinyin_plain": "zuo fan",
+  "pinyin_num": "zuo4 fan4",
+  "pos": "verb",
+  "meaning": "to cook",
+  "alts": ""
+ }
+]

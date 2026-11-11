@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# OS metadata
+.DS_Store
+
+# Personal local agent guidance
+/AGENTS.md
+
+# Local credential files
+*.env
+!.env.example
+
+# HSK project: local source downloads and regenerable/intermediate artifacts
+hsk1-anki/data/raw/
+hsk1-anki/audio/
+hsk1-anki/data/mb.json
+hsk1-anki/data/hs.json
+hsk1-anki/data/merge_report.txt
