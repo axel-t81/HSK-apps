@@ -178,5 +178,1625 @@
     "simplified": "的",
     "sentence_zh": "他的汉语很好。",
     "sentence_en": "His Chinese is very good."
+  },
+  {
+    "no": 31,
+    "simplified": "第",
+    "sentence_zh": "今天是十月一号，也是我学汉语的第一天。",
+    "sentence_en": "Today is October 1, and it is also my first day studying Chinese."
+  },
+  {
+    "no": 32,
+    "simplified": "弟弟",
+    "sentence_zh": "我弟弟今年七岁。",
+    "sentence_en": "My younger brother is seven years old this year."
+  },
+  {
+    "no": 33,
+    "simplified": "点",
+    "sentence_zh": "现在几点？",
+    "sentence_en": "What time is it now?"
+  },
+  {
+    "no": 34,
+    "simplified": "店",
+    "sentence_zh": "这家店的东西不贵。",
+    "sentence_en": "The things in this shop are not expensive."
+  },
+  {
+    "no": 35,
+    "simplified": "电话",
+    "sentence_zh": "我晚上给妈妈打电话。",
+    "sentence_en": "I call my mom in the evening."
+  },
+  {
+    "no": 36,
+    "simplified": "电脑",
+    "sentence_zh": "这是我的电脑。",
+    "sentence_en": "This is my computer."
+  },
+  {
+    "no": 37,
+    "simplified": "电视",
+    "sentence_zh": "我们晚上看电视。",
+    "sentence_en": "We watch television in the evening."
+  },
+  {
+    "no": 38,
+    "simplified": "电影",
+    "sentence_zh": "这个电影很好看。",
+    "sentence_en": "This movie is very good."
+  },
+  {
+    "no": 39,
+    "simplified": "电影院",
+    "sentence_zh": "我们去电影院看电影。",
+    "sentence_en": "We are going to the cinema to watch a movie."
+  },
+  {
+    "no": 40,
+    "simplified": "东西",
+    "sentence_zh": "这些东西都是我的。",
+    "sentence_en": "These things are all mine."
+  },
+  {
+    "no": 41,
+    "simplified": "都",
+    "sentence_zh": "我和弟弟都喜欢猫。",
+    "sentence_en": "My younger brother and I both like cats."
+  },
+  {
+    "no": 42,
+    "simplified": "读",
+    "sentence_zh": "我会读这些汉字。",
+    "sentence_en": "I can read these Chinese characters."
+  },
+  {
+    "no": 43,
+    "simplified": "读书",
+    "sentence_zh": "我在房间里读书。",
+    "sentence_en": "I am reading in my room."
+  },
+  {
+    "no": 44,
+    "simplified": "对",
+    "sentence_zh": "这个字不对，你再写一下。",
+    "sentence_en": "This character is not correct; write it again."
+  },
+  {
+    "no": 45,
+    "simplified": "对不起",
+    "sentence_zh": "对不起，我来晚了。",
+    "sentence_en": "Sorry, I am late."
+  },
+  {
+    "no": 46,
+    "simplified": "多",
+    "sentence_zh": "这里的人很多。",
+    "sentence_en": "There are a lot of people here."
+  },
+  {
+    "no": 47,
+    "simplified": "多少",
+    "sentence_zh": "你有多少本书？",
+    "sentence_en": "How many books do you have?"
+  },
+  {
+    "no": 48,
+    "simplified": "儿子",
+    "sentence_zh": "她的儿子是小学生。",
+    "sentence_en": "Her son is a primary school student."
+  },
+  {
+    "no": 49,
+    "simplified": "二",
+    "sentence_zh": "他今年二十二岁。",
+    "sentence_en": "He is twenty-two years old this year."
+  },
+  {
+    "no": 50,
+    "simplified": "饭",
+    "sentence_zh": "我们在饭店吃饭。",
+    "sentence_en": "We are eating at a restaurant."
+  },
+  {
+    "no": 51,
+    "simplified": "饭店",
+    "sentence_zh": "这家饭店的菜很好吃。",
+    "sentence_en": "The food at this restaurant is delicious."
+  },
+  {
+    "no": 52,
+    "simplified": "房间",
+    "sentence_zh": "他的房间不大。",
+    "sentence_en": "His room is not big."
+  },
+  {
+    "no": 53,
+    "simplified": "非常",
+    "sentence_zh": "今天的天气非常好。",
+    "sentence_en": "The weather is very good today."
+  },
+  {
+    "no": 54,
+    "simplified": "飞机",
+    "sentence_zh": "我明天坐飞机去中国。",
+    "sentence_en": "I am flying to China tomorrow."
+  },
+  {
+    "no": 55,
+    "simplified": "分",
+    "sentence_zh": "现在八点十分。",
+    "sentence_en": "It is 8:10 now."
+  },
+  {
+    "no": 56,
+    "simplified": "分钟",
+    "sentence_zh": "我中午休息二十分钟。",
+    "sentence_en": "I take a twenty-minute break at noon."
+  },
+  {
+    "no": 57,
+    "simplified": "高兴",
+    "sentence_zh": "今天我很高兴。",
+    "sentence_en": "I am very happy today."
+  },
+  {
+    "no": 58,
+    "simplified": "歌",
+    "sentence_zh": "这首歌很好听。",
+    "sentence_en": "This song sounds lovely."
+  },
+  {
+    "no": 59,
+    "simplified": "哥哥",
+    "sentence_zh": "我哥哥是大学生。",
+    "sentence_en": "My older brother is a university student."
+  },
+  {
+    "no": 60,
+    "simplified": "个",
+    "sentence_zh": "我要一个苹果。",
+    "sentence_en": "I would like an apple."
+  },
+  {
+    "no": 61,
+    "simplified": "给",
+    "sentence_zh": "我给弟弟一本书。",
+    "sentence_en": "I give my younger brother a book."
+  },
+  {
+    "no": 62,
+    "simplified": "公司",
+    "sentence_zh": "爸爸在一家公司工作。",
+    "sentence_en": "Dad works at a company."
+  },
+  {
+    "no": 63,
+    "simplified": "工作",
+    "sentence_zh": "你明天要工作吗？",
+    "sentence_en": "Do you have to work tomorrow?"
+  },
+  {
+    "no": 64,
+    "simplified": "狗",
+    "sentence_zh": "我们家有一只狗。",
+    "sentence_en": "We have a dog at home."
+  },
+  {
+    "no": 65,
+    "simplified": "贵",
+    "sentence_zh": "这件衣服太贵了。",
+    "sentence_en": "This piece of clothing is too expensive."
+  },
+  {
+    "no": 66,
+    "simplified": "国",
+    "sentence_zh": "你想去哪个国家？",
+    "sentence_en": "Which country do you want to go to?"
+  },
+  {
+    "no": 67,
+    "simplified": "还",
+    "sentence_zh": "我还在工作。",
+    "sentence_en": "I am still working."
+  },
+  {
+    "no": 68,
+    "simplified": "孩子",
+    "sentence_zh": "这两个孩子是学生。",
+    "sentence_en": "These two children are students."
+  },
+  {
+    "no": 69,
+    "simplified": "汉语",
+    "sentence_zh": "我会说一点儿汉语。",
+    "sentence_en": "I can speak a little Chinese."
+  },
+  {
+    "no": 70,
+    "simplified": "汉字",
+    "sentence_zh": "这个汉字怎么读？",
+    "sentence_en": "How do you read this Chinese character?"
+  },
+  {
+    "no": 71,
+    "simplified": "好",
+    "sentence_zh": "今天天气很好。",
+    "sentence_en": "The weather is very good today."
+  },
+  {
+    "no": 72,
+    "simplified": "好吃",
+    "sentence_zh": "妈妈做的饭很好吃。",
+    "sentence_en": "The food my mom makes is delicious."
+  },
+  {
+    "no": 73,
+    "simplified": "好看",
+    "sentence_zh": "这件衣服很好看。",
+    "sentence_en": "This piece of clothing looks very nice."
+  },
+  {
+    "no": 74,
+    "simplified": "好听",
+    "sentence_zh": "她唱的歌很好听。",
+    "sentence_en": "The songs she sings sound lovely."
+  },
+  {
+    "no": 75,
+    "simplified": "好玩儿",
+    "sentence_zh": "这个电影很好玩儿。",
+    "sentence_en": "This movie is a lot of fun."
+  },
+  {
+    "no": 76,
+    "simplified": "号",
+    "sentence_zh": "今天几月几号？",
+    "sentence_en": "What is today's date?"
+  },
+  {
+    "no": 77,
+    "simplified": "喝",
+    "sentence_zh": "我不喝茶，我喝牛奶。",
+    "sentence_en": "I do not drink tea; I drink milk."
+  },
+  {
+    "no": 78,
+    "simplified": "和",
+    "sentence_zh": "我和朋友去看电影。",
+    "sentence_en": "My friend and I are going to watch a movie."
+  },
+  {
+    "no": 79,
+    "simplified": "很",
+    "sentence_zh": "老师今天很忙。",
+    "sentence_en": "The teacher is very busy today."
+  },
+  {
+    "no": 80,
+    "simplified": "后",
+    "sentence_zh": "学校后边有一个书店。",
+    "sentence_en": "There is a bookstore behind the school."
+  },
+  {
+    "no": 81,
+    "simplified": "回",
+    "sentence_zh": "你几点回家？",
+    "sentence_en": "What time are you going home?"
+  },
+  {
+    "no": 82,
+    "simplified": "会",
+    "sentence_zh": "你会说汉语吗？",
+    "sentence_en": "Can you speak Chinese?"
+  },
+  {
+    "no": 83,
+    "simplified": "火车",
+    "sentence_zh": "火车九点到。",
+    "sentence_en": "The train arrives at nine o'clock."
+  },
+  {
+    "no": 84,
+    "simplified": "鸡蛋",
+    "sentence_zh": "他早饭吃了两个鸡蛋。",
+    "sentence_en": "He ate two eggs for breakfast."
+  },
+  {
+    "no": 85,
+    "simplified": "几",
+    "sentence_zh": "你家有几口人？",
+    "sentence_en": "How many people are there in your family?"
+  },
+  {
+    "no": 86,
+    "simplified": "家",
+    "sentence_zh": "我家在学校后边。",
+    "sentence_en": "My home is behind the school."
+  },
+  {
+    "no": 87,
+    "simplified": "家人",
+    "sentence_zh": "我的家人都很好。",
+    "sentence_en": "My family members are all doing well."
+  },
+  {
+    "no": 88,
+    "simplified": "见",
+    "sentence_zh": "明天见！",
+    "sentence_en": "See you tomorrow!"
+  },
+  {
+    "no": 89,
+    "simplified": "件",
+    "sentence_zh": "我今天买了三件衣服。",
+    "sentence_en": "I bought three pieces of clothing today."
+  },
+  {
+    "no": 90,
+    "simplified": "饺子",
+    "sentence_zh": "我们中午吃饺子。",
+    "sentence_en": "We are eating dumplings for lunch."
+  },
+  {
+    "no": 91,
+    "simplified": "叫",
+    "sentence_zh": "你叫什么名字？",
+    "sentence_en": "What is your name?"
+  },
+  {
+    "no": 92,
+    "simplified": "姐姐",
+    "sentence_zh": "我姐姐会开车。",
+    "sentence_en": "My older sister can drive."
+  },
+  {
+    "no": 93,
+    "simplified": "今年",
+    "sentence_zh": "我今年二十岁。",
+    "sentence_en": "I am twenty years old this year."
+  },
+  {
+    "no": 94,
+    "simplified": "今天",
+    "sentence_zh": "我们今天不上课。",
+    "sentence_en": "We do not have class today."
+  },
+  {
+    "no": 95,
+    "simplified": "九",
+    "sentence_zh": "现在九点。",
+    "sentence_en": "It is nine o'clock now."
+  },
+  {
+    "no": 96,
+    "simplified": "觉得",
+    "sentence_zh": "我觉得这家饭店很好。",
+    "sentence_en": "I think this restaurant is very good."
+  },
+  {
+    "no": 97,
+    "simplified": "开",
+    "sentence_zh": "请开一下门。",
+    "sentence_en": "Please open the door."
+  },
+  {
+    "no": 98,
+    "simplified": "开车",
+    "sentence_zh": "我爸爸会开车。",
+    "sentence_en": "My dad can drive."
+  },
+  {
+    "no": 99,
+    "simplified": "看",
+    "sentence_zh": "我想看那个电影。",
+    "sentence_en": "I want to watch that movie."
+  },
+  {
+    "no": 100,
+    "simplified": "看病",
+    "sentence_zh": "他生病了，现在在医院看病。",
+    "sentence_en": "He is sick and is seeing a doctor at the hospital now."
+  },
+  {
+    "no": 101,
+    "simplified": "看见",
+    "sentence_zh": "我看见老师了。",
+    "sentence_en": "I saw the teacher."
+  },
+  {
+    "no": 102,
+    "simplified": "可以",
+    "sentence_zh": "我可以坐这儿吗？",
+    "sentence_en": "May I sit here?"
+  },
+  {
+    "no": 103,
+    "simplified": "课",
+    "sentence_zh": "我们上午有汉语课。",
+    "sentence_en": "We have a Chinese class in the morning."
+  },
+  {
+    "no": 104,
+    "simplified": "口",
+    "sentence_zh": "我们家有四口人。",
+    "sentence_en": "There are four people in our family."
+  },
+  {
+    "no": 105,
+    "simplified": "块",
+    "sentence_zh": "这个包子三块钱。",
+    "sentence_en": "This steamed bun costs three yuan."
+  },
+  {
+    "no": 106,
+    "simplified": "来",
+    "sentence_zh": "你明天来我家吧。",
+    "sentence_en": "Come to my home tomorrow."
+  },
+  {
+    "no": 107,
+    "simplified": "老师",
+    "sentence_zh": "我们的老师是中国人。",
+    "sentence_en": "Our teacher is Chinese."
+  },
+  {
+    "no": 108,
+    "simplified": "了",
+    "sentence_zh": "我吃了两个包子。",
+    "sentence_en": "I ate two steamed buns."
+  },
+  {
+    "no": 109,
+    "simplified": "冷",
+    "sentence_zh": "今天很冷，你多穿一点儿衣服。",
+    "sentence_en": "It is very cold today; put on some more clothes."
+  },
+  {
+    "no": 110,
+    "simplified": "里",
+    "sentence_zh": "我的书在房间里。",
+    "sentence_en": "My book is in the room."
+  },
+  {
+    "no": 111,
+    "simplified": "两",
+    "sentence_zh": "我有两个弟弟。",
+    "sentence_en": "I have two younger brothers."
+  },
+  {
+    "no": 112,
+    "simplified": "零",
+    "sentence_zh": "这本书一百零八块。",
+    "sentence_en": "This book costs 108 yuan."
+  },
+  {
+    "no": 113,
+    "simplified": "六",
+    "sentence_zh": "我星期六不上班。",
+    "sentence_en": "I do not work on Saturdays."
+  },
+  {
+    "no": 114,
+    "simplified": "妈妈",
+    "sentence_zh": "我妈妈是医生。",
+    "sentence_en": "My mom is a doctor."
+  },
+  {
+    "no": 115,
+    "simplified": "吗",
+    "sentence_zh": "你是学生吗？",
+    "sentence_en": "Are you a student?"
+  },
+  {
+    "no": 116,
+    "simplified": "买",
+    "sentence_zh": "我想买这件衣服。",
+    "sentence_en": "I want to buy this piece of clothing."
+  },
+  {
+    "no": 117,
+    "simplified": "卖",
+    "sentence_zh": "这家商店卖水果。",
+    "sentence_en": "This store sells fruit."
+  },
+  {
+    "no": 118,
+    "simplified": "忙",
+    "sentence_zh": "爸爸今天很忙。",
+    "sentence_en": "Dad is very busy today."
+  },
+  {
+    "no": 119,
+    "simplified": "猫",
+    "sentence_zh": "我家有一只小猫。",
+    "sentence_en": "I have a little cat at home."
+  },
+  {
+    "no": 120,
+    "simplified": "没关系",
+    "sentence_zh": "没关系，你明天再来吧。",
+    "sentence_en": "It is okay; come back tomorrow."
+  },
+  {
+    "no": 121,
+    "simplified": "没事",
+    "sentence_zh": "他昨天病了，今天没事了。",
+    "sentence_en": "He was sick yesterday, but he's fine today."
+  },
+  {
+    "no": 122,
+    "simplified": "没有",
+    "sentence_zh": "我没有时间。",
+    "sentence_en": "I don't have time."
+  },
+  {
+    "no": 123,
+    "simplified": "妹妹",
+    "sentence_zh": "我妹妹今年八岁。",
+    "sentence_en": "My younger sister is eight years old this year."
+  },
+  {
+    "no": 124,
+    "simplified": "们",
+    "sentence_zh": "我们都很喜欢中文歌。",
+    "sentence_en": "We all really like Chinese songs."
+  },
+  {
+    "no": 125,
+    "simplified": "米饭",
+    "sentence_zh": "我想吃米饭。",
+    "sentence_en": "I'd like to eat rice."
+  },
+  {
+    "no": 126,
+    "simplified": "面包",
+    "sentence_zh": "这个面包很好吃。",
+    "sentence_en": "This bread is delicious."
+  },
+  {
+    "no": 127,
+    "simplified": "面条儿",
+    "sentence_zh": "他中午吃面条儿。",
+    "sentence_en": "He eats noodles for lunch."
+  },
+  {
+    "no": 128,
+    "simplified": "明年",
+    "sentence_zh": "我明年想去中国。",
+    "sentence_en": "I want to go to China next year."
+  },
+  {
+    "no": 129,
+    "simplified": "明天",
+    "sentence_zh": "我们明天见。",
+    "sentence_en": "See you tomorrow."
+  },
+  {
+    "no": 130,
+    "simplified": "名字",
+    "sentence_zh": "你叫什么名字？",
+    "sentence_en": "What's your name?"
+  },
+  {
+    "no": 131,
+    "simplified": "哪",
+    "sentence_zh": "你是哪国人？",
+    "sentence_en": "What country are you from?"
+  },
+  {
+    "no": 132,
+    "simplified": "哪个",
+    "sentence_zh": "你喜欢哪个？",
+    "sentence_en": "Which one do you like?"
+  },
+  {
+    "no": 133,
+    "simplified": "哪里",
+    "sentence_zh": "书店在哪里？",
+    "sentence_en": "Where is the bookstore?"
+  },
+  {
+    "no": 134,
+    "simplified": "哪儿",
+    "sentence_zh": "你去哪儿？",
+    "sentence_en": "Where are you going?"
+  },
+  {
+    "no": 135,
+    "simplified": "哪些",
+    "sentence_zh": "哪些水果便宜？",
+    "sentence_en": "Which fruits are cheap?"
+  },
+  {
+    "no": 136,
+    "simplified": "那",
+    "sentence_zh": "那是我的车。",
+    "sentence_en": "That is my car."
+  },
+  {
+    "no": 137,
+    "simplified": "那边",
+    "sentence_zh": "学校在那边。",
+    "sentence_en": "The school is over there."
+  },
+  {
+    "no": 138,
+    "simplified": "那个",
+    "sentence_zh": "我要那个。",
+    "sentence_en": "I want that one."
+  },
+  {
+    "no": 139,
+    "simplified": "那里",
+    "sentence_zh": "那里有很多人。",
+    "sentence_en": "There are many people there."
+  },
+  {
+    "no": 140,
+    "simplified": "那儿",
+    "sentence_zh": "我的学校在那儿。",
+    "sentence_en": "My school is over there."
+  },
+  {
+    "no": 141,
+    "simplified": "那些",
+    "sentence_zh": "那些衣服很漂亮。",
+    "sentence_en": "Those clothes are very pretty."
+  },
+  {
+    "no": 142,
+    "simplified": "男",
+    "sentence_zh": "那个男老师很好。",
+    "sentence_en": "That male teacher is very nice."
+  },
+  {
+    "no": 143,
+    "simplified": "男朋友",
+    "sentence_zh": "这是我的男朋友。",
+    "sentence_en": "This is my boyfriend."
+  },
+  {
+    "no": 144,
+    "simplified": "呢",
+    "sentence_zh": "我不忙，你呢？",
+    "sentence_en": "I'm not busy. How about you?"
+  },
+  {
+    "no": 145,
+    "simplified": "能",
+    "sentence_zh": "我今天能来。",
+    "sentence_en": "I can come today."
+  },
+  {
+    "no": 146,
+    "simplified": "你",
+    "sentence_zh": "你认识他吗？",
+    "sentence_en": "Do you know him?"
+  },
+  {
+    "no": 147,
+    "simplified": "你好",
+    "sentence_zh": "你好，很高兴认识你。",
+    "sentence_en": "Hello, it's nice to meet you."
+  },
+  {
+    "no": 148,
+    "simplified": "你们",
+    "sentence_zh": "你们都想吃什么？",
+    "sentence_en": "What would you all like to eat?"
+  },
+  {
+    "no": 149,
+    "simplified": "年",
+    "sentence_zh": "我在中国住了两年。",
+    "sentence_en": "I lived in China for two years."
+  },
+  {
+    "no": 150,
+    "simplified": "您",
+    "sentence_zh": "您好，请坐。",
+    "sentence_en": "Hello, please sit."
+  },
+  {
+    "no": 151,
+    "simplified": "牛奶",
+    "sentence_zh": "孩子早上喝牛奶。",
+    "sentence_en": "The child drinks milk in the morning."
+  },
+  {
+    "no": 152,
+    "simplified": "女",
+    "sentence_zh": "那个女老师很好。",
+    "sentence_en": "That female teacher is very nice."
+  },
+  {
+    "no": 153,
+    "simplified": "女儿",
+    "sentence_zh": "我女儿今年七岁。",
+    "sentence_en": "My daughter is seven years old this year."
+  },
+  {
+    "no": 154,
+    "simplified": "女朋友",
+    "sentence_zh": "他的女朋友是医生。",
+    "sentence_en": "His girlfriend is a doctor."
+  },
+  {
+    "no": 155,
+    "simplified": "女士",
+    "sentence_zh": "女士，请问您是老师吗？",
+    "sentence_en": "Excuse me, ma'am, are you a teacher?"
+  },
+  {
+    "no": 156,
+    "simplified": "朋友",
+    "sentence_zh": "我和朋友去看电影。",
+    "sentence_en": "I'm going to see a movie with a friend."
+  },
+  {
+    "no": 157,
+    "simplified": "便宜",
+    "sentence_zh": "这些苹果很便宜。",
+    "sentence_en": "These apples are very cheap."
+  },
+  {
+    "no": 158,
+    "simplified": "漂亮",
+    "sentence_zh": "你的衣服很漂亮。",
+    "sentence_en": "Your clothes are very pretty."
+  },
+  {
+    "no": 159,
+    "simplified": "苹果",
+    "sentence_zh": "我买了三个苹果。",
+    "sentence_en": "I bought three apples."
+  },
+  {
+    "no": 160,
+    "simplified": "七",
+    "sentence_zh": "现在七点。",
+    "sentence_en": "It's seven o'clock now."
+  },
+  {
+    "no": 161,
+    "simplified": "起床",
+    "sentence_zh": "我早上六点起床。",
+    "sentence_en": "I get up at six in the morning."
+  },
+  {
+    "no": 162,
+    "simplified": "千",
+    "sentence_zh": "那件衣服三千块。",
+    "sentence_en": "That item of clothing costs three thousand yuan."
+  },
+  {
+    "no": 163,
+    "simplified": "前",
+    "sentence_zh": "我七点前给你打电话。",
+    "sentence_en": "I'll call you before seven."
+  },
+  {
+    "no": 164,
+    "simplified": "钱",
+    "sentence_zh": "我没有多少钱。",
+    "sentence_en": "I don't have much money."
+  },
+  {
+    "no": 165,
+    "simplified": "请",
+    "sentence_zh": "请坐。",
+    "sentence_en": "Please sit."
+  },
+  {
+    "no": 166,
+    "simplified": "请问",
+    "sentence_zh": "请问，书店在哪儿？",
+    "sentence_en": "Excuse me, where is the bookstore?"
+  },
+  {
+    "no": 167,
+    "simplified": "去",
+    "sentence_zh": "我想去看电影。",
+    "sentence_en": "I want to go see a movie."
+  },
+  {
+    "no": 168,
+    "simplified": "去年",
+    "sentence_zh": "他去年来中国了。",
+    "sentence_en": "He came to China last year."
+  },
+  {
+    "no": 169,
+    "simplified": "热",
+    "sentence_zh": "今天很热。",
+    "sentence_en": "It's very hot today."
+  },
+  {
+    "no": 170,
+    "simplified": "人",
+    "sentence_zh": "那个人是谁？",
+    "sentence_en": "Who is that person?"
+  },
+  {
+    "no": 171,
+    "simplified": "认识",
+    "sentence_zh": "我认识他的家人。",
+    "sentence_en": "I know his family."
+  },
+  {
+    "no": 172,
+    "simplified": "日",
+    "sentence_zh": "我们星期日去看电影。",
+    "sentence_en": "We're going to see a movie on Sunday."
+  },
+  {
+    "no": 173,
+    "simplified": "三",
+    "sentence_zh": "我有三个姐姐。",
+    "sentence_en": "I have three older sisters."
+  },
+  {
+    "no": 174,
+    "simplified": "商店",
+    "sentence_zh": "商店里没有苹果。",
+    "sentence_en": "There are no apples in the store."
+  },
+  {
+    "no": 175,
+    "simplified": "上",
+    "sentence_zh": "我们上车吧。",
+    "sentence_en": "Let's get in the car."
+  },
+  {
+    "no": 176,
+    "simplified": "上班",
+    "sentence_zh": "爸爸今天不上班。",
+    "sentence_en": "Dad isn't going to work today."
+  },
+  {
+    "no": 177,
+    "simplified": "上课",
+    "sentence_zh": "我们正在上课。",
+    "sentence_en": "We are in class."
+  },
+  {
+    "no": 178,
+    "simplified": "上午",
+    "sentence_zh": "我上午学习汉语。",
+    "sentence_en": "I study Chinese in the morning."
+  },
+  {
+    "no": 179,
+    "simplified": "上学",
+    "sentence_zh": "妹妹今天不想上学。",
+    "sentence_en": "My younger sister doesn't want to go to school today."
+  },
+  {
+    "no": 180,
+    "simplified": "少",
+    "sentence_zh": "今天店里人很少。",
+    "sentence_en": "There are very few people in the shop today."
+  },
+  {
+    "no": 181,
+    "simplified": "谁",
+    "sentence_zh": "那个老师是谁？",
+    "sentence_en": "Who is that teacher?"
+  },
+  {
+    "no": 182,
+    "simplified": "什么",
+    "sentence_zh": "你想吃什么？",
+    "sentence_en": "What do you want to eat?"
+  },
+  {
+    "no": 183,
+    "simplified": "生病",
+    "sentence_zh": "孩子生病了。",
+    "sentence_en": "The child is sick."
+  },
+  {
+    "no": 184,
+    "simplified": "十",
+    "sentence_zh": "我有十本书。",
+    "sentence_en": "I have ten books."
+  },
+  {
+    "no": 185,
+    "simplified": "时候",
+    "sentence_zh": "你什么时候来？",
+    "sentence_en": "When are you coming?"
+  },
+  {
+    "no": 186,
+    "simplified": "时间",
+    "sentence_zh": "你现在有时间吗？",
+    "sentence_en": "Do you have time now?"
+  },
+  {
+    "no": 187,
+    "simplified": "事",
+    "sentence_zh": "他今天有事，不来上课。",
+    "sentence_en": "He has something to do today and won't come to class."
+  },
+  {
+    "no": 188,
+    "simplified": "是",
+    "sentence_zh": "她是我的老师。",
+    "sentence_en": "She is my teacher."
+  },
+  {
+    "no": 189,
+    "simplified": "手机",
+    "sentence_zh": "这是我的新手机。",
+    "sentence_en": "This is my new cell phone."
+  },
+  {
+    "no": 190,
+    "simplified": "书",
+    "sentence_zh": "我很喜欢这本书。",
+    "sentence_en": "I really like this book."
+  },
+  {
+    "no": 191,
+    "simplified": "书店",
+    "sentence_zh": "书店里有很多人。",
+    "sentence_en": "There are many people in the bookstore."
+  },
+  {
+    "no": 192,
+    "simplified": "水",
+    "sentence_zh": "我想喝一点儿水。",
+    "sentence_en": "I'd like to drink a little water."
+  },
+  {
+    "no": 193,
+    "simplified": "水果",
+    "sentence_zh": "妈妈买了很多水果。",
+    "sentence_en": "Mom bought a lot of fruit."
+  },
+  {
+    "no": 194,
+    "simplified": "睡",
+    "sentence_zh": "我今天要早睡。",
+    "sentence_en": "I'm going to bed early tonight."
+  },
+  {
+    "no": 195,
+    "simplified": "睡觉",
+    "sentence_zh": "我晚上十一点睡觉。",
+    "sentence_en": "I go to bed at eleven in the evening."
+  },
+  {
+    "no": 196,
+    "simplified": "说",
+    "sentence_zh": "他会说汉语。",
+    "sentence_en": "He can speak Chinese."
+  },
+  {
+    "no": 197,
+    "simplified": "说话",
+    "sentence_zh": "上课的时候不要说话。",
+    "sentence_en": "Don't talk during class."
+  },
+  {
+    "no": 198,
+    "simplified": "四",
+    "sentence_zh": "我家有四口人。",
+    "sentence_en": "There are four people in my family."
+  },
+  {
+    "no": 199,
+    "simplified": "岁",
+    "sentence_zh": "我女儿六岁。",
+    "sentence_en": "My daughter is six years old."
+  },
+  {
+    "no": 200,
+    "simplified": "他",
+    "sentence_zh": "他是我的哥哥。",
+    "sentence_en": "He is my older brother."
+  },
+  {
+    "no": 201,
+    "simplified": "它",
+    "sentence_zh": "它是一只猫。",
+    "sentence_en": "It is a cat."
+  },
+  {
+    "no": 202,
+    "simplified": "她",
+    "sentence_zh": "她是我的姐姐。",
+    "sentence_en": "She is my older sister."
+  },
+  {
+    "no": 203,
+    "simplified": "他们",
+    "sentence_zh": "他们都是大学生。",
+    "sentence_en": "They are all university students."
+  },
+  {
+    "no": 204,
+    "simplified": "它们",
+    "sentence_zh": "它们是我的电脑和手机。",
+    "sentence_en": "They are my computer and cell phone."
+  },
+  {
+    "no": 205,
+    "simplified": "她们",
+    "sentence_zh": "她们是我的朋友。",
+    "sentence_en": "They are my friends."
+  },
+  {
+    "no": 206,
+    "simplified": "太",
+    "sentence_zh": "这个太贵了。",
+    "sentence_en": "This is too expensive."
+  },
+  {
+    "no": 207,
+    "simplified": "天",
+    "sentence_zh": "我在那儿住了三天。",
+    "sentence_en": "I stayed there for three days."
+  },
+  {
+    "no": 208,
+    "simplified": "天气",
+    "sentence_zh": "今天天气很热。",
+    "sentence_en": "The weather is very hot today."
+  },
+  {
+    "no": 209,
+    "simplified": "听",
+    "sentence_zh": "我喜欢听歌。",
+    "sentence_en": "I like listening to songs."
+  },
+  {
+    "no": 210,
+    "simplified": "听见",
+    "sentence_zh": "你听见老师说话了吗？",
+    "sentence_en": "Did you hear the teacher talking?"
+  },
+  {
+    "no": 211,
+    "simplified": "同学",
+    "sentence_zh": "我的同学都很喜欢汉语。",
+    "sentence_en": "My classmates all like Chinese."
+  },
+  {
+    "no": 212,
+    "simplified": "外",
+    "sentence_zh": "他在车外。",
+    "sentence_en": "He is outside the car."
+  },
+  {
+    "no": 213,
+    "simplified": "外边",
+    "sentence_zh": "外边很冷，请进来。",
+    "sentence_en": "It is cold outside; please come in."
+  },
+  {
+    "no": 214,
+    "simplified": "玩",
+    "sentence_zh": "孩子们喜欢在这儿玩。",
+    "sentence_en": "The children like playing here."
+  },
+  {
+    "no": 215,
+    "simplified": "晚",
+    "sentence_zh": "我今天起床很晚。",
+    "sentence_en": "I got up very late today."
+  },
+  {
+    "no": 216,
+    "simplified": "晚饭",
+    "sentence_zh": "我们七点吃晚饭。",
+    "sentence_en": "We eat dinner at seven o'clock."
+  },
+  {
+    "no": 217,
+    "simplified": "晚上",
+    "sentence_zh": "我晚上在家看电视。",
+    "sentence_en": "I watch TV at home in the evening."
+  },
+  {
+    "no": 218,
+    "simplified": "喂",
+    "sentence_zh": "喂，请问您是谁？",
+    "sentence_en": "Hello, who is this?"
+  },
+  {
+    "no": 219,
+    "simplified": "问",
+    "sentence_zh": "我想问老师一个问题。",
+    "sentence_en": "I want to ask the teacher a question."
+  },
+  {
+    "no": 220,
+    "simplified": "问题",
+    "sentence_zh": "我有一个问题。",
+    "sentence_en": "I have a question."
+  },
+  {
+    "no": 221,
+    "simplified": "我",
+    "sentence_zh": "我是大学生。",
+    "sentence_en": "I am a university student."
+  },
+  {
+    "no": 222,
+    "simplified": "我们",
+    "sentence_zh": "我们都是学生。",
+    "sentence_en": "We are all students."
+  },
+  {
+    "no": 223,
+    "simplified": "五",
+    "sentence_zh": "我有五个苹果。",
+    "sentence_en": "I have five apples."
+  },
+  {
+    "no": 224,
+    "simplified": "午饭",
+    "sentence_zh": "他中午十二点吃午饭。",
+    "sentence_en": "He eats lunch at twelve o'clock."
+  },
+  {
+    "no": 225,
+    "simplified": "喜欢",
+    "sentence_zh": "我妹妹喜欢唱歌。",
+    "sentence_en": "My younger sister likes to sing."
+  },
+  {
+    "no": 226,
+    "simplified": "下",
+    "sentence_zh": "书在椅子下面。",
+    "sentence_en": "The book is under the chair."
+  },
+  {
+    "no": 227,
+    "simplified": "下雨",
+    "sentence_zh": "外面下雨了。",
+    "sentence_en": "It is raining outside."
+  },
+  {
+    "no": 228,
+    "simplified": "下班",
+    "sentence_zh": "我爸爸六点下班。",
+    "sentence_en": "My dad gets off work at six o'clock."
+  },
+  {
+    "no": 229,
+    "simplified": "下课",
+    "sentence_zh": "我们下午四点下课。",
+    "sentence_en": "We finish class at four in the afternoon."
+  },
+  {
+    "no": 230,
+    "simplified": "下午",
+    "sentence_zh": "下午我要去看病。",
+    "sentence_en": "I am going to see a doctor this afternoon."
+  },
+  {
+    "no": 231,
+    "simplified": "先生",
+    "sentence_zh": "王先生是我们的老师。",
+    "sentence_en": "Mr. Wang is our teacher."
+  },
+  {
+    "no": 232,
+    "simplified": "现在",
+    "sentence_zh": "我现在在超市。",
+    "sentence_en": "I am at the supermarket now."
+  },
+  {
+    "no": 233,
+    "simplified": "想",
+    "sentence_zh": "我想买一件新衣服。",
+    "sentence_en": "I want to buy a new piece of clothing."
+  },
+  {
+    "no": 234,
+    "simplified": "小",
+    "sentence_zh": "这只猫很小。",
+    "sentence_en": "This cat is very small."
+  },
+  {
+    "no": 235,
+    "simplified": "小朋友",
+    "sentence_zh": "那个小朋友是我弟弟。",
+    "sentence_en": "That child is my younger brother."
+  },
+  {
+    "no": 236,
+    "simplified": "小时",
+    "sentence_zh": "我上午学习了两个小时。",
+    "sentence_en": "I studied for two hours this morning."
+  },
+  {
+    "no": 237,
+    "simplified": "小学",
+    "sentence_zh": "我妹妹上小学。",
+    "sentence_en": "My younger sister attends elementary school."
+  },
+  {
+    "no": 238,
+    "simplified": "小学生",
+    "sentence_zh": "他是小学生。",
+    "sentence_en": "He is an elementary school student."
+  },
+  {
+    "no": 239,
+    "simplified": "些",
+    "sentence_zh": "这些苹果很好吃。",
+    "sentence_en": "These apples are delicious."
+  },
+  {
+    "no": 240,
+    "simplified": "写",
+    "sentence_zh": "我会写这个字。",
+    "sentence_en": "I can write this character."
+  },
+  {
+    "no": 241,
+    "simplified": "谢谢",
+    "sentence_zh": "谢谢你，老师。",
+    "sentence_en": "Thank you, teacher."
+  },
+  {
+    "no": 242,
+    "simplified": "新",
+    "sentence_zh": "这是我的新书。",
+    "sentence_en": "This is my new book."
+  },
+  {
+    "no": 243,
+    "simplified": "星期",
+    "sentence_zh": "这个星期我很忙。",
+    "sentence_en": "I am very busy this week."
+  },
+  {
+    "no": 244,
+    "simplified": "星期日",
+    "sentence_zh": "星期日我不上班。",
+    "sentence_en": "I do not work on Sunday."
+  },
+  {
+    "no": 245,
+    "simplified": "星期天",
+    "sentence_zh": "星期天我们去看电影。",
+    "sentence_en": "We are going to see a movie on Sunday."
+  },
+  {
+    "no": 246,
+    "simplified": "休息",
+    "sentence_zh": "我今天不工作，在家休息。",
+    "sentence_en": "I am not working today; I am resting at home."
+  },
+  {
+    "no": 247,
+    "simplified": "学",
+    "sentence_zh": "我在大学学汉语。",
+    "sentence_en": "I study Chinese at university."
+  },
+  {
+    "no": 248,
+    "simplified": "学生",
+    "sentence_zh": "那个学生是中国人。",
+    "sentence_en": "That student is Chinese."
+  },
+  {
+    "no": 249,
+    "simplified": "学习",
+    "sentence_zh": "我们晚上学习汉语。",
+    "sentence_en": "We study Chinese in the evening."
+  },
+  {
+    "no": 250,
+    "simplified": "学校",
+    "sentence_zh": "我在学校吃午饭。",
+    "sentence_en": "I eat lunch at school."
+  },
+  {
+    "no": 251,
+    "simplified": "雪",
+    "sentence_zh": "外面有雪。",
+    "sentence_en": "There is snow outside."
+  },
+  {
+    "no": 252,
+    "simplified": "要",
+    "sentence_zh": "我要一杯茶，谢谢。",
+    "sentence_en": "I would like a cup of tea, thank you."
+  },
+  {
+    "no": 253,
+    "simplified": "也",
+    "sentence_zh": "我也喜欢喝茶。",
+    "sentence_en": "I also like drinking tea."
+  },
+  {
+    "no": 254,
+    "simplified": "一",
+    "sentence_zh": "这是一本书。",
+    "sentence_en": "This is a book."
+  },
+  {
+    "no": 255,
+    "simplified": "衣服",
+    "sentence_zh": "妈妈给我买了新衣服。",
+    "sentence_en": "Mom bought me new clothes."
+  },
+  {
+    "no": 256,
+    "simplified": "医生",
+    "sentence_zh": "医生说我可以回家了。",
+    "sentence_en": "The doctor said I can go home."
+  },
+  {
+    "no": 257,
+    "simplified": "医院",
+    "sentence_zh": "我在医院看病。",
+    "sentence_en": "I am seeing a doctor at the hospital."
+  },
+  {
+    "no": 258,
+    "simplified": "一半",
+    "sentence_zh": "我吃了这个苹果的一半。",
+    "sentence_en": "I ate half of this apple."
+  },
+  {
+    "no": 259,
+    "simplified": "一下",
+    "sentence_zh": "请你看一下这本书。",
+    "sentence_en": "Please take a look at this book."
+  },
+  {
+    "no": 260,
+    "simplified": "椅子",
+    "sentence_zh": "椅子上有一只猫。",
+    "sentence_en": "There is a cat on the chair."
+  },
+  {
+    "no": 261,
+    "simplified": "一点儿",
+    "sentence_zh": "我会说一点儿汉语。",
+    "sentence_en": "I can speak a little Chinese."
+  },
+  {
+    "no": 262,
+    "simplified": "一些",
+    "sentence_zh": "我买了一些水果。",
+    "sentence_en": "I bought some fruit."
+  },
+  {
+    "no": 263,
+    "simplified": "有",
+    "sentence_zh": "我有两个弟弟。",
+    "sentence_en": "I have two younger brothers."
+  },
+  {
+    "no": 264,
+    "simplified": "有的",
+    "sentence_zh": "这些人有的会开车，有的不会。",
+    "sentence_en": "Some of these people can drive, and some cannot."
+  },
+  {
+    "no": 265,
+    "simplified": "有点儿",
+    "sentence_zh": "今天有点儿冷。",
+    "sentence_en": "It is a little cold today."
+  },
+  {
+    "no": 266,
+    "simplified": "有些",
+    "sentence_zh": "有些学生喜欢看电影。",
+    "sentence_en": "Some students like watching movies."
+  },
+  {
+    "no": 267,
+    "simplified": "雨",
+    "sentence_zh": "今天的雨很大。",
+    "sentence_en": "The rain is heavy today."
+  },
+  {
+    "no": 268,
+    "simplified": "元",
+    "sentence_zh": "这本书二十元。",
+    "sentence_en": "This book costs twenty yuan."
+  },
+  {
+    "no": 269,
+    "simplified": "月",
+    "sentence_zh": "一年有十二个月。",
+    "sentence_en": "There are twelve months in a year."
+  },
+  {
+    "no": 270,
+    "simplified": "再",
+    "sentence_zh": "我不想再吃了。",
+    "sentence_en": "I do not want to eat any more."
+  },
+  {
+    "no": 271,
+    "simplified": "在",
+    "sentence_zh": "我朋友在医院工作。",
+    "sentence_en": "My friend works at a hospital."
+  },
+  {
+    "no": 272,
+    "simplified": "再见",
+    "sentence_zh": "老师，再见！",
+    "sentence_en": "Goodbye, teacher!"
+  },
+  {
+    "no": 273,
+    "simplified": "早",
+    "sentence_zh": "我今天起床很早。",
+    "sentence_en": "I got up very early today."
+  },
+  {
+    "no": 274,
+    "simplified": "早饭",
+    "sentence_zh": "你吃早饭了吗？",
+    "sentence_en": "Have you eaten breakfast?"
+  },
+  {
+    "no": 275,
+    "simplified": "早上",
+    "sentence_zh": "我早上六点起床。",
+    "sentence_en": "I get up at six in the morning."
+  },
+  {
+    "no": 276,
+    "simplified": "怎么",
+    "sentence_zh": "这个字怎么读？",
+    "sentence_en": "How do you read this character?"
+  },
+  {
+    "no": 277,
+    "simplified": "怎么样",
+    "sentence_zh": "我们去看电影，怎么样？",
+    "sentence_en": "How about we go see a movie?"
+  },
+  {
+    "no": 278,
+    "simplified": "找",
+    "sentence_zh": "我在找我的手机。",
+    "sentence_en": "I am looking for my phone."
+  },
+  {
+    "no": 279,
+    "simplified": "这",
+    "sentence_zh": "这是我的房间。",
+    "sentence_en": "This is my room."
+  },
+  {
+    "no": 280,
+    "simplified": "这边",
+    "sentence_zh": "商店在这边。",
+    "sentence_en": "The store is over here."
+  },
+  {
+    "no": 281,
+    "simplified": "这个",
+    "sentence_zh": "我要这个，不要那个。",
+    "sentence_en": "I want this one, not that one."
+  },
+  {
+    "no": 282,
+    "simplified": "这里",
+    "sentence_zh": "这里的菜很好吃。",
+    "sentence_en": "The food here is delicious."
+  },
+  {
+    "no": 283,
+    "simplified": "这儿",
+    "sentence_zh": "这儿的车很多。",
+    "sentence_en": "There are a lot of cars here."
+  },
+  {
+    "no": 284,
+    "simplified": "这些",
+    "sentence_zh": "这些衣服都是我的。",
+    "sentence_en": "These clothes are all mine."
+  },
+  {
+    "no": 285,
+    "simplified": "真",
+    "sentence_zh": "这部电影真好看！",
+    "sentence_en": "This movie is really good!"
+  },
+  {
+    "no": 286,
+    "simplified": "正在",
+    "sentence_zh": "我正在给朋友打电话。",
+    "sentence_en": "I am calling a friend."
+  },
+  {
+    "no": 287,
+    "simplified": "只",
+    "sentence_zh": "他家有两只狗。",
+    "sentence_en": "His family has two dogs."
+  },
+  {
+    "no": 288,
+    "simplified": "知道",
+    "sentence_zh": "我不知道他叫什么名字。",
+    "sentence_en": "I do not know his name."
+  },
+  {
+    "no": 289,
+    "simplified": "中国",
+    "sentence_zh": "我去年去了中国。",
+    "sentence_en": "I went to China last year."
+  },
+  {
+    "no": 290,
+    "simplified": "中文",
+    "sentence_zh": "这本书是中文的。",
+    "sentence_en": "This book is in Chinese."
+  },
+  {
+    "no": 291,
+    "simplified": "中午",
+    "sentence_zh": "我们中午在学校吃饭。",
+    "sentence_en": "We eat at school at noon."
+  },
+  {
+    "no": 292,
+    "simplified": "中学",
+    "sentence_zh": "我姐姐在中学工作。",
+    "sentence_en": "My older sister works at a middle school."
+  },
+  {
+    "no": 293,
+    "simplified": "中学生",
+    "sentence_zh": "我弟弟是中学生。",
+    "sentence_en": "My younger brother is a middle school student."
+  },
+  {
+    "no": 294,
+    "simplified": "住",
+    "sentence_zh": "我和家人住在这里。",
+    "sentence_en": "I live here with my family."
+  },
+  {
+    "no": 295,
+    "simplified": "桌子",
+    "sentence_zh": "桌子上有一杯水。",
+    "sentence_en": "There is a glass of water on the table."
+  },
+  {
+    "no": 296,
+    "simplified": "字",
+    "sentence_zh": "我不会写这个字。",
+    "sentence_en": "I cannot write this character."
+  },
+  {
+    "no": 297,
+    "simplified": "昨天",
+    "sentence_zh": "昨天我去医院看病了。",
+    "sentence_en": "Yesterday I went to the hospital to see a doctor."
+  },
+  {
+    "no": 298,
+    "simplified": "坐",
+    "sentence_zh": "你可以坐在这里。",
+    "sentence_en": "You can sit here."
+  },
+  {
+    "no": 299,
+    "simplified": "做",
+    "sentence_zh": "你在做什么？",
+    "sentence_en": "What are you doing?"
+  },
+  {
+    "no": 300,
+    "simplified": "做饭",
+    "sentence_zh": "我爸爸会做饭。",
+    "sentence_en": "My dad can cook."
   }
 ]
