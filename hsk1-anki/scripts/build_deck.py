@@ -102,11 +102,11 @@ def main():
 
         audio_ref = f"[sound:hsk1_{r['no']:03d}.m4a]"
         pos = r["pos"].split(",")[0].split(" (")[0].strip().lower()
-        pos = pos.replace(".", "").replace("-", "") or "other"
+        pos = pos.replace(".", "") or "other"
         if pos not in {"noun", "verb", "adjective", "adverb", "pronoun",
-                       "number", "classifier", "particle", "preposition",
-                       "conjunction", "prefix", "suffix", "auxiliary",
-                       "interjection", "phrase"}:
+                       "number", "number-classifier", "classifier", "particle",
+                       "preposition", "conjunction", "prefix", "suffix",
+                       "auxiliary", "interjection", "phrase"}:
             pos = "other"
         note = genanki.Note(
             model=MODEL,

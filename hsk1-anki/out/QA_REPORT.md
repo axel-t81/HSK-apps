@@ -20,7 +20,7 @@
 4. **English meanings** come from the two PDFs (the official standard has no translations), with curated overrides. All 11 previously duplicated production prompts were disambiguated with usage, politeness, or register notes; 您 now retains its polite distinction, and 点 uses the classifier sense "small amounts".
 5. **Alt readings** preserved on 还 huán, 好 hào, 看 kān, 了 liǎo, 只 zhǐ, 谁 shéi/shuí.
 6. **POS**: MandarinBean taxonomy (cleaned), falling back to HanziStroke for the 6 entries MandarinBean leaves untagged (不客气, 打电话, 没关系, 你好, 下雨, 做饭 → phrase/interjection/verb).
-7. **Deck safeguards**: all 300 Meaning+POS production prompts are unique; the builder rejects duplicates and missing/invalid audio instead of silently shipping broken cards.
+7. **Deck safeguards**: all 300 Meaning+POS production prompts are unique; the builder rejects duplicates and missing/invalid audio instead of silently shipping broken cards. Filtering tags preserve compound labels such as `pos::number-classifier` for 一下, 一点儿, and 一些.
 8. **Manual audio playback**: the deck uses its own "HSK 3.0 · manual audio" options group with `autoplay: false`. Audio is not played on card reveal; use Anki's clickable replay control (or R/F5) when desired. The default options group is unchanged.
 9. **Answer-only part of speech**: recognition questions contain only hanzi and the optional audio control. Production questions contain only the English meaning. POS is shown only after revealing either answer.
 
