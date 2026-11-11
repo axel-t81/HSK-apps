@@ -1,0 +1,182 @@
+[
+  {
+    "no": 1,
+    "simplified": "爱",
+    "sentence_zh": "我爱我的家人。",
+    "sentence_en": "I love my family."
+  },
+  {
+    "no": 2,
+    "simplified": "八",
+    "sentence_zh": "我有八本书。",
+    "sentence_en": "I have eight books."
+  },
+  {
+    "no": 3,
+    "simplified": "爸爸",
+    "sentence_zh": "我爸爸是医生。",
+    "sentence_en": "My dad is a doctor."
+  },
+  {
+    "no": 4,
+    "simplified": "吧",
+    "sentence_zh": "我们吃饭吧。",
+    "sentence_en": "Let's eat."
+  },
+  {
+    "no": 5,
+    "simplified": "白天",
+    "sentence_zh": "白天我工作，晚上睡觉。",
+    "sentence_en": "I work during the day and sleep at night."
+  },
+  {
+    "no": 6,
+    "simplified": "百",
+    "sentence_zh": "我有一百块钱。",
+    "sentence_en": "I have one hundred yuan."
+  },
+  {
+    "no": 7,
+    "simplified": "半",
+    "sentence_zh": "现在是九点半。",
+    "sentence_en": "It's nine thirty now."
+  },
+  {
+    "no": 8,
+    "simplified": "包子",
+    "sentence_zh": "我想吃包子。",
+    "sentence_en": "I want to eat steamed stuffed buns."
+  },
+  {
+    "no": 9,
+    "simplified": "杯子",
+    "sentence_zh": "这个杯子是我的。",
+    "sentence_en": "This cup is mine."
+  },
+  {
+    "no": 10,
+    "simplified": "本",
+    "sentence_zh": "这两本书是我的。",
+    "sentence_en": "These two books are mine."
+  },
+  {
+    "no": 11,
+    "simplified": "边",
+    "sentence_zh": "我家在学校那边。",
+    "sentence_en": "My home is over there by the school."
+  },
+  {
+    "no": 12,
+    "simplified": "病",
+    "sentence_zh": "他病了，今天不上班。",
+    "sentence_en": "He is ill and is not going to work today."
+  },
+  {
+    "no": 13,
+    "simplified": "不",
+    "sentence_zh": "我不是学生。",
+    "sentence_en": "I am not a student."
+  },
+  {
+    "no": 14,
+    "simplified": "不客气",
+    "sentence_zh": "谢谢！不客气。",
+    "sentence_en": "Thank you! You're welcome."
+  },
+  {
+    "no": 15,
+    "simplified": "不要",
+    "sentence_zh": "我不要这个。",
+    "sentence_en": "I do not want this one."
+  },
+  {
+    "no": 16,
+    "simplified": "菜",
+    "sentence_zh": "这个菜很好吃。",
+    "sentence_en": "This dish is delicious."
+  },
+  {
+    "no": 17,
+    "simplified": "茶",
+    "sentence_zh": "我想喝茶。",
+    "sentence_en": "I want to drink tea."
+  },
+  {
+    "no": 18,
+    "simplified": "唱",
+    "sentence_zh": "她会唱歌。",
+    "sentence_en": "She can sing."
+  },
+  {
+    "no": 19,
+    "simplified": "超市",
+    "sentence_zh": "我去超市买东西。",
+    "sentence_en": "I am going to the supermarket to buy things."
+  },
+  {
+    "no": 20,
+    "simplified": "车",
+    "sentence_zh": "这是我的车。",
+    "sentence_en": "This is my car."
+  },
+  {
+    "no": 21,
+    "simplified": "吃",
+    "sentence_zh": "我想吃米饭。",
+    "sentence_en": "I want to eat cooked rice."
+  },
+  {
+    "no": 22,
+    "simplified": "出租车",
+    "sentence_zh": "我们坐出租车去学校。",
+    "sentence_en": "We are taking a taxi to school."
+  },
+  {
+    "no": 23,
+    "simplified": "穿",
+    "sentence_zh": "今天她穿新衣服。",
+    "sentence_en": "She is wearing new clothes today."
+  },
+  {
+    "no": 24,
+    "simplified": "打电话",
+    "sentence_zh": "我在给老师打电话。",
+    "sentence_en": "I am calling the teacher."
+  },
+  {
+    "no": 25,
+    "simplified": "大",
+    "sentence_zh": "这个大学很大。",
+    "sentence_en": "This university is very big."
+  },
+  {
+    "no": 26,
+    "simplified": "大家",
+    "sentence_zh": "大家今天很高兴。",
+    "sentence_en": "Everyone is very happy today."
+  },
+  {
+    "no": 27,
+    "simplified": "大学",
+    "sentence_zh": "我在大学学习汉语。",
+    "sentence_en": "I study Chinese at university."
+  },
+  {
+    "no": 28,
+    "simplified": "大学生",
+    "sentence_zh": "我妹妹是大学生。",
+    "sentence_en": "My younger sister is a university student."
+  },
+  {
+    "no": 29,
+    "simplified": "到",
+    "sentence_zh": "我八点到学校。",
+    "sentence_en": "I arrive at school at eight."
+  },
+  {
+    "no": 30,
+    "simplified": "的",
+    "sentence_zh": "他的汉语很好。",
+    "sentence_en": "His Chinese is very good."
+  }
+]
