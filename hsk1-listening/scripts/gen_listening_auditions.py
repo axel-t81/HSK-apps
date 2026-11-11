@@ -6,6 +6,7 @@ Run from any directory:
 
 Generated WAV clips are cached to avoid using credits again on a rerun.
 """
+import hashlib
 import json
 import os
 import time
@@ -21,6 +22,7 @@ OUT = ROOT / "out" / "auditions"
 CACHE = ROOT / "build" / "auditions"
 SAMPLE_RATE = 24000
 MODEL = "eleven_multilingual_v2"
+DEFAULT_SPEED = 0.95
 
 VOICES = {
     "sarah": ("EXAVITQu4vr4xnSDxMaL", "Sarah — young American female"),
@@ -49,7 +51,27 @@ SEQUENCE = [
 ]
 
 
-def synthesize(text, voice_key, destination, speed=0.95):
+def voice_settings(speed):
+    return {
+        "stability": 0.6,
+        "similarity_boost": 0.75,
+        "style": 0.0,
+        "use_speaker_boost": True,
+        "speed": speed,
+    }
+
+
+def clip_cache_path(audition, index, voice_key, text, speed=DEFAULT_SPEED):
+    """Include every speech-affecting input in the reusable clip's identity."""
+    signature = json.dumps(
+        [MODEL, VOICES[voice_key][0], text, voice_settings(speed)],
+        ensure_ascii=False, sort_keys=True,
+    ).encode("utf-8")
+    digest = hashlib.sha256(signature).hexdigest()[:12]
+    return CACHE / f"audition_{audition}_{index:02d}_{voice_key}_{digest}.wav"
+
+
+def synthesize(text, voice_key, destination, speed=DEFAULT_SPEED):
     if destination.exists() and destination.stat().st_size > 1000:
         return
 
@@ -57,13 +79,7 @@ def synthesize(text, voice_key, destination, speed=0.95):
     payload = {
         "text": text,
         "model_id": MODEL,
-        "voice_settings": {
-            "stability": 0.6,
-            "similarity_boost": 0.75,
-            "style": 0.0,
-            "use_speaker_boost": True,
-            "speed": speed,
-        },
+        "voice_settings": voice_settings(speed),
     }
     url = (f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
            "?output_format=wav_24000")
@@ -127,9 +143,9 @@ def main():
         clip_details = []
         for index, (role, text, pause) in enumerate(SEQUENCE, 1):
             voice_key = roles[role]
-            clip = CACHE / f"audition_{audition}_{index:02d}_{voice_key}.wav"
+            clip = clip_cache_path(audition, index, voice_key, text)
             print(f"Audition {audition}, clip {index}/7: {text}", flush=True)
-            synthesize(text, voice_key, clip)
+            synthesize(text, voice_key, clip, DEFAULT_SPEED)
             pcm = read_wav(clip)
             parts.extend((pcm, silence(pause)))
             clip_details.append({
