@@ -1,0 +1,112 @@
+{
+  "A": {
+    "file": "HSK1_listening_audition_A.mp3",
+    "duration_seconds": 14.373,
+    "clips": [
+      {
+        "step": 1,
+        "text": "喜欢",
+        "voice": "Sarah — young American female",
+        "pause_after_seconds": 0.7,
+        "duration_seconds": 1.022
+      },
+      {
+        "step": 2,
+        "text": "喜欢",
+        "voice": "Sarah — young American female",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 1.115
+      },
+      {
+        "step": 3,
+        "text": "to like",
+        "voice": "Sarah — young American female",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.975
+      },
+      {
+        "step": 4,
+        "text": "喜欢",
+        "voice": "Brian — middle-aged American male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.929
+      },
+      {
+        "step": 5,
+        "text": "to like",
+        "voice": "Brian — middle-aged American male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 1.393
+      },
+      {
+        "step": 6,
+        "text": "我喜欢中国菜。",
+        "voice": "Brian — middle-aged American male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 1.486
+      },
+      {
+        "step": 7,
+        "text": "I like Chinese food.",
+        "voice": "Brian — middle-aged American male",
+        "pause_after_seconds": 0.5,
+        "duration_seconds": 1.254
+      }
+    ]
+  },
+  "B": {
+    "file": "HSK1_listening_audition_B.mp3",
+    "duration_seconds": 13.027,
+    "clips": [
+      {
+        "step": 1,
+        "text": "喜欢",
+        "voice": "Jessica — young American female",
+        "pause_after_seconds": 0.7,
+        "duration_seconds": 0.975
+      },
+      {
+        "step": 2,
+        "text": "喜欢",
+        "voice": "Jessica — young American female",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.929
+      },
+      {
+        "step": 3,
+        "text": "to like",
+        "voice": "Jessica — young American female",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.789
+      },
+      {
+        "step": 4,
+        "text": "喜欢",
+        "voice": "Mr. Chen — middle-aged Beijing Mandarin male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.836
+      },
+      {
+        "step": 5,
+        "text": "to like",
+        "voice": "Eric — middle-aged American male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 0.697
+      },
+      {
+        "step": 6,
+        "text": "我喜欢中国菜。",
+        "voice": "Mr. Chen — middle-aged Beijing Mandarin male",
+        "pause_after_seconds": 1.0,
+        "duration_seconds": 1.347
+      },
+      {
+        "step": 7,
+        "text": "I like Chinese food.",
+        "voice": "Eric — middle-aged American male",
+        "pause_after_seconds": 0.5,
+        "duration_seconds": 1.254
+      }
+    ]
+  }
+}

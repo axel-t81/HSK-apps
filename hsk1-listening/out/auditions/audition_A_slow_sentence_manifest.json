@@ -1,0 +1,48 @@
+{
+  "file": "HSK1_listening_audition_A_longer_pauses_slow_sentence.mp3",
+  "duration_seconds": 20.952,
+  "clips": [
+    {
+      "step": 1,
+      "text": "喜欢",
+      "pause_after_seconds": 1.5,
+      "relative_speech_rate": 1.0
+    },
+    {
+      "step": 2,
+      "text": "喜欢",
+      "pause_after_seconds": 2.0,
+      "relative_speech_rate": 1.0
+    },
+    {
+      "step": 3,
+      "text": "to like",
+      "pause_after_seconds": 2.0,
+      "relative_speech_rate": 1.0
+    },
+    {
+      "step": 4,
+      "text": "喜欢",
+      "pause_after_seconds": 2.0,
+      "relative_speech_rate": 1.0
+    },
+    {
+      "step": 5,
+      "text": "to like",
+      "pause_after_seconds": 2.0,
+      "relative_speech_rate": 1.0
+    },
+    {
+      "step": 6,
+      "text": "我喜欢中国菜。",
+      "pause_after_seconds": 2.0,
+      "relative_speech_rate": 0.85
+    },
+    {
+      "step": 7,
+      "text": "I like Chinese food.",
+      "pause_after_seconds": 1.0,
+      "relative_speech_rate": 1.0
+    }
+  ]
+}
