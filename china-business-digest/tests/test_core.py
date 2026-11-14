@@ -637,6 +637,44 @@ class LLMClientTests(unittest.TestCase):
 
 
 class CLIIntegrationTests(unittest.TestCase):
+    def make_cli_root(self, temporary):
+        root = Path(temporary)
+        (root / "data").mkdir()
+        (root / "data" / "sources.json").write_text(json.dumps({
+            "version": 1,
+            "keywords": {"tax": ["纳税申报"]},
+            "sources": [{
+                "id": "test_source", "name": "Test official", "type": "html_listing",
+                "url": "https://example.cn/list/", "allowed_hosts": ["example.cn"],
+                "category": "official", "language": "zh", "item_selector": "li",
+                "url_pattern": "/t[^/]+\\.html$", "fetch_detail": False,
+            }],
+        }), encoding="utf-8")
+        return root
+
+    def test_force_without_saved_delivery_cannot_start_new_send(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = self.make_cli_root(temporary)
+
+            class ForbiddenFetcher:
+                def __init__(self, state):
+                    raise AssertionError("A new digest must not be collected")
+
+            with State(root / "build" / "state.sqlite3") as state:
+                state.record_pending("2026-01-01", "Pending", {}, "text", "html", [])
+
+            for flags in (["--force"], ["--mark-sent"]):
+                with self.subTest(flags=flags), \
+                        mock.patch.object(cli, "Fetcher", ForbiddenFetcher), \
+                        redirect_stdout(io.StringIO()), \
+                        redirect_stderr(io.StringIO()), \
+                        self.assertRaises(SystemExit):
+                    cli.main(["send", "--date", "2026-01-02"] + flags, root=root)
+
+            with State(root / "build" / "state.sqlite3") as state:
+                self.assertIsNone(state.get_run("2026-01-02"))
+                self.assertEqual("sending", state.get_run("2026-01-01")["status"])
+
     def test_offline_preview_from_html_to_rendered_files(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

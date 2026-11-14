@@ -146,7 +146,9 @@ SMTP cannot provide exactly-once delivery: a timeout or crash may leave uncertai
 .venv/bin/python -I scripts/digest.py send --force
 ```
 
-`--date YYYY-MM-DD` is available for testing and deliberate backdated previews. It does not change source publication dates.
+`--force` resends the saved digest for the current date, and `--mark-sent` records it as delivered without resending. Both flags only resolve an existing saved delivery: if no delivery has been attempted for that date, they fail rather than starting a new collection or send. This prevents a resend attempt from bypassing an unresolved delivery on another date.
+
+`--date YYYY-MM-DD` is available for testing and deliberate backdated previews. It does not change source publication dates. To resolve a delivery from an earlier date, combine it with the flag, for example `send --date 2026-11-14 --mark-sent`.
 
 ## Daily macOS schedule
 
