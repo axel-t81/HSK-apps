@@ -222,8 +222,9 @@ __marimo__/
 # OS metadata
 .DS_Store
 
-# Personal local agent guidance
+# Local agent instructions and chronological task worklog
 /AGENTS.md
+/WORKLOG.md
 
 # Local credential files
 *.env

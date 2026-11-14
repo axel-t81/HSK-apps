@@ -1,0 +1,7 @@
+# Local generated digests, retrieved content, state, logs, and scheduler output
+/build/
+
+# Local interpreter and credentials (also covered by the repository ignore rules)
+/.venv/
+*.env
+!.env.example
