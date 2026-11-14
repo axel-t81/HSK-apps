@@ -2,6 +2,7 @@ import io
 import json
 import os
 import smtplib
+import sqlite3
 import sys
 import tempfile
 import unittest
@@ -24,8 +25,12 @@ from digestlib.http import FetchResponse, Fetcher
 from digestlib.models import CollectionResult, Item, Source
 from digestlib.render import empty_digest, render_bilingual_digest, render_digest, visible_word_count
 from digestlib.state import State
-from digestlib.summarize import _keyword_excerpt, create_digest, decode_json_object, validate_digest, validate_translation
+from digestlib.summarize import (
+    _keyword_excerpt, create_digest, decode_json_object, validate_digest,
+    validate_english_language, validate_translation,
+)
 from digestlib.summarize_client import OpenAICompatibleClient
+from digestlib.util import parse_date
 
 UTC = timezone.utc
 NOW = datetime(2026, 11, 14, 1, 0, tzinfo=UTC)
@@ -153,6 +158,22 @@ class ParsingTests(unittest.TestCase):
         self.assertNotIn("alert", item.content)
         self.assertEqual("2026-11-12T09:30:00+08:00", item.published_at.isoformat())
 
+    def test_parse_date_returns_none_for_impossible_dates(self):
+        for text in ("2026-13-05", "2026-02-30", "2026-11-0", "2026-11-10 24:00"):
+            with self.subTest(text=text):
+                self.assertIsNone(parse_date(text))
+
+    def test_listing_survives_impossible_dates(self):
+        source = make_source()
+        body = """<ul>
+        <li><a href='/2026/t1.html'>代理记账新指引</a>2026-13-05</li>
+        <li><a href='/2026/t2.html'>小规模纳税人申报指引</a>2026-11-12</li>
+        </ul>""".encode()
+        items = parse_html_listing(source, body, NOW)
+        self.assertEqual(2, len(items))
+        self.assertIsNone(items[0].published_at)
+        self.assertEqual("2026-11-12", items[1].published_at.date().isoformat())
+
     def test_keyword_classification_covers_all_three_learning_topics(self):
         item = make_item()
         classify(item, {
@@ -202,6 +223,37 @@ class StateAndCollectionTests(unittest.TestCase):
         self.state.mark_sent("2026-11-14")
         self.assertEqual("sent", self.state.get_run("2026-11-14")["status"])
         self.assertTrue(self.state.has_sent_run())
+
+    def test_pending_runs_are_listed_across_dates(self):
+        self.state.record_pending("2026-11-12", "S1", {}, "t", "h", [])
+        self.state.record_pending("2026-11-13", "S2", {}, "t", "h", [])
+        self.state.mark_sent("2026-11-13")
+        self.assertEqual(
+            ["2026-11-12"], [row["run_date"] for row in self.state.get_pending_runs()]
+        )
+
+    def test_legacy_http_cache_is_migrated_to_final_url(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "state.sqlite3"
+            legacy = sqlite3.connect(str(path))
+            legacy.executescript(
+                """CREATE TABLE http_cache (
+                       url TEXT PRIMARY KEY, etag TEXT, last_modified TEXT,
+                       content_type TEXT, body BLOB NOT NULL, fetched_at TEXT NOT NULL);"""
+            )
+            legacy.execute(
+                "INSERT INTO http_cache VALUES "
+                "('https://example.cn/', NULL, NULL, 'text/html', x'616263', '2026-01-01T00:00:00+00:00')"
+            )
+            legacy.commit()
+            legacy.close()
+            with State(path) as state:
+                cached = state.get_http("https://example.cn/")
+                self.assertEqual(b"abc", bytes(cached["body"]))
+                state.set_http("https://example.cn/", b"xyz", final_url="https://example.cn/final/")
+                self.assertEqual(
+                    "https://example.cn/final/", state.get_http("https://example.cn/")["final_url"]
+                )
 
     def test_collection_history_is_separate_from_send_history(self):
         self.assertFalse(self.state.has_collection_run())
@@ -302,9 +354,9 @@ class HTTPTests(unittest.TestCase):
         self.state.close()
         self.temporary.cleanup()
 
-    def test_conditional_304_uses_cached_bytes(self):
+    def test_conditional_304_uses_cached_bytes_and_final_url(self):
         url = "https://example.cn/feed"
-        self.state.set_http(url, b"cached", etag='"v1"')
+        self.state.set_http(url, b"cached", etag='"v1"', final_url="https://example.cn/feed/final/")
         fetcher = Fetcher(self.state, sleep=lambda _: None)
         fetcher._robots_allowed = lambda *_: True
         error = urllib.error.HTTPError(url, 304, "Not Modified", {}, io.BytesIO())
@@ -318,6 +370,7 @@ class HTTPTests(unittest.TestCase):
         fetcher._opener = lambda *_: Opener()
         response = fetcher.fetch(url, ("example.cn",))
         self.assertEqual(b"cached", response.body)
+        self.assertEqual("https://example.cn/feed/final/", response.url)
         self.assertTrue(response.from_cache)
 
     def test_robots_rules_are_applied_to_each_path(self):
@@ -363,6 +416,15 @@ class SummaryAndRenderingTests(unittest.TestCase):
         with self.assertRaises(SummaryError):
             validate_digest(digest, [item])
 
+    def test_english_language_check_allows_retained_chinese_terms(self):
+        item = make_item()
+        digest = valid_digest(item)
+        digest["headline"] = "数电发票 rollout guide"
+        validate_english_language(digest)
+        digest["headline"] = "完全中文的标题没有任何英文单词"
+        with self.assertRaises(SummaryError):
+            validate_english_language(digest)
+
     def test_html_escapes_model_and_source_text(self):
         item = make_item(title="Tax & bookkeeping <update>")
         digest = valid_digest(item, summary="A <script>alert(1)</script> string is escaped in email HTML.")
@@ -382,13 +444,16 @@ class SummaryAndRenderingTests(unittest.TestCase):
             def __init__(self):
                 self.calls = []
 
-            def complete(self, system, user, purpose):
+            def generate(self, system, user, purpose):
                 self.calls.append(purpose)
                 if purpose == "initial-digest":
-                    return json.dumps(long_digest)
+                    return "k-initial", json.dumps(long_digest)
                 if purpose == "digest-repair":
-                    return json.dumps(short_digest)
-                return json.dumps(chinese_digest(item))
+                    return "k-repair", json.dumps(short_digest)
+                return "k-translation", json.dumps(chinese_digest(item))
+
+            def commit(self, cache_key, content):
+                pass
 
         client = FakeClient()
         digest, rendered = create_digest([item], "2026-11-14", [], client)
@@ -441,8 +506,11 @@ class SummaryAndRenderingTests(unittest.TestCase):
             validate_translation(english, chinese, [item])
 
         chinese["developments"][0]["summary"] = "2026年6%的规定适用于所有小企业。"
-        with self.assertRaises(SummaryError):
+        with self.assertRaisesRegex(SummaryError, "negation"):
             validate_translation(english, chinese, [item])
+
+        chinese["developments"][0]["summary"] = "2026年，6%的规定可能并不适用于所有小企业。"
+        self.assertEqual(chinese, validate_translation(english, chinese, [item]))
 
     def test_long_documents_keep_late_market_specific_sections(self):
         text = "政策介绍。" + ("一般性内容。" * 2500) + "代理记账机构应提升执业质量并服务小微企业。"
@@ -536,11 +604,15 @@ class LLMClientTests(unittest.TestCase):
                     return Response()
 
             client.opener = Opener()
-            first = client.complete("system", "user", "test")
-            second = client.complete("system", "user", "test")
-            self.assertEqual(first, second)
+            first_key, first = client.generate("system", "user", "test")
             self.assertEqual(1, len(calls))
             self.assertEqual("Bearer secret", calls[0].get_header("Authorization"))
+            second_key, second = client.generate("system", "user", "test")
+            self.assertEqual(2, len(calls))
+            client.commit(first_key, first)
+            third_key, third = client.generate("system", "user", "test")
+            self.assertEqual(2, len(calls))
+            self.assertEqual((first_key, first), (third_key, third))
             state.close()
 
 
@@ -560,7 +632,7 @@ class LLMClientTests(unittest.TestCase):
 
             client.opener = RedirectingOpener()
             with self.assertRaisesRegex(SummaryError, "redirects are disabled"):
-                client.complete("system", "user", "redirect-test")
+                client.generate("system", "user", "redirect-test")
             state.close()
 
 
@@ -594,11 +666,11 @@ class CLIIntegrationTests(unittest.TestCase):
                 def __init__(self, state):
                     pass
 
-                def complete(self, system, user, purpose):
+                def generate(self, system, user, purpose):
                     payload = json.loads(user)
                     if purpose == "simplified-chinese-translation":
                         english = payload["english_digest"]
-                        return json.dumps({
+                        return "k-zh", json.dumps({
                             "headline": "记账与纳税申报更新",
                             "developments": [{
                                 "title": "新的纳税人指引",
@@ -609,7 +681,7 @@ class CLIIntegrationTests(unittest.TestCase):
                             "pulse": [], "learning_resource": None,
                         })
                     source_id = payload["items"][0]["id"]
-                    return json.dumps({
+                    return "k-en", json.dumps({
                         "headline": "Bookkeeping and filing update",
                         "developments": [{
                             "title": "New taxpayer guidance",
@@ -619,6 +691,9 @@ class CLIIntegrationTests(unittest.TestCase):
                         }],
                         "pulse": [], "learning_resource": None,
                     })
+
+                def commit(self, cache_key, content):
+                    pass
 
             with mock.patch.object(cli, "Fetcher", FakeFetcher), mock.patch.object(cli, "OpenAICompatibleClient", FakeClient), mock.patch.object(cli, "utc_now", return_value=NOW):
                 with redirect_stdout(io.StringIO()):
@@ -651,6 +726,15 @@ class CLIIntegrationTests(unittest.TestCase):
 
             with State(root / "build" / "state.sqlite3") as state:
                 self.assertEqual("sending", state.get_run("2026-01-01")["status"])
+
+            # A pending delivery from an earlier date blocks later scheduled sends.
+            with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                cli.main(["send", "--date", "2026-01-02"], root=root)
+
+            with redirect_stdout(io.StringIO()):
+                cli.main(["send", "--date", "2026-01-01", "--mark-sent"], root=root)
+            with State(root / "build" / "state.sqlite3") as state:
+                self.assertEqual("sent", state.get_run("2026-01-01")["status"])
 
             with mock.patch.dict(os.environ, smtp_environment), \
                     mock.patch.object(cli, "send_email", return_value=None) as delivery:

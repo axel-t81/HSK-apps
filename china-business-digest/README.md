@@ -31,7 +31,7 @@ If there is no material news, the app sends a short bilingual no-updates message
 
 China Briefing and Shanghai Tax remain configured but disabled because their robots.txt requests returned HTTP 403 during verification. ESNAI's `app-news.esnai.cn` feed host explicitly disallows all automated collection, so the app uses ESNAI's ordinary main-site listings instead; those listings may update less frequently than the feed. The collector does not bypass these restrictions.
 
-The collector uses conditional HTTP requests where supported, conservative timeouts and response limits, one delayed retry for transient failures, per-URL robots.txt checks (including redirects), per-source host allowlists, and no archive crawling. Undated and zero-relevance items are skipped, and dates are checked again after article retrieval. It does not download audio or video. CAPTCHA, authentication, and access restrictions are not bypassed.
+The collector uses conditional HTTP requests where supported, conservative timeouts and response limits, one delayed retry for transient failures, per-URL robots.txt checks (including redirects), per-source host allowlists, and no archive crawling. Undated and zero-relevance items are skipped, impossible dates are ignored rather than failing a source, dates are checked again after article retrieval, and conditional responses reuse the stored final redirect URL. It does not download audio or video. CAPTCHA, authentication, and access restrictions are not bypassed.
 
 The supplied STA policy-database, 12366, and Tianjin pages currently depend on JavaScript listings. The supplied Bilibili creator and Xiaoyuzhou pages do not expose maintainable ongoing feeds. They are not polled by this version. Additional explicitly trusted RSS/Atom feeds can be added to `data/sources.json`; see **Adding a feed** below.
 
@@ -82,7 +82,7 @@ DIGEST_LLM_JSON_MODE=1
 
 The base URL excludes `/chat/completions`; the app appends that path. HTTPS is required except for a local HTTP server such as `http://127.0.0.1:11434/v1`. A local server may leave the API key empty. Endpoint redirects are disabled so bearer credentials cannot be forwarded to another origin; configure the final working endpoint directly. Set `DIGEST_LLM_JSON_MODE=0` only if the endpoint does not support OpenAI-style JSON response mode.
 
-A run with candidates normally makes two model calls: one for the grounded English digest and one for its Simplified Chinese translation. Invalid or overlong output can trigger one correction call for that stage. Responses are cached by model, prompts, settings, and source content, so an unchanged preview does not consume more model credits.
+A run with candidates normally makes two model calls: one for the grounded English digest and one for its Simplified Chinese translation. Invalid or overlong output can trigger one correction call for that stage. Validated responses are cached by model, prompts, settings, and source content, so an unchanged preview does not consume more model credits; rejected answers are never cached, so a later run retries the model instead of reusing a bad response.
 
 **Privacy and cost:** public article titles, metadata, and bounded excerpts are sent to the configured provider. The app does not send SMTP credentials or recipient details to the model. Review your provider's data-retention terms and pricing before enabling scheduled runs.
 
@@ -140,7 +140,7 @@ After inspecting a preview and configuring SMTP:
 
 Before SMTP is contacted, the app saves the complete bilingual email and a `sending` delivery record. Candidates are marked processed at that point so an uncertain retry cannot silently include them again. SMTP acceptance changes the record to `sent`. A second successful `send` for the same date does nothing.
 
-SMTP cannot provide exactly-once delivery: a timeout or crash may leave uncertainty about whether the server accepted a message. In that case the next normal run stops and asks for review instead of risking an automatic duplicate. Check the mailbox and saved preview, then deliberately resend the exact saved email with `send --force` only if needed.
+SMTP cannot provide exactly-once delivery: a timeout or crash may leave uncertainty about whether the server accepted a message. The saved delivery stays in a `sending` state and blocks every later `send` run — including scheduled days — until you resolve it, so an uncertain retry never becomes an automatic duplicate. Check the mailbox and saved preview, then run `send --date <date> --force` to resend deliberately, or `send --date <date> --mark-sent` if the message arrived.
 
 ```bash
 .venv/bin/python -I scripts/digest.py send --force

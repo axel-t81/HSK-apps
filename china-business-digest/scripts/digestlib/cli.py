@@ -91,15 +91,36 @@ def run_command(args, root):
     with exclusive_file_lock(build_dir / "digest.lock"):
         with State(build_dir / "state.sqlite3") as state:
             if args.command == "send":
+                unresolved = [
+                    row["run_date"] for row in state.get_pending_runs()
+                    if row["run_date"] != run_date
+                ]
+                if unresolved and not (args.force or args.mark_sent):
+                    raise DigestError(
+                        f"An interrupted or uncertain delivery exists for {', '.join(unresolved)}. "
+                        "Check the mailbox and saved preview, then resolve it with "
+                        "'send --date <date> --force' to resend deliberately, or "
+                        "'send --date <date> --mark-sent' if the message arrived."
+                    )
                 existing = state.get_run(run_date)
-                if existing and not args.force:
+                if args.mark_sent and not existing:
+                    raise DigestError(f"No saved delivery exists for {run_date}; nothing to mark as sent")
+                if existing and not (args.force or args.mark_sent):
                     if existing["status"] == "sent":
                         print(f"A digest was already sent for {run_date}; no duplicate was sent.")
                         return
                     raise DigestError(
                         f"An interrupted or uncertain delivery exists for {run_date}. "
-                        "Check the mailbox and saved preview, then use send --force to resend deliberately."
+                        "Check the mailbox and saved preview, then use send --force to resend, "
+                        "or send --mark-sent if the message arrived."
                     )
+                if existing and args.mark_sent:
+                    if existing["status"] == "sent":
+                        print(f"The digest for {run_date} was already sent; nothing to mark.")
+                        return
+                    state.mark_sent(run_date)
+                    print("The saved digest was marked as delivered without resending.")
+                    return
                 if existing and args.force:
                     config = SMTPConfig.from_environment()
                     deliver_smtp(config, existing["subject"], existing["text_body"], existing["html_body"])
@@ -145,7 +166,12 @@ def build_parser():
         subparser.add_argument("--initial-lookback-hours", type=int, default=168)
         subparser.add_argument("--max-items", type=int, default=12)
         if command == "send":
-            subparser.add_argument("--force", action="store_true", help="Resend the saved digest for this date")
+            resolution = subparser.add_mutually_exclusive_group()
+            resolution.add_argument("--force", action="store_true", help="Resend the saved digest for this date")
+            resolution.add_argument(
+                "--mark-sent", action="store_true",
+                help="Record the saved digest as delivered without resending, after verifying the mailbox",
+            )
     return parser
 
 

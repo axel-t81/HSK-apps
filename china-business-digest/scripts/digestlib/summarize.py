@@ -1,5 +1,6 @@
 import json
 import re
+from collections import Counter
 
 from .errors import SummaryError
 from .render import empty_digest, render_bilingual_digest, render_digest
@@ -122,17 +123,13 @@ def _keyword_excerpt(text, limit=MAX_ITEM_CHARACTERS):
     """Retain the introduction and merged windows around market-specific terms."""
     if len(text) <= limit:
         return text
-    folded = text.casefold()
     intervals = []
     for term in FOCUS_TERMS:
-        needle = term.casefold()
-        start = 0
-        for _ in range(4):
-            index = folded.find(needle, start)
-            if index < 0:
+        for count, match in enumerate(re.finditer(re.escape(term), text, re.IGNORECASE)):
+            if count >= 4:
                 break
+            index = match.start()
             intervals.append((max(0, index - 450), min(len(text), index + len(term) + 750)))
-            start = index + len(needle)
     if not intervals:
         return text[:limit]
 
@@ -220,12 +217,12 @@ def _han_count(text):
 def validate_english_language(digest):
     for text in _digest_values(digest):
         latin = _latin_count(text)
-        if latin < 2 or _han_count(text) > latin:
+        if latin < 2 or _han_count(text) > max(4, latin):
             raise SummaryError("English digest contains a non-English or mostly Chinese text value")
 
 
 def _numbers(text):
-    return re.findall(r"\d+(?:\.\d+)?", text)
+    return re.findall(r"\d+(?:\.\d+)?", text.replace(",", ""))
 
 
 def _validate_caveat(field, english, chinese):
@@ -260,7 +257,7 @@ def validate_translation(english, value, items):
         raise SummaryError("Chinese translation changed the learning-resource citation")
 
     for field, original, translated in _aligned_text_pairs(english, chinese):
-        if _numbers(original) != _numbers(translated):
+        if Counter(_numbers(original)) != Counter(_numbers(translated)):
             raise SummaryError(f"Chinese translation changed numbers in {field}")
         if _han_count(translated) < max(2, _latin_count(translated)):
             raise SummaryError(f"Chinese translation is mostly untranslated English in {field}")
@@ -274,7 +271,7 @@ def _english_digest(items, run_date, notes, client):
         "task": "Select and summarise the most useful new material for the daily learning digest.",
         "items": _model_items(items),
     }, ensure_ascii=False)
-    raw = client.complete(SYSTEM_PROMPT, request, "initial-digest")
+    cache_key, raw = client.generate(SYSTEM_PROMPT, request, "initial-digest")
     last_problem = None
     for attempt in range(2):
         try:
@@ -285,6 +282,7 @@ def _english_digest(items, run_date, notes, client):
                 raise SummaryError(
                     f"English email was {rendered.word_count} words; shorten it to at most 520 English words"
                 )
+            client.commit(cache_key, raw)
             return digest
         except SummaryError as error:
             last_problem = error
@@ -297,7 +295,7 @@ def _english_digest(items, run_date, notes, client):
                 "original_request": request,
                 "previous_model_output": raw,
             }, ensure_ascii=False)
-            raw = client.complete(SYSTEM_PROMPT, correction, "digest-repair")
+            cache_key, raw = client.generate(SYSTEM_PROMPT, correction, "digest-repair")
     raise SummaryError(f"Unable to produce valid English after one correction: {last_problem}")
 
 
@@ -306,11 +304,13 @@ def _chinese_translation(english, items, client):
         "task": "Translate this validated English digest into Simplified Chinese without changing citations.",
         "english_digest": english,
     }, ensure_ascii=False)
-    raw = client.complete(TRANSLATION_PROMPT, request, "simplified-chinese-translation")
+    cache_key, raw = client.generate(TRANSLATION_PROMPT, request, "simplified-chinese-translation")
     last_problem = None
     for attempt in range(2):
         try:
-            return validate_translation(english, decode_json_object(raw), items)
+            chinese = validate_translation(english, decode_json_object(raw), items)
+            client.commit(cache_key, raw)
+            return chinese
         except SummaryError as error:
             last_problem = error
             if attempt == 1:
@@ -321,7 +321,7 @@ def _chinese_translation(english, items, client):
                 "original_validated_english": english,
                 "previous_translation_output": raw,
             }, ensure_ascii=False)
-            raw = client.complete(TRANSLATION_PROMPT, correction, "simplified-chinese-translation-repair")
+            cache_key, raw = client.generate(TRANSLATION_PROMPT, correction, "simplified-chinese-translation-repair")
     raise SummaryError(f"Unable to produce aligned Simplified Chinese after one correction: {last_problem}")
 
 

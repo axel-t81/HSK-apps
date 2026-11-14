@@ -44,8 +44,14 @@ def load_configuration(path):
         if raw["type"] == "html_listing" and not raw.get("item_selector"):
             raise ConfigurationError(f"HTML source {raw['id']} needs item_selector")
         if raw.get("url_pattern"):
-            re.compile(raw["url_pattern"])
-        maximum = int(raw.get("max_candidates", 3))
+            try:
+                re.compile(raw["url_pattern"])
+            except re.error as error:
+                raise ConfigurationError(f"Invalid url_pattern for {raw['id']}: {error}") from error
+        try:
+            maximum = int(raw.get("max_candidates", 3))
+        except (TypeError, ValueError) as error:
+            raise ConfigurationError(f"max_candidates must be an integer for {raw['id']}") from error
         if not 1 <= maximum <= 10:
             raise ConfigurationError(f"max_candidates must be 1–10 for {raw['id']}")
         identifiers.add(raw["id"])

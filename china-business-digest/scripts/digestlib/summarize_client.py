@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
@@ -62,7 +63,7 @@ class _NoRedirects(urllib.request.HTTPRedirectHandler):
 
 
 class OpenAICompatibleClient:
-    def __init__(self, state, base_url=None, model=None, api_key=None, json_mode=None, timeout=90):
+    def __init__(self, state, base_url=None, model=None, api_key=None, json_mode=None, timeout=90, sleep=None):
         self.state = state
         self.base_url = (base_url or os.environ.get("DIGEST_LLM_BASE_URL", "")).rstrip("/")
         self.model = model or os.environ.get("DIGEST_LLM_MODEL", "")
@@ -71,6 +72,7 @@ class OpenAICompatibleClient:
             json_mode = os.environ.get("DIGEST_LLM_JSON_MODE", "1") != "0"
         self.json_mode = json_mode
         self.timeout = timeout
+        self.sleep = sleep or time.sleep
         self.opener = urllib.request.build_opener(_NoRedirects())
         if not self.base_url or not self.model:
             raise ConfigurationError("Set DIGEST_LLM_BASE_URL and DIGEST_LLM_MODEL for summarisation")
@@ -79,14 +81,15 @@ class OpenAICompatibleClient:
         if parts.scheme != "https" and not (parts.scheme == "http" and local):
             raise ConfigurationError("LLM endpoint must use HTTPS, except for a local HTTP server")
 
-    def complete(self, system, user, purpose):
+    def generate(self, system, user, purpose):
+        """Return (cache_key, content); nothing is cached until commit() after validation."""
         cache_key = json_hash({
             "version": PROMPT_VERSION, "purpose": purpose, "base_url": self.base_url,
             "model": self.model, "json_mode": self.json_mode, "system": system, "user": user,
         })
         cached = self.state.get_model(cache_key)
         if cached is not None:
-            return cached
+            return cache_key, cached
         payload = {
             "model": self.model,
             "messages": [
@@ -94,7 +97,7 @@ class OpenAICompatibleClient:
                 {"role": "user", "content": user},
             ],
             "temperature": 0.2,
-            "max_tokens": 2500,
+            "max_tokens": 4000,
         }
         if self.json_mode:
             payload["response_format"] = {"type": "json_object"}
@@ -118,8 +121,7 @@ class OpenAICompatibleClient:
                     content = "".join(part.get("text", "") for part in content if isinstance(part, dict))
                 if not isinstance(content, str) or not content.strip():
                     raise SummaryError("LLM returned an empty or unsupported response")
-                self.state.set_model(cache_key, content)
-                return content
+                return cache_key, content
             except urllib.error.HTTPError as error:
                 if 300 <= error.code < 400:
                     raise SummaryError(
@@ -129,10 +131,21 @@ class OpenAICompatibleClient:
                 last_error = SummaryError(f"LLM HTTP {error.code}: {message}")
                 if error.code not in (429, 500, 502, 503, 504) or attempt == 1:
                     raise last_error from error
+                retry_after = error.headers.get("Retry-After") if error.headers else None
+                try:
+                    delay = min(5.0, max(1.0, float(retry_after)))
+                except (TypeError, ValueError):
+                    delay = 1.0
+                self.sleep(delay)
             except (urllib.error.URLError, TimeoutError, OSError) as error:
                 last_error = SummaryError(f"LLM network error: {error}")
                 if attempt == 1:
                     raise last_error from error
+                self.sleep(1.0)
             except (KeyError, IndexError, TypeError, json.JSONDecodeError) as error:
                 raise SummaryError("LLM returned an invalid chat-completions response") from error
         raise last_error or SummaryError("LLM request failed")
+
+    def commit(self, cache_key, content):
+        """Cache a validated response so identical prompts reuse it without a new call."""
+        self.state.set_model(cache_key, content)

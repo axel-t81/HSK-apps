@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS http_cache (
     last_modified TEXT,
     content_type TEXT,
     body BLOB NOT NULL,
-    fetched_at TEXT NOT NULL
+    fetched_at TEXT NOT NULL,
+    final_url TEXT
 );
 CREATE TABLE IF NOT EXISTS items (
     key TEXT PRIMARY KEY,
@@ -57,6 +58,7 @@ class State:
         self.connection.execute("PRAGMA foreign_keys=ON")
         self.connection.executescript(SCHEMA)
         self._migrate_runs()
+        self._migrate_http_cache()
 
     def _migrate_runs(self):
         columns = {row["name"]: row for row in self.connection.execute("PRAGMA table_info(runs)")}
@@ -83,6 +85,12 @@ class State:
             )
             self.connection.execute("DROP TABLE runs_legacy")
 
+    def _migrate_http_cache(self):
+        columns = {row["name"] for row in self.connection.execute("PRAGMA table_info(http_cache)")}
+        if "final_url" not in columns:
+            self.connection.execute("ALTER TABLE http_cache ADD COLUMN final_url TEXT")
+            self.connection.commit()
+
     def __enter__(self):
         return self
 
@@ -96,17 +104,17 @@ class State:
         row = self.connection.execute("SELECT * FROM http_cache WHERE url = ?", (url,)).fetchone()
         return dict(row) if row else None
 
-    def set_http(self, url, body, etag=None, last_modified=None, content_type=None):
+    def set_http(self, url, body, etag=None, last_modified=None, content_type=None, final_url=None):
         now = utc_now().isoformat()
         self.connection.execute(
             """INSERT INTO http_cache
-               (url, etag, last_modified, content_type, body, fetched_at)
-               VALUES (?, ?, ?, ?, ?, ?)
+               (url, etag, last_modified, content_type, body, fetched_at, final_url)
+               VALUES (?, ?, ?, ?, ?, ?, ?)
                ON CONFLICT(url) DO UPDATE SET
                    etag=excluded.etag, last_modified=excluded.last_modified,
                    content_type=excluded.content_type, body=excluded.body,
-                   fetched_at=excluded.fetched_at""",
-            (url, etag, last_modified, content_type, sqlite3.Binary(body), now),
+                   fetched_at=excluded.fetched_at, final_url=excluded.final_url""",
+            (url, etag, last_modified, content_type, sqlite3.Binary(body), now, final_url),
         )
         self.connection.commit()
 
@@ -174,6 +182,12 @@ class State:
             (utc_now().isoformat(),),
         )
         self.connection.commit()
+
+    def get_pending_runs(self):
+        rows = self.connection.execute(
+            "SELECT run_date, subject FROM runs WHERE status = 'sending' ORDER BY run_date"
+        ).fetchall()
+        return [dict(row) for row in rows]
 
     def get_run(self, run_date):
         row = self.connection.execute("SELECT * FROM runs WHERE run_date = ?", (run_date,)).fetchone()

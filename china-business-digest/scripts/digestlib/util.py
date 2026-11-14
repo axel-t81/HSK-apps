@@ -71,10 +71,13 @@ def parse_date(value, default_timezone=CHINA_TZ):
         match = re.search(pattern, text)
         if match:
             year, month, day, hour, minute, second = match.groups()
-            return datetime(
-                int(year), int(month), int(day), int(hour or 0), int(minute or 0),
-                int(second or 0), tzinfo=default_timezone,
-            )
+            try:
+                return datetime(
+                    int(year), int(month), int(day), int(hour or 0), int(minute or 0),
+                    int(second or 0), tzinfo=default_timezone,
+                )
+            except ValueError:
+                continue
 
     english = re.search(
         r"\b(January|February|March|April|May|June|July|August|September|October|November|December|"

@@ -79,14 +79,20 @@ class Fetcher:
                     content_type = response.headers.get("Content-Type", "")
                     if use_cache:
                         self.state.set_http(
-                            url, body, response.headers.get("ETag"),
-                            response.headers.get("Last-Modified"), content_type,
+                            url, body,
+                            response.headers.get("ETag")
+                            or (cached.get("etag") if cached else None),
+                            response.headers.get("Last-Modified")
+                            or (cached.get("last_modified") if cached else None),
+                            content_type,
+                            final_url=final_url,
                         )
                     return FetchResponse(final_url, response.status, body, content_type)
             except urllib.error.HTTPError as error:
                 if error.code == 304 and cached:
                     return FetchResponse(
-                        url, 200, bytes(cached["body"]), cached.get("content_type") or "", True,
+                        cached.get("final_url") or url, 200, bytes(cached["body"]),
+                        cached.get("content_type") or "", True,
                     )
                 if error.code not in RETRYABLE_STATUS or attempt == 1:
                     raise FetchError(f"HTTP {error.code} for {url}", error.code) from error
