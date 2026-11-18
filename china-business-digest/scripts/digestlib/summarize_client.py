@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 from .errors import ConfigurationError, SummaryError
 from .util import json_hash
 
-PROMPT_VERSION = "2026-11-14.3"
+PROMPT_VERSION = "2026-11-18.1"
 SYSTEM_PROMPT = """You prepare a grounded English educational digest about Chinese bookkeeping,
 small businesses, and tax obligations. Its goal is to help the reader understand the zeitgeist,
 structure, and environment of local Chinese small-business bookkeepers, their clients, and the
@@ -42,8 +42,11 @@ Return one JSON object with exactly this shape:
 }
 Use 1–5 developments, at most 2 pulse entries, and at most 1 learning resource. Use pulse only for
 practitioner_industry or community sources. Prefer current, substantive items over duplicates.
-Plain text values only, no Markdown or URLs. Aim for a complete digest of at most 500 English words
-so source references and notes also fit under a hard 600-word English limit."""
+Plain text values only, no Markdown or URLs. Character limits include spaces after whitespace
+normalization: headline 4–140; development title 3–140, summary 10–800, connection 10–600;
+pulse text 10–700; learning-resource title 3–160 and description 10–500. Aim for a complete
+digest of at most 500 English words so source references and notes also fit under a hard
+600-word English limit."""
 
 TRANSLATION_PROMPT = """You are a faithful translation engine. Translate the supplied, already validated
 English digest JSON into Simplified Chinese (zh-Hans) for readers in mainland China.

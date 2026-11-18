@@ -464,6 +464,37 @@ class SummaryAndRenderingTests(unittest.TestCase):
         self.assertEqual(chinese_digest(item), digest["zh-Hans"])
         self.assertLessEqual(rendered.word_count, 600)
 
+    def test_overlong_summary_correction_receives_exact_character_budget(self):
+        item = make_item()
+        long_digest = valid_digest(item, summary="x" * 801)
+        short_digest = valid_digest(item)
+
+        class FakeClient:
+            def __init__(self):
+                self.calls = []
+
+            def generate(self, system, user, purpose):
+                self.calls.append((purpose, system, user))
+                if purpose == "initial-digest":
+                    return "k-initial", json.dumps(long_digest)
+                if purpose == "digest-repair":
+                    return "k-repair", json.dumps(short_digest)
+                return "k-translation", json.dumps(chinese_digest(item))
+
+            def commit(self, cache_key, content):
+                pass
+
+        client = FakeClient()
+        create_digest([item], "2026-11-14", [], client)
+        initial_system = client.calls[0][1]
+        correction = json.loads(client.calls[1][2])
+        self.assertIn("10–800", initial_system)
+        self.assertEqual(
+            "developments[0].summary has 801 characters; expected 10–800",
+            correction["problem"],
+        )
+        self.assertIn("character limits", correction["requirements"])
+
     def test_bilingual_email_places_chinese_below_english_without_using_word_budget(self):
         item = make_item()
         english = valid_digest(item)
@@ -509,6 +540,13 @@ class SummaryAndRenderingTests(unittest.TestCase):
             "工作日内办理登记。生效日期一般为超过门槛所属期的首日，但2025年及以前期间"
             "不早于2026年1月1日。本例为2026年1月1日；2026年1月至6月的申报表必须逐期更正。"
         )
+        self.assertEqual(chinese, validate_translation(english, chinese, [item]))
+
+    def test_translation_accepts_hyphenated_written_quarter(self):
+        item = make_item()
+        english = valid_digest(item, summary="The second-quarter 2025 return was corrected.")
+        chinese = chinese_digest(item)
+        chinese["developments"][0]["summary"] = "2025年二季度申报表已更正，相关内容准确完整。"
         self.assertEqual(chinese, validate_translation(english, chinese, [item]))
 
     def test_translation_rejects_changed_scaled_numbers_quarters_and_dates(self):

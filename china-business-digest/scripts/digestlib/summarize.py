@@ -16,7 +16,7 @@ def _plain_text(value, field, minimum, maximum):
         raise SummaryError(f"{field} must be text")
     value = " ".join(value.split())
     if not minimum <= len(value) <= maximum:
-        raise SummaryError(f"{field} has an invalid length")
+        raise SummaryError(f"{field} has {len(value)} characters; expected {minimum}–{maximum}")
     if "http://" in value.lower() or "https://" in value.lower():
         raise SummaryError(f"{field} contains an unapproved URL")
     return value
@@ -234,7 +234,7 @@ MONTH_PATTERN = re.compile(
     r"\b(" + "|".join(sorted(MONTH_NUMBERS, key=len, reverse=True)) + r")\b\.?",
     re.IGNORECASE,
 )
-ENGLISH_QUARTER_PATTERN = re.compile(r"\b(first|second|third|fourth)\s+quarter\b", re.IGNORECASE)
+ENGLISH_QUARTER_PATTERN = re.compile(r"\b(first|second|third|fourth)(?:\s+|-)quarter\b", re.IGNORECASE)
 CHINESE_QUARTER_PATTERN = re.compile(r"[一二三四](?=季度)")
 NUMBER_PATTERN = re.compile(
     r"([0-9]+(?:\.[0-9]+)?)\s*(hundred|thousand|million|billion|百|千|万|亿)?",
@@ -339,7 +339,10 @@ def _english_digest(items, run_date, notes, client):
             correction = json.dumps({
                 "task": "Repair the previous English digest. Return only a complete corrected JSON object.",
                 "problem": str(error),
-                "requirements": "Keep only grounded facts and valid supplied source IDs; no URLs in values.",
+                "requirements": (
+                    "Keep only grounded facts and valid supplied source IDs; no URLs in values. "
+                    "Respect all character limits in the system prompt; rewrite overlong values to fit."
+                ),
                 "original_request": request,
                 "previous_model_output": raw,
             }, ensure_ascii=False)
