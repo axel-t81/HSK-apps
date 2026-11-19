@@ -1,6 +1,7 @@
 import json
 import re
 from collections import Counter
+from decimal import Decimal
 
 from .errors import SummaryError
 from .render import empty_digest, render_bilingual_digest, render_digest
@@ -15,7 +16,7 @@ def _plain_text(value, field, minimum, maximum):
         raise SummaryError(f"{field} must be text")
     value = " ".join(value.split())
     if not minimum <= len(value) <= maximum:
-        raise SummaryError(f"{field} has an invalid length")
+        raise SummaryError(f"{field} has {len(value)} characters; expected {minimum}–{maximum}")
     if "http://" in value.lower() or "https://" in value.lower():
         raise SummaryError(f"{field} contains an unapproved URL")
     return value
@@ -221,8 +222,55 @@ def validate_english_language(digest):
             raise SummaryError("English digest contains a non-English or mostly Chinese text value")
 
 
+MONTH_NUMBERS = {
+    "january": "1", "jan": "1", "february": "2", "feb": "2",
+    "march": "3", "mar": "3", "april": "4", "apr": "4", "may": "5",
+    "june": "6", "jun": "6", "july": "7", "jul": "7",
+    "august": "8", "aug": "8", "september": "9", "sept": "9", "sep": "9",
+    "october": "10", "oct": "10", "november": "11", "nov": "11",
+    "december": "12", "dec": "12",
+}
+MONTH_PATTERN = re.compile(
+    r"\b(" + "|".join(sorted(MONTH_NUMBERS, key=len, reverse=True)) + r")\b\.?",
+    re.IGNORECASE,
+)
+ENGLISH_QUARTER_PATTERN = re.compile(r"\b(first|second|third|fourth)(?:\s+|-)quarter\b", re.IGNORECASE)
+CHINESE_QUARTER_PATTERN = re.compile(r"[一二三四](?=季度)")
+NUMBER_PATTERN = re.compile(
+    r"([0-9]+(?:\.[0-9]+)?)\s*(hundred|thousand|million|billion|百|千|万|亿)?",
+    re.IGNORECASE,
+)
+NUMBER_SCALES = {
+    "hundred": 100, "百": 100,
+    "thousand": 1_000, "千": 1_000,
+    "million": 1_000_000, "万": 10_000,
+    "billion": 1_000_000_000, "亿": 100_000_000,
+}
+QUARTER_NUMBERS = {"first": "1", "second": "2", "third": "3", "fourth": "4"}
+
+
+def _month_number(match):
+    word = match.group(1)
+    if word == "may":
+        return word
+    return MONTH_NUMBERS[word.lower()]
+
+
+def _english_quarter_number(match):
+    return QUARTER_NUMBERS[match.group(1).lower()] + " quarter"
+
+
 def _numbers(text):
-    return re.findall(r"\d+(?:\.\d+)?", text.replace(",", ""))
+    """Return comparable values across English/Chinese units and calendar notation."""
+    text = MONTH_PATTERN.sub(_month_number, text.replace(",", ""))
+    text = ENGLISH_QUARTER_PATTERN.sub(_english_quarter_number, text)
+    text = CHINESE_QUARTER_PATTERN.sub(lambda match: str("一二三四".index(match.group(0)) + 1), text)
+    values = []
+    for match in NUMBER_PATTERN.finditer(text):
+        value = Decimal(match.group(1))
+        unit = (match.group(2) or "").lower()
+        values.append(value * NUMBER_SCALES.get(unit, 1))
+    return values
 
 
 def _validate_caveat(field, english, chinese):
@@ -291,7 +339,10 @@ def _english_digest(items, run_date, notes, client):
             correction = json.dumps({
                 "task": "Repair the previous English digest. Return only a complete corrected JSON object.",
                 "problem": str(error),
-                "requirements": "Keep only grounded facts and valid supplied source IDs; no URLs in values.",
+                "requirements": (
+                    "Keep only grounded facts and valid supplied source IDs; no URLs in values. "
+                    "Respect all character limits in the system prompt; rewrite overlong values to fit."
+                ),
                 "original_request": request,
                 "previous_model_output": raw,
             }, ensure_ascii=False)

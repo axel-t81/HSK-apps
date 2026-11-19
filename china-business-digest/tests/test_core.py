@@ -464,6 +464,37 @@ class SummaryAndRenderingTests(unittest.TestCase):
         self.assertEqual(chinese_digest(item), digest["zh-Hans"])
         self.assertLessEqual(rendered.word_count, 600)
 
+    def test_overlong_summary_correction_receives_exact_character_budget(self):
+        item = make_item()
+        long_digest = valid_digest(item, summary="x" * 801)
+        short_digest = valid_digest(item)
+
+        class FakeClient:
+            def __init__(self):
+                self.calls = []
+
+            def generate(self, system, user, purpose):
+                self.calls.append((purpose, system, user))
+                if purpose == "initial-digest":
+                    return "k-initial", json.dumps(long_digest)
+                if purpose == "digest-repair":
+                    return "k-repair", json.dumps(short_digest)
+                return "k-translation", json.dumps(chinese_digest(item))
+
+            def commit(self, cache_key, content):
+                pass
+
+        client = FakeClient()
+        create_digest([item], "2026-11-14", [], client)
+        initial_system = client.calls[0][1]
+        correction = json.loads(client.calls[1][2])
+        self.assertIn("10–800", initial_system)
+        self.assertEqual(
+            "developments[0].summary has 801 characters; expected 10–800",
+            correction["problem"],
+        )
+        self.assertIn("character limits", correction["requirements"])
+
     def test_bilingual_email_places_chinese_below_english_without_using_word_budget(self):
         item = make_item()
         english = valid_digest(item)
@@ -489,6 +520,52 @@ class SummaryAndRenderingTests(unittest.TestCase):
         chinese["headline"] = "Untranslated English headline"
         with self.assertRaises(SummaryError):
             validate_translation(english, chinese, [item])
+
+    def test_translation_accepts_equivalent_number_formats(self):
+        item = make_item()
+        english = valid_digest(item, summary=(
+            "An official Q&A says a small-scale taxpayer corrected a 2025 Q2 return on "
+            "25 July 2026, adding 2 million yuan of sales with a June 2025 tax obligation. "
+            "Annual VAT sales then passed 5 million yuan in July 2025. Citing STA Announcement "
+            "2026 No. 2, registration is due within 10 working days from adjustment. The "
+            "effective date is generally the first day of the period when the threshold was "
+            "passed, but for 2025 and earlier periods no earlier than 1 January 2026. Here it "
+            "is 1 January 2026; January-June 2026 filings must be corrected period by period."
+        ))
+        chinese = chinese_digest(item)
+        chinese["developments"][0]["summary"] = (
+            "官方问答称，一名小规模纳税人于2026年7月25日更正2025年二季度申报表，"
+            "增加销售额200万元，纳税义务发生时间为2025年6月。2025年7月，年应征增值税"
+            "销售额超过500万元。根据国家税务总局公告2026年第2号，应自调整之日起10个"
+            "工作日内办理登记。生效日期一般为超过门槛所属期的首日，但2025年及以前期间"
+            "不早于2026年1月1日。本例为2026年1月1日；2026年1月至6月的申报表必须逐期更正。"
+        )
+        self.assertEqual(chinese, validate_translation(english, chinese, [item]))
+
+    def test_translation_accepts_hyphenated_written_quarter(self):
+        item = make_item()
+        english = valid_digest(item, summary="The second-quarter 2025 return was corrected.")
+        chinese = chinese_digest(item)
+        chinese["developments"][0]["summary"] = "2025年二季度申报表已更正，相关内容准确完整。"
+        self.assertEqual(chinese, validate_translation(english, chinese, [item]))
+
+    def test_translation_rejects_changed_scaled_numbers_quarters_and_dates(self):
+        item = make_item()
+        english = valid_digest(
+            item, summary="A 2025 Q2 correction on 25 July 2026 added RMB 2 million in sales."
+        )
+        original = "2026年7月25日更正2025年二季度申报表，增加销售额人民币200万元。"
+        for old, new in [
+            ("200万元", "300万元"),
+            ("200万元", "200元"),
+            ("二季度", "三季度"),
+            ("7月25日", "7月26日"),
+        ]:
+            with self.subTest(old=old, new=new):
+                chinese = chinese_digest(item)
+                chinese["developments"][0]["summary"] = original.replace(old, new)
+                with self.assertRaisesRegex(SummaryError, "changed numbers"):
+                    validate_translation(english, chinese, [item])
 
     def test_translation_rejects_mostly_english_changed_numbers_and_dropped_caveats(self):
         item = make_item()
