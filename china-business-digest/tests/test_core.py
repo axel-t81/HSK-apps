@@ -434,6 +434,16 @@ class SummaryAndRenderingTests(unittest.TestCase):
         self.assertIn("Tax &amp; bookkeeping", rendered.html)
         self.assertLessEqual(rendered.word_count, 600)
 
+    def test_html_email_has_centered_narrow_padded_container(self):
+        item = make_item()
+        rendered = render_digest(valid_digest(item), [item], "2026-11-14")
+        self.assertIn('role="presentation"', rendered.html)
+        self.assertIn('align="center"', rendered.html)
+        self.assertIn('width="640"', rendered.html)
+        self.assertIn("max-width:640px", rendered.html)
+        self.assertIn("padding:28px 32px", rendered.html)
+        self.assertNotIn("<main", rendered.html)
+
     def test_overlong_first_answer_gets_one_shorter_correction(self):
         item = make_item()
         long_digest = valid_digest(item, summary="word " * 120)
