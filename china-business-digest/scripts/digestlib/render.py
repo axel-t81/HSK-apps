@@ -189,9 +189,12 @@ def _document(sections):
         '<!doctype html><html lang="en"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1"></head>',
         "<body style=\"margin:0;background:#f5f6f8;color:#17212b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;line-height:1.5\">",
-        '<main style="max-width:680px;margin:0 auto;padding:28px 20px;background:#ffffff">',
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;background:#f5f6f8"><tr><td align="center" style="padding:24px 16px">',
+        '<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" '
+        'style="width:100%;max-width:640px;background:#ffffff"><tr><td style="padding:28px 32px">',
         *sections,
-        "</main></body></html>",
+        "</td></tr></table></td></tr></table></body></html>",
     ])
 
 
