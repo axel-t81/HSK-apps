@@ -552,6 +552,37 @@ class SummaryAndRenderingTests(unittest.TestCase):
         )
         self.assertEqual(chinese, validate_translation(english, chinese, [item]))
 
+    def test_translation_accepts_chinese_five_year_plan_numerals(self):
+        item = make_item()
+        english = valid_digest(item, summary=(
+            "The Ministry of Finance policy interpretation presents the Accounting Reform and "
+            "Development 15th Five-Year Plan, which aims to build an accounting system with "
+            "Chinese characteristics and international leadership. It lists seven tasks covering "
+            "the accounting legal system, talent, services, supervision, digital-intelligent "
+            "systems, international governance and knowledge. The interpretation says public "
+            "consultation produced 402 written comments and 146 textual changes covering 305 suggestions."
+        ))
+        for plan_text in ("“十五五”规划", "第十五个五年规划"):
+            with self.subTest(plan_text=plan_text):
+                chinese = chinese_digest(item)
+                chinese["developments"][0]["summary"] = (
+                    f"财政部政策解读介绍了《会计改革与发展{plan_text}》，旨在建设中国特色、"
+                    "国际领先的会计体系。规划提出七项任务，涵盖会计法治体系、人才、服务、监督、"
+                    "数智化体系、国际治理和知识体系。解读称，公开征求意见共收到402条书面意见，"
+                    "作出146处文字修改，覆盖305条建议。"
+                )
+                self.assertEqual(chinese, validate_translation(english, chinese, [item]))
+
+    def test_translation_rejects_changed_five_year_plan_number(self):
+        item = make_item()
+        english = valid_digest(
+            item, summary="The interpretation presents the Accounting Reform 15th Five-Year Plan."
+        )
+        chinese = chinese_digest(item)
+        chinese["developments"][0]["summary"] = "该解读介绍了《会计改革与发展“十四五”规划》的相关内容。"
+        with self.assertRaisesRegex(SummaryError, "changed numbers"):
+            validate_translation(english, chinese, [item])
+
     def test_translation_accepts_hyphenated_written_quarter(self):
         item = make_item()
         english = valid_digest(item, summary="The second-quarter 2025 return was corrected.")
