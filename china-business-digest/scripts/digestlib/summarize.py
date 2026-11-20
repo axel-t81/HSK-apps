@@ -236,6 +236,8 @@ MONTH_PATTERN = re.compile(
 )
 ENGLISH_QUARTER_PATTERN = re.compile(r"\b(first|second|third|fourth)(?:\s+|-)quarter\b", re.IGNORECASE)
 CHINESE_QUARTER_PATTERN = re.compile(r"[一二三四](?=季度)")
+CHINESE_FIVE_YEAR_FULL_PATTERN = re.compile(r"第?十([一二三四五六七八九])(?:个)?五年规划")
+CHINESE_FIVE_YEAR_SHORT_PATTERN = re.compile(r"十([一二三四五六七八九])五")
 NUMBER_PATTERN = re.compile(
     r"([0-9]+(?:\.[0-9]+)?)\s*(hundred|thousand|million|billion|百|千|万|亿)?",
     re.IGNORECASE,
@@ -260,10 +262,16 @@ def _english_quarter_number(match):
     return QUARTER_NUMBERS[match.group(1).lower()] + " quarter"
 
 
+def _chinese_five_year_number(match):
+    return str(10 + "一二三四五六七八九".index(match.group(1)) + 1)
+
+
 def _numbers(text):
     """Return comparable values across English/Chinese units and calendar notation."""
     text = MONTH_PATTERN.sub(_month_number, text.replace(",", ""))
     text = ENGLISH_QUARTER_PATTERN.sub(_english_quarter_number, text)
+    text = CHINESE_FIVE_YEAR_FULL_PATTERN.sub(_chinese_five_year_number, text)
+    text = CHINESE_FIVE_YEAR_SHORT_PATTERN.sub(_chinese_five_year_number, text)
     text = CHINESE_QUARTER_PATTERN.sub(lambda match: str("一二三四".index(match.group(0)) + 1), text)
     values = []
     for match in NUMBER_PATTERN.finditer(text):
