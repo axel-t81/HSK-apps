@@ -222,6 +222,9 @@ __marimo__/
 # OS metadata
 .DS_Store
 
+# Local editor state
+.zcode/
+
 # Local agent instructions and chronological task worklog
 /AGENTS.md
 /WORKLOG.md
