@@ -130,6 +130,18 @@ class State:
         row = self.connection.execute("SELECT processed_at FROM items WHERE key = ?", (key,)).fetchone()
         return bool(row and row["processed_at"])
 
+    def get_unused_official_item(self):
+        rows = self.connection.execute(
+            """SELECT payload_json FROM items
+               WHERE processed_at IS NULL AND published_at IS NOT NULL
+               ORDER BY datetime(published_at) DESC, first_seen_at DESC"""
+        ).fetchall()
+        for row in rows:
+            item = Item.from_dict(json.loads(row["payload_json"]))
+            if item.category == "official" and item.content_basis == "full_text" and item.content and item.topics:
+                return item
+        return None
+
     def upsert_item(self, item):
         now = utc_now().isoformat()
         self.connection.execute(

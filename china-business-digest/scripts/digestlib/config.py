@@ -54,6 +54,14 @@ def load_configuration(path):
             raise ConfigurationError(f"max_candidates must be an integer for {raw['id']}") from error
         if not 1 <= maximum <= 10:
             raise ConfigurationError(f"max_candidates must be 1–10 for {raw['id']}")
+        try:
+            probe_maximum = int(raw.get("max_relevance_probes", 1))
+        except (TypeError, ValueError) as error:
+            raise ConfigurationError(f"max_relevance_probes must be an integer for {raw['id']}") from error
+        if not 1 <= probe_maximum <= 3:
+            raise ConfigurationError(f"max_relevance_probes must be 1–3 for {raw['id']}")
+        if raw.get("detail_relevance_probe") and not raw.get("fetch_detail"):
+            raise ConfigurationError(f"detail_relevance_probe requires fetch_detail for {raw['id']}")
         identifiers.add(raw["id"])
         sources.append(Source(
             id=raw["id"], name=raw["name"], type=raw["type"], url=listing_url,
@@ -64,6 +72,8 @@ def load_configuration(path):
             detail_selectors=tuple(raw.get("detail_selectors", [])),
             title_excludes=tuple(raw.get("title_excludes", [])),
             fetch_detail=bool(raw.get("fetch_detail", False)), max_candidates=maximum,
+            detail_relevance_probe=bool(raw.get("detail_relevance_probe", False)),
+            max_relevance_probes=probe_maximum,
         ))
     if not sources:
         raise ConfigurationError("No enabled sources configured")

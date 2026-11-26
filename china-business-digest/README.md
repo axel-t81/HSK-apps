@@ -16,7 +16,13 @@ Each email contains:
 
 The usual sections are key developments, the bookkeeping → tax → small-business connection, practitioner/industry reaction when supported, and a learning resource. Practitioner coverage is never presented as legal authority or broad community consensus. Collection failures are disclosed in the email.
 
-If there is no material news, the app sends a short bilingual no-updates message instead of recycling old stories. No AI request is needed for that message.
+Delivery has three grounded content tiers:
+
+1. Fresh, relevant items from the three most recent China calendar dates.
+2. If no fresh item survives detail/date/relevance checks, previously unsent items from the seven most recent China calendar dates, labelled **Earlier, not previously sent / 此前未发送** and shown with their original publication dates.
+3. If both news tiers are empty, one unused official-guidance item with extracted full text becomes a bilingual **Learning brief — not a news update / 学习简报 — 非新闻更新**. This mode has no key-development or industry-pulse section and still uses the normal grounded-summary, citation, and translation checks.
+
+Previously sent stories are never recycled as developments. If no unused official learning item exists either, the run fails with an actionable error rather than sending an empty or fabricated digest.
 
 ## Initial sources
 
@@ -26,12 +32,14 @@ If there is no material news, the app sends a short bilingual no-updates message
 |---|---|---|
 | MOF Accounting Department policy releases, work notices, and interpretations | Dated HTML listings; details for selected new items | Official |
 | STA main-site tax news and taxpayer Q&A | Dated HTML listings; details for selected new items | Official |
-| STA media coverage of tax developments | Dated HTML listing; details for selected new items | Professional media |
+| STA media coverage and `解疑释惑` expert explanations | Dated HTML listings; details for selected new items | Professional media |
 | China Accounting Vision (ESNAI) tax and domestic-industry pages | Main-site HTML listings; details for selected new items | Practitioner / industry |
 
 China Briefing and Shanghai Tax remain configured but disabled because their robots.txt requests returned HTTP 403 during verification. ESNAI's `app-news.esnai.cn` feed host explicitly disallows all automated collection, so the app uses ESNAI's ordinary main-site listings instead; those listings may update less frequently than the feed. The collector does not bypass these restrictions.
 
-The collector uses conditional HTTP requests where supported, conservative timeouts and response limits, one delayed retry for transient failures, per-URL robots.txt checks (including redirects), per-source host allowlists, and no archive crawling. Undated and zero-relevance items are skipped, impossible dates are ignored rather than failing a source, dates are checked again after article retrieval, and conditional responses reuse the stored final redirect URL. It does not download audio or video. CAPTCHA, authentication, and access restrictions are not bypassed.
+The collector uses conditional HTTP requests where supported, conservative timeouts and response limits, one delayed retry for transient failures, per-URL robots.txt checks (including redirects), per-source host allowlists, and no archive crawling. Undated and zero-relevance items are skipped, impossible dates are ignored rather than failing a source, dates are checked again after article retrieval, and conditional responses reuse the stored final redirect URL. For STA tax news and expert explanations, a bounded number of generic titles can instead be checked against their extracted article body; ambiguous items are not accepted when detail retrieval fails, and direct keyword matches retain priority. Per-source/global probe caps and the shared detail-request budget bound traffic. It does not download audio or video. CAPTCHA, authentication, and access restrictions are not bypassed.
+
+`latest_candidates.json` records the selection mode and per-source diagnostics, including newest parsed dates, processed/stale exclusions, deferred candidates, body-relevance probe outcomes, and fallback selections. A successful HTTP response whose newest listing entry is old is therefore distinguishable from a source supplying current news.
 
 The supplied STA policy-database, 12366, and Tianjin pages currently depend on JavaScript listings. The supplied Bilibili creator and Xiaoyuzhou pages do not expose maintainable ongoing feeds. They are not polled by this version. Additional explicitly trusted RSS/Atom feeds can be added to `data/sources.json`; see **Adding a feed** below.
 
@@ -71,7 +79,7 @@ Never commit the resulting file or real credentials. The Git ignore rules exclud
 
 ### AI provider
 
-Required for `preview` and `send` when new candidates exist:
+Required for `preview` and `send`, including official-guidance learning briefs:
 
 ```sh
 DIGEST_LLM_BASE_URL=https://api.example.com/v1
@@ -110,7 +118,9 @@ Use `DIGEST_SMTP_SECURITY=ssl` and the provider's SSL port (commonly 465) if req
 
 This performs no AI or email operation. It prints candidates and writes complete local metadata to `build/latest_candidates.json`.
 
-The first successful collection looks back at most seven days. Subsequent collections default to 72 hours. Each source contributes at most three candidates, with at most twelve overall; detail pages are fetched only for selected new candidates. To catch up after a longer gap:
+The first successful collection uses `--initial-lookback-hours` (seven days by default). Later collections select fresh items from the three most recent China calendar dates and, only when that final selection is empty, try previously unsent items from the seven most recent China calendar dates. Calendar-based cutoffs avoid expiring midnight-dated articles early during a rolling 72-hour window. Each source contributes at most three candidates, with at most twelve overall; detail pages and ambiguous-title relevance probes share the per-run request budget.
+
+An explicit `--lookback-hours` remains available for diagnostics and catch-up collection. It applies that exact rolling cutoff without automatically adding the second fallback tier:
 
 ```bash
 .venv/bin/python -I scripts/digest.py collect --lookback-hours 168

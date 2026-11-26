@@ -182,6 +182,21 @@ class ParsingTests(unittest.TestCase):
         self.assertEqual(["bookkeeping", "small_business", "tax"], item.topics)
         self.assertGreaterEqual(item.relevance, 9)
 
+    def test_sta_explanations_source_is_enabled_and_parseable(self):
+        config_path = Path(__file__).resolve().parent.parent / "data" / "sources.json"
+        sources, _ = load_configuration(config_path)
+        by_id = {source.id: source for source in sources}
+        source = by_id["sta_explainers"]
+        self.assertTrue(by_id["sta_tax_news"].detail_relevance_probe)
+        body = """<ul>
+        <li><a href='/chinatax/n810219/c103182/c5253801/content.html'>免费赠品、抽奖送礼等促销行为要缴税吗？</a>2026-11-18</li>
+        <li><a href='/other/c1/content.html'>其他栏目</a>2026-11-18</li>
+        </ul>""".encode()
+        items = parse_html_listing(source, body, NOW)
+        self.assertEqual(1, len(items))
+        self.assertEqual("professional_media", source.category)
+        self.assertEqual("2026-11-18", items[0].published_at.date().isoformat())
+
 
 class StateAndCollectionTests(unittest.TestCase):
     def setUp(self):

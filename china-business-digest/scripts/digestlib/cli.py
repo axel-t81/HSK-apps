@@ -13,16 +13,20 @@ from .http import Fetcher
 from .state import State, exclusive_file_lock
 from .summarize import create_digest
 from .summarize_client import OpenAICompatibleClient
-from .util import atomic_write_text, utc_now
+from .util import CHINA_TZ, atomic_write_text, utc_now
 
 
 def collection_notes(result, sources):
     names = {source.id: source.name for source in sources}
     notes = [f"{names.get(source_id, source_id)}: {message}" for source_id, message in result.errors.items()]
+    if result.mode == "recent_unread":
+        notes.append("No fresh items survived; showing previously unsent items from the seven-day fallback window.")
+    elif result.mode == "learning_only":
+        notes.append("No fresh or recent unread developments; this is an official-guidance learning brief, not a news update.")
     warnings = list(result.warnings)
     notes.extend(warnings[:4])
     if len(warnings) > 4:
-        notes.append(f"{len(warnings) - 4} additional detail-fetch warnings were recorded locally.")
+        notes.append(f"{len(warnings) - 4} additional collection warnings were recorded locally.")
     return [" ".join(note.split())[:240] for note in notes]
 
 
@@ -32,15 +36,26 @@ def save_collection(build_dir, result):
     return destination
 
 
+def china_calendar_cutoff(now, days):
+    if days < 1:
+        raise ValueError("days must be positive")
+    local = now.astimezone(CHINA_TZ) - timedelta(days=days - 1)
+    return local.replace(hour=0, minute=0, second=0, microsecond=0)
+
+
 def collect(state, args, sources, keywords, build_dir):
     now = utc_now()
+    fallback_cutoff = None
     if args.lookback_hours is not None:
-        lookback = args.lookback_hours
+        cutoff = now - timedelta(hours=args.lookback_hours)
+    elif state.has_collection_run():
+        cutoff = china_calendar_cutoff(now, 3)
+        fallback_cutoff = china_calendar_cutoff(now, 7)
     else:
-        lookback = 72 if state.has_collection_run() else args.initial_lookback_hours
-    cutoff = now - timedelta(hours=lookback)
+        cutoff = now - timedelta(hours=args.initial_lookback_hours)
     result = collect_sources(
         sources, keywords, state, Fetcher(state), cutoff, max_items=args.max_items, now=now,
+        fallback_cutoff=fallback_cutoff,
     )
     if result.succeeded:
         state.mark_collection()
@@ -138,15 +153,30 @@ def run_command(args, root):
                     )
 
             result, candidate_path = collect(state, args, sources, keywords, build_dir)
+            if args.command != "collect" and not result.items:
+                learning_item = state.get_unused_official_item()
+                if learning_item:
+                    result.items = [learning_item]
+                    result.mode = "learning_only"
+                    candidate_path = save_collection(build_dir, result)
             print_collection(result, candidate_path)
-            if not result.succeeded:
+            if not result.succeeded and not result.items:
                 raise DigestError("All configured sources failed; no digest was generated or sent")
             if args.command == "collect":
                 return
+            if not result.items:
+                raise DigestError(
+                    "No fresh, recent unread, or unused official learning material is available; "
+                    "an empty digest was not generated or sent"
+                )
 
             notes = collection_notes(result, sources)
-            client = OpenAICompatibleClient(state) if result.items else None
-            digest, rendered = create_digest(result.items, run_date, notes, client)
+            client = OpenAICompatibleClient(state)
+            digest, rendered = create_digest(
+                result.items, run_date, notes, client,
+                learning_only=result.mode == "learning_only",
+                recent_unread=result.mode == "recent_unread",
+            )
             base = save_preview(build_dir, run_date, digest, rendered)
             print(f"Preview: {base.with_suffix('.txt')}")
             print(f"HTML: {base.with_suffix('.html')}")

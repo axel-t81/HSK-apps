@@ -178,16 +178,107 @@ def _sort_key(item):
     return item.relevance, timestamp.timestamp()
 
 
-def collect_sources(sources, keywords, state, fetcher, cutoff, max_items=12, now=None):
+def _fallback_sort_key(item):
+    timestamp = item.published_at or datetime.min.replace(tzinfo=CHINA_TZ)
+    return timestamp.timestamp(), item.relevance
+
+
+def collect_sources(
+    sources, keywords, state, fetcher, cutoff, max_items=12, now=None,
+    fallback_cutoff=None, max_relevance_probes=3,
+):
     now = now or utc_now()
     if now.tzinfo is None:
         raise ValueError("now must be timezone-aware")
+    if max_relevance_probes < 0:
+        raise ValueError("max_relevance_probes must not be negative")
     shortlisted = []
+    fallback_shortlisted = []
+    demoted_shortlisted = []
     succeeded = []
     errors = {}
     warnings = []
+    diagnostics = {}
+    detail_requests = 0
+    probe_requests = 0
+    probe_counts = {}
+
+    def select(entries, fallback=False):
+        key = (lambda pair: _fallback_sort_key(pair[1])) if fallback else (lambda pair: _sort_key(pair[1]))
+        return sorted(entries, key=key, reverse=True)[:max_items]
+
+    def finalize(selected, selection_cutoff, fallback=False):
+        nonlocal detail_requests, probe_requests
+        selected_items = []
+        for source, item, relevance_probe in selected:
+            stats = diagnostics[source.id]
+            if source.fetch_detail and item.content_basis != "full_text":
+                if relevance_probe and (
+                    probe_requests >= max_relevance_probes
+                    or probe_counts.get(source.id, 0) >= source.max_relevance_probes
+                ):
+                    warnings.append(f"{source.name}: relevance probe budget exhausted for {item.title}.")
+                    continue
+                if detail_requests >= max_items:
+                    if relevance_probe:
+                        warnings.append(f"{source.name}: detail-request budget exhausted for {item.title}.")
+                        continue
+                    warnings.append(f"{source.name}: detail-request budget exhausted for {item.title}; using listing metadata.")
+                else:
+                    detail_requests += 1
+                    if relevance_probe:
+                        probe_requests += 1
+                        probe_counts[source.id] = probe_counts.get(source.id, 0) + 1
+                        stats["relevance_probes"] += 1
+                    try:
+                        response = fetcher.fetch(item.url, source.allowed_hosts)
+                        item = extract_detail(source, item, response.body, response.url)
+                    except (FetchError, SourceError, ValueError) as error:
+                        warnings.append(f"{source.name}: detail unavailable for {item.title}: {error}")
+                        if relevance_probe:
+                            continue
+                        item.content = item.summary
+                        item.content_basis = "listing_summary" if item.summary else "listing_only"
+            if not item.published_at or item.published_at.astimezone(timezone.utc) < selection_cutoff.astimezone(timezone.utc):
+                if (
+                    not fallback and fallback_cutoff is not None and item.published_at
+                    and item.published_at.astimezone(timezone.utc) >= fallback_cutoff.astimezone(timezone.utc)
+                ):
+                    demoted_shortlisted.append((source, item, relevance_probe))
+                    stats["deferred_candidates"] += 1
+                    warnings.append(f"{source.name}: held {item.title} for recent-unread fallback after detail-date verification.")
+                else:
+                    warnings.append(f"{source.name}: excluded {item.title} after detail-date verification.")
+                continue
+            classify(item, keywords)
+            if not item.topics:
+                if relevance_probe:
+                    stats["body_irrelevant"] += 1
+                warnings.append(f"{source.name}: excluded {item.title} after full-text relevance verification.")
+                continue
+            if relevance_probe:
+                stats["body_relevant"] += 1
+            if fallback:
+                stats["fallback_selected"] += 1
+            state.upsert_item(item)
+            selected_items.append(item)
+        return selected_items
 
     for source in sources:
+        stats = {
+            "parsed": 0,
+            "newest_published_at": None,
+            "processed_excluded": 0,
+            "undated_excluded": 0,
+            "stale_excluded": 0,
+            "irrelevant_excluded": 0,
+            "deferred_candidates": 0,
+            "relevance_probes": 0,
+            "body_relevant": 0,
+            "body_irrelevant": 0,
+            "fallback_selected": 0,
+        }
+        diagnostics[source.id] = stats
         try:
             response = fetcher.fetch(source.url, source.allowed_hosts)
             if source.type == "rss":
@@ -199,18 +290,29 @@ def collect_sources(sources, keywords, state, fetcher, cutoff, max_items=12, now
             errors[source.id] = str(error)
             continue
 
+        stats["parsed"] = len(parsed)
+        dated = [item.published_at for item in parsed if item.published_at]
+        if dated:
+            newest = max(dated)
+            stats["newest_published_at"] = newest.isoformat()
+            if newest.astimezone(timezone.utc) < cutoff.astimezone(timezone.utc):
+                warnings.append(
+                    f"{source.name}: newest parsed item is {newest.astimezone(CHINA_TZ).date().isoformat()}, "
+                    "outside the fresh window."
+                )
+
         fresh = []
+        deferred = []
         undated = irrelevant = 0
         for item in parsed:
             if state.is_processed(item.key):
+                stats["processed_excluded"] += 1
                 continue
             if any(term.casefold() in item.title.casefold() for term in source.title_excludes):
                 irrelevant += 1
                 continue
             if not item.published_at:
                 undated += 1
-                continue
-            if item.published_at.astimezone(timezone.utc) < cutoff.astimezone(timezone.utc):
                 continue
             cached = state.get_item(item.key)
             if cached:
@@ -220,37 +322,47 @@ def collect_sources(sources, keywords, state, fetcher, cutoff, max_items=12, now
                     item.content_basis = previous.content_basis
                     item.canonical_url = previous.canonical_url
                     item.summary = item.summary or previous.summary
+                    # Reuse the detail-verified date before choosing a freshness tier.
+                    item.published_at = previous.published_at or item.published_at
+            published_utc = item.published_at.astimezone(timezone.utc)
+            is_fresh = published_utc >= cutoff.astimezone(timezone.utc)
+            if not is_fresh and (
+                fallback_cutoff is None
+                or published_utc < fallback_cutoff.astimezone(timezone.utc)
+            ):
+                stats["stale_excluded"] += 1
+                continue
             classify(item, keywords)
-            if not item.topics:
+            relevance_probe = bool(
+                not item.topics
+                and source.detail_relevance_probe
+                and source.fetch_detail
+                and item.content_basis != "full_text"
+            )
+            if not item.topics and not relevance_probe:
                 irrelevant += 1
                 continue
-            fresh.append(item)
+            if is_fresh:
+                fresh.append((source, item, relevance_probe))
+            else:
+                deferred.append((source, item, relevance_probe))
         if undated:
+            stats["undated_excluded"] = undated
             warnings.append(f"{source.name}: skipped {undated} item(s) without a reliable publication date.")
         if irrelevant:
+            stats["irrelevant_excluded"] = irrelevant
             warnings.append(f"{source.name}: skipped {irrelevant} item(s) without a relevant bookkeeping, small-business, or tax keyword.")
-        fresh.sort(key=_sort_key, reverse=True)
-        shortlisted.extend((source, item) for item in fresh[:source.max_candidates])
+        stats["deferred_candidates"] = len(deferred)
+        fresh.sort(key=lambda pair: _sort_key(pair[1]), reverse=True)
+        deferred.sort(key=lambda pair: _fallback_sort_key(pair[1]), reverse=True)
+        shortlisted.extend(fresh[:source.max_candidates])
+        fallback_shortlisted.extend(deferred[:source.max_candidates])
 
-    shortlisted.sort(key=lambda pair: _sort_key(pair[1]), reverse=True)
-    selected = shortlisted[:max_items]
-    result_items = []
-    for source, item in selected:
-        if source.fetch_detail and item.content_basis != "full_text":
-            try:
-                response = fetcher.fetch(item.url, source.allowed_hosts)
-                item = extract_detail(source, item, response.body, response.url)
-            except (FetchError, SourceError, ValueError) as error:
-                warnings.append(f"{source.name}: detail unavailable for {item.title}: {error}")
-                item.content = item.summary
-                item.content_basis = "listing_summary" if item.summary else "listing_only"
-        if not item.published_at or item.published_at.astimezone(timezone.utc) < cutoff.astimezone(timezone.utc):
-            warnings.append(f"{source.name}: excluded {item.title} after detail-date verification.")
-            continue
-        classify(item, keywords)
-        if not item.topics:
-            warnings.append(f"{source.name}: excluded {item.title} after full-text relevance verification.")
-            continue
-        state.upsert_item(item)
-        result_items.append(item)
-    return CollectionResult(result_items, succeeded, errors, warnings)
+    result_items = finalize(select(shortlisted), cutoff)
+    mode = "fresh" if result_items else "empty"
+    if not result_items and fallback_cutoff is not None:
+        fallback_candidates = fallback_shortlisted + demoted_shortlisted
+        result_items = finalize(select(fallback_candidates, fallback=True), fallback_cutoff, fallback=True)
+        if result_items:
+            mode = "recent_unread"
+    return CollectionResult(result_items, succeeded, errors, warnings, mode, diagnostics)
