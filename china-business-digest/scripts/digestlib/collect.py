@@ -314,14 +314,6 @@ def collect_sources(
             if not item.published_at:
                 undated += 1
                 continue
-            published_utc = item.published_at.astimezone(timezone.utc)
-            is_fresh = published_utc >= cutoff.astimezone(timezone.utc)
-            if not is_fresh and (
-                fallback_cutoff is None
-                or published_utc < fallback_cutoff.astimezone(timezone.utc)
-            ):
-                stats["stale_excluded"] += 1
-                continue
             cached = state.get_item(item.key)
             if cached:
                 previous = cached["item"]
@@ -330,6 +322,16 @@ def collect_sources(
                     item.content_basis = previous.content_basis
                     item.canonical_url = previous.canonical_url
                     item.summary = item.summary or previous.summary
+                    # Reuse the detail-verified date before choosing a freshness tier.
+                    item.published_at = previous.published_at or item.published_at
+            published_utc = item.published_at.astimezone(timezone.utc)
+            is_fresh = published_utc >= cutoff.astimezone(timezone.utc)
+            if not is_fresh and (
+                fallback_cutoff is None
+                or published_utc < fallback_cutoff.astimezone(timezone.utc)
+            ):
+                stats["stale_excluded"] += 1
+                continue
             classify(item, keywords)
             relevance_probe = bool(
                 not item.topics

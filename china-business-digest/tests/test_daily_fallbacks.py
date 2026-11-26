@@ -387,7 +387,7 @@ class RecentUnreadFallbackTests(TemporaryStateTestCase):
             "after detail-date verification" in warning for warning in result.warnings
         ))
 
-    def test_detail_date_can_demote_fresh_listing_into_recent_fallback(self):
+    def test_detail_date_demotion_survives_full_text_cache(self):
         source = make_source()
         url = article_url("demoted-by-detail-date")
         fetcher = FakeFetcher({
@@ -405,6 +405,16 @@ class RecentUnreadFallbackTests(TemporaryStateTestCase):
         self.assertEqual(1, result.diagnostics[source.id]["deferred_candidates"])
         self.assertEqual(2, len(fetcher.requests))
         self.assertTrue(any("held" in warning for warning in result.warnings))
+
+        verified_at = result.items[0].published_at
+        cached_result = self.collect([source], fetcher, fallback_cutoff=FALLBACK_CUTOFF)
+
+        self.assertEqual("recent_unread", cached_result.mode)
+        self.assertEqual(verified_at, cached_result.items[0].published_at)
+        self.assertEqual(verified_at.isoformat(), self.state.get_item(
+            cached_result.items[0].key
+        )["published_at"])
+        self.assertEqual([source.url, url, source.url], fetcher.requests)
 
     def test_any_fresh_result_prevents_recent_unread_fallback(self):
         source = make_source(fetch_detail=False)
