@@ -111,7 +111,9 @@
       "title_excludes": ["纪律审查", "监察调查", "党委", "长征", "专题展", "学习贯彻", "纪念", "干部"],
       "detail_selectors": ["#zoomcon", "#fontzoom", ".article-content", ".TRS_Editor", ".Custom_UnionStyle", "#zoom", "article", "main"],
       "fetch_detail": true,
-      "max_candidates": 3
+      "max_candidates": 3,
+      "detail_relevance_probe": true,
+      "max_relevance_probes": 1
     },
     {
       "id": "sta_media_tax",
@@ -128,6 +130,23 @@
       "detail_selectors": ["#zoomcon", "#fontzoom", ".article-content", ".TRS_Editor", ".Custom_UnionStyle", "#zoom", "article", "main"],
       "fetch_detail": true,
       "max_candidates": 3
+    },
+    {
+      "id": "sta_explainers",
+      "name": "国家税务总局 · 解疑释惑",
+      "type": "html_listing",
+      "url": "https://www.chinatax.gov.cn/chinatax/n810219/c103182/index.html",
+      "allowed_hosts": ["www.chinatax.gov.cn"],
+      "category": "professional_media",
+      "language": "zh",
+      "item_selector": "li",
+      "link_selector": "a[href]",
+      "url_pattern": "/chinatax/n810219/c103182/c[0-9]+/content\\.html$",
+      "detail_selectors": ["#zoomcon", "#fontzoom", ".article-content", ".TRS_Editor", ".Custom_UnionStyle", "#zoom", "article", "main"],
+      "fetch_detail": true,
+      "max_candidates": 3,
+      "detail_relevance_probe": true,
+      "max_relevance_probes": 1
     },
     {
       "id": "sta_taxpayer_qa",

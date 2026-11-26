@@ -21,6 +21,8 @@ LABELS = {
         "pulse": "Industry / practitioner pulse",
         "pulse_note": "These are selected practitioner/industry perspectives, not a measure of consensus.",
         "learning": "Learning resource",
+        "learning_brief": "Learning brief — not a news update",
+        "recent_unread": "Earlier, not previously sent",
         "empty": "No new material met the relevance and freshness checks. No older items have been recycled to fill space.",
     },
     "zh-Hans": {
@@ -30,6 +32,8 @@ LABELS = {
         "pulse": "行业 / 从业者观察",
         "pulse_note": "以上为精选行业或从业者观点，不代表普遍共识。",
         "learning": "学习资源",
+        "learning_brief": "学习简报 — 非新闻更新",
+        "recent_unread": "此前未发送",
         "empty": "今天没有符合相关性和时效性要求的新材料，未用旧闻填充篇幅。",
     },
 }
@@ -91,16 +95,40 @@ def _citation_links(source_ids, items, references):
     )
 
 
-def _narrative(digest, items, run_date, language, references):
+def _narrative(digest, items, run_date, language, references, learning_only=False, recent_unread=False):
     labels = LABELS[language]
     by_id = {item.id: item for item in items}
-    text = [f"{labels['header']} · {run_date}", digest["headline"], "", labels["developments"].upper() if language == "en" else labels["developments"]]
+    if learning_only:
+        text = [f"{labels['header']} · {run_date}", labels["learning_brief"], digest["headline"], ""]
+    elif recent_unread:
+        text = [
+            f"{labels['header']} · {run_date}", digest["headline"], labels["recent_unread"], "",
+            labels["developments"].upper() if language == "en" else labels["developments"],
+        ]
+    else:
+        text = [
+            f"{labels['header']} · {run_date}", digest["headline"], "",
+            labels["developments"].upper() if language == "en" else labels["developments"],
+        ]
     body = [
         f'<section lang="{language}">',
         f'<p style="color:#536273;font-size:13px;letter-spacing:.08em">{html.escape(labels["header"])} · {html.escape(run_date)}</p>',
-        f'<h1 style="font-size:25px;line-height:1.25;margin:8px 0 24px">{html.escape(digest["headline"])}</h1>',
-        f'<h2 style="font-size:18px;border-top:2px solid #b42318;padding-top:16px">{html.escape(labels["developments"])}</h2>',
     ]
+    if learning_only:
+        body.append(
+            f'<p style="color:#b42318;font-size:13px"><strong>{html.escape(labels["learning_brief"])}</strong></p>'
+        )
+    elif recent_unread:
+        body.append(
+            f'<p style="color:#536273;font-size:13px"><strong>{html.escape(labels["recent_unread"])}</strong></p>'
+        )
+    body.append(
+        f'<h1 style="font-size:25px;line-height:1.25;margin:8px 0 24px">{html.escape(digest["headline"])}</h1>'
+    )
+    if not learning_only:
+        body.append(
+            f'<h2 style="font-size:18px;border-top:2px solid #b42318;padding-top:16px">{html.escape(labels["developments"])}</h2>'
+        )
     if digest["developments"]:
         for number, development in enumerate(digest["developments"], 1):
             citation = _citations(development["source_ids"], references)
@@ -117,8 +145,9 @@ def _narrative(digest, items, run_date, language, references):
                 f'<p><strong>{html.escape(labels["connection"])}:</strong> {html.escape(development["connection"])}</p>',
             ])
     else:
-        text.extend([labels["empty"], ""])
-        body.append(f'<p>{html.escape(labels["empty"])}</p>')
+        if not learning_only:
+            text.extend([labels["empty"], ""])
+            body.append(f'<p>{html.escape(labels["empty"])}</p>')
 
     if digest["pulse"]:
         text.append(labels["pulse"].upper() if language == "en" else labels["pulse"])
@@ -198,10 +227,13 @@ def _document(sections):
     ])
 
 
-def render_digest(digest, items, run_date, notes=()):
+def render_digest(digest, items, run_date, notes=(), learning_only=False, recent_unread=False):
     """Render the English-only form, also used to enforce the English word budget."""
     references, ordered = _ordered_references(digest, items)
-    english_text, english_html = _narrative(digest, items, run_date, "en", references)
+    english_text, english_html = _narrative(
+        digest, items, run_date, "en", references,
+        learning_only=learning_only, recent_unread=recent_unread,
+    )
     shared_text, shared_html = _shared_sections(ordered, references, notes, bilingual=False)
     text_body = "\n".join(english_text + shared_text).strip() + "\n"
     headline = clean_text(digest["headline"])
@@ -209,10 +241,16 @@ def render_digest(digest, items, run_date, notes=()):
     return RenderedDigest(subject, text_body, _document([english_html, shared_html]), visible_word_count(text_body))
 
 
-def render_bilingual_digest(english, chinese, items, run_date, notes=()):
+def render_bilingual_digest(english, chinese, items, run_date, notes=(), learning_only=False, recent_unread=False):
     references, ordered = _ordered_references(english, items)
-    english_text, english_html = _narrative(english, items, run_date, "en", references)
-    chinese_text, chinese_html = _narrative(chinese, items, run_date, "zh-Hans", references)
+    english_text, english_html = _narrative(
+        english, items, run_date, "en", references,
+        learning_only=learning_only, recent_unread=recent_unread,
+    )
+    chinese_text, chinese_html = _narrative(
+        chinese, items, run_date, "zh-Hans", references,
+        learning_only=learning_only, recent_unread=recent_unread,
+    )
     shared_text, shared_html = _shared_sections(ordered, references, notes, bilingual=True)
     text_body = "\n".join(
         english_text + ["简体中文 / SIMPLIFIED CHINESE", ""] + chinese_text + shared_text

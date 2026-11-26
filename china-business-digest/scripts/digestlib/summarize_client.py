@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 from .errors import ConfigurationError, SummaryError
 from .util import json_hash
 
-PROMPT_VERSION = "2026-11-18.1"
+PROMPT_VERSION = "2026-11-26.1"
 SYSTEM_PROMPT = """You prepare a grounded English educational digest about Chinese bookkeeping,
 small businesses, and tax obligations. Its goal is to help the reader understand the zeitgeist,
 structure, and environment of local Chinese small-business bookkeepers, their clients, and the
@@ -40,8 +40,13 @@ Return one JSON object with exactly this shape:
   "learning_resource": null or
     {"title": "resource title", "description": "what a beginner can learn", "source_id": "supplied source id"}
 }
-Use 1–5 developments, at most 2 pulse entries, and at most 1 learning resource. Use pulse only for
-practitioner_industry or community sources. Prefer current, substantive items over duplicates.
+Use 1–5 developments for an ordinary news digest, at most 2 pulse entries, and at most 1 learning resource.
+When response_mode is learning_only, return zero developments, zero pulse entries, and exactly one learning
+resource citing the supplied official item. Start the headline with "Learning brief:" and explain only what
+the guidance helps a beginner understand. Never describe the item as newly published or as a current rule change.
+When response_mode is recent_unread, treat the items as earlier material not sent before; do not call them
+"today's" news or imply that their publication date is the run date.
+Use pulse only for practitioner_industry or community sources. Prefer current, substantive items over duplicates.
 Plain text values only, no Markdown or URLs. Character limits include spaces after whitespace
 normalization: headline 4–140; development title 3–140, summary 10–800, connection 10–600;
 pulse text 10–700; learning-resource title 3–160 and description 10–500. Aim for a complete

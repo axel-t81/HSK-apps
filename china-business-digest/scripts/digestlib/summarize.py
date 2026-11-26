@@ -32,7 +32,7 @@ def _source_ids(value, valid_ids, field):
     return list(value)
 
 
-def validate_digest(value, items):
+def validate_digest(value, items, learning_only=False):
     if not isinstance(value, dict):
         raise SummaryError("Digest JSON is not an object")
     expected = {"headline", "developments", "pulse", "learning_resource"}
@@ -42,7 +42,11 @@ def validate_digest(value, items):
     digest = {"headline": _plain_text(value["headline"], "headline", 4, 140)}
 
     raw_developments = value["developments"]
-    if not isinstance(raw_developments, list) or not 1 <= len(raw_developments) <= 5:
+    if not isinstance(raw_developments, list):
+        raise SummaryError("developments must be a list")
+    if learning_only and raw_developments:
+        raise SummaryError("learning-only digest must not contain developments")
+    if not learning_only and not 1 <= len(raw_developments) <= 5:
         raise SummaryError("developments must contain 1–5 entries")
     developments = []
     for index, raw in enumerate(raw_developments):
@@ -60,6 +64,8 @@ def validate_digest(value, items):
     raw_pulse = value["pulse"]
     if not isinstance(raw_pulse, list) or len(raw_pulse) > 2:
         raise SummaryError("pulse must contain at most 2 entries")
+    if learning_only and raw_pulse:
+        raise SummaryError("learning-only digest must not contain pulse entries")
     pulse = []
     for index, raw in enumerate(raw_pulse):
         field = f"pulse[{index}]"
@@ -75,11 +81,15 @@ def validate_digest(value, items):
     digest["pulse"] = pulse
 
     learning = value["learning_resource"]
+    if learning_only and learning is None:
+        raise SummaryError("learning-only digest requires one official learning resource")
     if learning is not None:
         if not isinstance(learning, dict) or set(learning) != {"title", "description", "source_id"}:
             raise SummaryError("learning_resource has an invalid shape")
         if not isinstance(learning["source_id"], str) or learning["source_id"] not in by_id:
             raise SummaryError("learning_resource contains an unknown source ID")
+        if learning_only and by_id[learning["source_id"]].category != "official":
+            raise SummaryError("learning-only digest must cite an official source")
         learning = {
             "title": _plain_text(learning["title"], "learning_resource.title", 3, 160),
             "description": _plain_text(
@@ -294,7 +304,8 @@ def _validate_caveat(field, english, chinese):
 
 
 def validate_translation(english, value, items):
-    chinese = validate_digest(value, items)
+    learning_only = not english["developments"] and english["learning_resource"] is not None
+    chinese = validate_digest(value, items, learning_only=learning_only)
     if len(chinese["developments"]) != len(english["developments"]):
         raise SummaryError("Chinese translation changed the number of developments")
     for translated, original in zip(chinese["developments"], english["developments"]):
@@ -321,19 +332,32 @@ def validate_translation(english, value, items):
     return chinese
 
 
-def _english_digest(items, run_date, notes, client):
+def _english_digest(items, run_date, notes, client, learning_only=False, recent_unread=False):
+    if learning_only:
+        task = "Produce one official-guidance learning brief, not a news update. Return no developments or pulse entries."
+        response_mode = "learning_only"
+    elif recent_unread:
+        task = "Summarise previously unsent material from the extended window; do not describe it as new today."
+        response_mode = "recent_unread"
+    else:
+        task = "Select and summarise the most useful new material for the daily learning digest."
+        response_mode = "news"
     request = json.dumps({
         "run_date": run_date,
-        "task": "Select and summarise the most useful new material for the daily learning digest.",
+        "task": task,
+        "response_mode": response_mode,
         "items": _model_items(items),
     }, ensure_ascii=False)
     cache_key, raw = client.generate(SYSTEM_PROMPT, request, "initial-digest")
     last_problem = None
     for attempt in range(2):
         try:
-            digest = validate_digest(decode_json_object(raw), items)
+            digest = validate_digest(decode_json_object(raw), items, learning_only=learning_only)
             validate_english_language(digest)
-            rendered = render_digest(digest, items, run_date, notes)
+            rendered = render_digest(
+                digest, items, run_date, notes,
+                learning_only=learning_only, recent_unread=recent_unread,
+            )
             if rendered.word_count > MAX_BODY_WORDS:
                 raise SummaryError(
                     f"English email was {rendered.word_count} words; shorten it to at most 520 English words"
@@ -384,14 +408,24 @@ def _chinese_translation(english, items, client):
     raise SummaryError(f"Unable to produce aligned Simplified Chinese after one correction: {last_problem}")
 
 
-def create_digest(items, run_date, notes, client):
+def create_digest(items, run_date, notes, client, learning_only=False, recent_unread=False):
+    if learning_only and recent_unread:
+        raise SummaryError("learning-only and recent-unread modes are mutually exclusive")
     if not items:
+        if learning_only:
+            raise SummaryError("learning-only digest requires an official source item")
         english = empty_digest("en")
         chinese = empty_digest("zh-Hans")
     else:
-        english = _english_digest(items, run_date, notes, client)
+        english = _english_digest(
+            items, run_date, notes, client,
+            learning_only=learning_only, recent_unread=recent_unread,
+        )
         chinese = _chinese_translation(english, items, client)
-    rendered = render_bilingual_digest(english, chinese, items, run_date, notes)
+    rendered = render_bilingual_digest(
+        english, chinese, items, run_date, notes,
+        learning_only=learning_only, recent_unread=recent_unread,
+    )
     if rendered.word_count > MAX_BODY_WORDS:
         raise SummaryError(f"Bilingual email exceeded the {MAX_BODY_WORDS}-word English limit")
     return {"en": english, "zh-Hans": chinese}, rendered

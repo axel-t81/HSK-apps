@@ -21,6 +21,8 @@ class Source:
     title_excludes: tuple = ()
     fetch_detail: bool = False
     max_candidates: int = 3
+    detail_relevance_probe: bool = False
+    max_relevance_probes: int = 1
 
 
 @dataclass
@@ -107,6 +109,8 @@ class CollectionResult:
     succeeded: list
     errors: dict
     warnings: list
+    mode: str = "empty"
+    diagnostics: dict = field(default_factory=dict)
 
     def to_dict(self):
         return {
@@ -114,4 +118,6 @@ class CollectionResult:
             "succeeded": list(self.succeeded),
             "errors": dict(self.errors),
             "warnings": list(self.warnings),
+            "mode": self.mode,
+            "diagnostics": self.diagnostics,
         }
